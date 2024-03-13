@@ -1,0 +1,72 @@
+{
+  "menu": [
+    {
+      "url": "dashboard",
+      "icon": "menu-icon tf-icons ti ti-dashboard",
+      "name": "Dashboard",
+      "slug": "dashboard"
+    },
+    {
+      "url": "delivery-scheduling",
+      "icon": "menu-icon ti ti-calendar-event",
+      "name": "Delivery Scheduling",
+      "slug": "delivery-scheduling"
+    },
+    {
+      "url": "tracking",
+      "icon": "menu-icon ti ti-gps",
+      "name": "Tracking",
+      "slug": "tracking"
+    },
+    {
+      "icon": "menu-icon tf-icons ti ti-truck",
+      "name": "Vehicles",
+      "slug": "pages-Vehicles",
+      "submenu": [
+        {
+          "url": "vehicles-information",
+          "icon": "menu-icon tf-icons ti ti-truck",
+          "name": "Vehicles Information",
+          "slug": "vehicles-information"
+        },
+        {
+          "url": "vehicle-maintenance",
+          "icon": "menu-icon tf-icons ti ti-book",
+          "name": "Vehicle Maintenance",
+          "slug": "vehicle-maintenance"
+        },
+        {
+          "url": "vehicle-availability",
+          "icon": "menu-icon ti ti-clipboard-check",
+          "name": "Vehicle Availability",
+          "slug": "vehicle-availability"
+        }
+      ]
+    },
+    {
+      "icon": "menu-icon ti ti-report-analytics",
+      "name": "Reports",
+      "slug": "pages-reports",
+      "submenu": [
+        {
+          "url": "reporting-and-analytics",
+          "icon": "menu-icon ti ti-report-analytics",
+          "name": "Reporting and Analytics",
+          "slug": "reporting-and-analytics"
+        },
+        {
+          "url": "driver-performance",
+          "icon": "menu-icon ti ti-report-money",
+          "name": "Driver Performance",
+          "slug": "driver-performance"
+        }
+      ]
+    },
+    {
+      "url": "",
+      "icon": "menu-icon tf-icons ti ti-dashboard",
+      "name": "Roles",
+      "slug": "roles"
+    }
+  ]
+}

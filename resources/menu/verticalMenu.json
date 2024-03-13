@@ -1,0 +1,42 @@
+{
+  "menu": [
+    {
+      "url": "dashboard",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "slug": "dashboard"
+    },
+    {
+      "url": "map",
+      "name": "Map",
+      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "slug": "map"
+    },
+    {
+      "url": "locations",
+      "icon": "menu-icon tf-icons ti ti-file",
+      "name": "Locations",
+      "slug": "locations"
+    },
+    {
+      "url": "report",
+      "name": "Report",
+      "icon": "menu-icon tf-icons ti ti-history",
+      "slug": "report"
+    },
+    {
+      "url": "auth/login-basic",
+      "name": "Login",
+      "icon": "menu-icon tf-icons ti ti-login",
+      "slug": "auth-login-basic",
+      "target": "_blank"
+    },
+    {
+      "url": "auth/register-basic",
+      "name": "Register",
+      "icon": "menu-icon tf-icons ti ti-user",
+      "slug": "auth-register-basic",
+      "target": "_blank"
+    }
+  ]
+}
