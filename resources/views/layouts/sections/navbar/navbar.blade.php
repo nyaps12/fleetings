@@ -73,6 +73,11 @@
                 <div class="avatar avatar-online">
                     <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('../assets/img/avatars/admin.png') }}"
                         alt class="h-auto rounded-circle">
+                    @if (Auth::check())
+                        {{ Auth::user()->name }}
+                    @else
+                        <span class="text-muted">NULL</span>
+                    @endif
                 </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -82,7 +87,7 @@
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar avatar-online">
-                                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('..,/assets/img/avatars/admin.png') }}"
+                                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('../assets/img/avatars/admin.png') }}"
                                         alt class="h-auto rounded-circle">
                                 </div>
                             </div>

@@ -4,7 +4,7 @@
       "url": "dashboard",
       "name": "Dashboard",
       "icon": "menu-icon tf-icons ti ti-smart-home",
-      "slug": "dashboard"
+      "slug": "dashboard.index"
     },
     {
       "url": "map",
