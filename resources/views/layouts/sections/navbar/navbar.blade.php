@@ -17,9 +17,8 @@
 @if (isset($navbarFull))
     <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
         <a href="{{ url('/') }}" class="app-brand-link gap-2">
-        <img src="{{ asset('assets\img\logo\bbox-express-logo.png') }}"
-                                        alt="logo" width="45" height="45"
-                                        style="margin-top: 2px; margin-left: 15px" /></span>
+            <img src="{{ asset('assets\img\logo\bbox-express-logo.png') }}" alt="logo" width="45" height="45"
+                style="margin-top: 2px; margin-left: 15px" /></span>
             <span class="app-brand-text demo menu-text fw-bold">{{ config('variables.templateName') }}</span>
         </a>
     </div>
@@ -92,21 +91,21 @@
                                     @if (Auth::check())
                                         {{ Auth::user()->name }}
                                     @else
-                                    <span class="text-muted">NULL</span>
+                                        <span class="text-muted">NULL</span>
                                     @endif
                                 </span>
                                 @if (Auth::check())
-                                @if (Auth::user()->id == 1)
-                                    <small class="text-muted">Superadmin</small>
-                                @elseif (Auth::user()->id == 2)
-                                    <small class="text-muted">Admin</small>
+                                    @if (Auth::user()->id == 1)
+                                        <small class="text-muted">Superadmin</small>
+                                    @elseif (Auth::user()->id == 2)
+                                        <small class="text-muted">Admin</small>
+                                    @else
+                                        <small class="text-muted">Driver</small>
+                                    @endif
                                 @else
-                                    <small class="text-muted">Driver</small>
+                                    <!-- Handle the case where the user is not authenticated -->
                                 @endif
-                            @else
-                                <!-- Handle the case where the user is not authenticated -->
-                            @endif
-                            
+
 
                             </div>
                         </div>
@@ -118,27 +117,16 @@
                 <li>
                     <a class="dropdown-item"
                         href="{{ Route::has('profile.show') ? route('profile.show') : 'javascript:void(0);' }}">
-                        <i class="ti ti-user-check me-2 ti-sm"></i>
+                        <i class="ti ti-user-circle me-2 ti-sm"></i>
                         <span class="align-middle">My Profile</span>
                     </a>
                 </li>
                 <li>
-                @if (Auth::check())
-    @if (Auth::user()->id == 1)
-        <a class="dropdown-item"
-            href="{{ Route::has('users') ? route('users') : 'javascript:void(0);' }}">
-            <i class="ti ti-user-check me-2 ti-sm"></i>
-            <span class="align-middle">Roles</span>
-        </a>
-    @elseif (Auth::user()->id == 2)
-        <a class="dropdown-item"
-            href="{{ Route::has('users') ? route('users') : 'javascript:void(0);' }}">
-            <i class="ti ti-user-check me-2 ti-sm"></i>
-            <span class="align-middle">Roles</span>
-        </a>
-    @endif
-@endif
-
+                    <a class="dropdown-item"
+                        href="{{ Route::has('users.index') ? route('users.index') : 'javascript:void(0);' }}">
+                        <i class="ti ti-users-group me-2 ti-sm"></i>
+                        <span class="align-middle">Manage User</span>
+                    </a>
                 </li>
                 @if (Auth::check() && Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <li>

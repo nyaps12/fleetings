@@ -52,7 +52,7 @@ Route::middleware([
   Route::middleware('web')->group(function () {
       // Define routes specific to driver users here
       // For example:
-      Route::get('dashboard', [Driver::class, 'dashboard'])->name('driver.dashboard');
+      Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard');
       // Add more routes as needed for the driver user role
   });
 });
