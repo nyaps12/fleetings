@@ -1,25 +1,25 @@
 {
   "menu": [
     {
-      "url": "dashboard",
+      "url": "admin/dashboard",
       "icon": "menu-icon tf-icons ti ti-dashboard",
       "name": "Dashboard",
       "slug": "dashboard"
     },
     {
-      "url": "delivery-scheduling",
+      "url": "admin/delivery-scheduling",
       "icon": "menu-icon ti ti-calendar-event",
       "name": "Delivery Scheduling",
       "slug": "delivery-scheduling"
     },
     {
-      "url": "drivers",
+      "url": "admin/drivers",
       "icon": "menu-icon ti ti-users",
       "name": "Driver's List",
       "slug": "drivers"
     },
     {
-      "url": "vehicles-information",
+      "url": "admin/vehicles-information",
       "icon": "menu-icon tf-icons ti ti-truck",
       "name": "Vehicles Information",
       "slug": "vehicles-information"
@@ -30,13 +30,13 @@
       "slug": "pages-reports",
       "submenu": [
         {
-          "url": "reporting-and-analytics",
+          "url": "admin/reporting-and-analytics",
           "icon": "menu-icon ti ti-report-analytics",
           "name": "Reporting and Analytics",
           "slug": "reporting-and-analytics"
         },
         {
-          "url": "driver-performance",
+          "url": "admin/driver-performance",
           "icon": "menu-icon ti ti-report-money",
           "name": "Driver Performance",
           "slug": "driver-performance"
