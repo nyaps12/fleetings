@@ -82,7 +82,7 @@
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar avatar-online">
-                                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('../assets/img/avatars/admin.png') }}"
+                                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('..,/assets/img/avatars/admin.png') }}"
                                         alt class="h-auto rounded-circle">
                                 </div>
                             </div>
@@ -122,11 +122,22 @@
                     </a>
                 </li>
                 <li>
-                    <a class="dropdown-item"
-                        href="{{ Route::has('users.index') ? route('users.index') : 'javascript:void(0);' }}">
-                        <i class="ti ti-users-group me-2 ti-sm"></i>
-                        <span class="align-middle">Manage User</span>
-                    </a>
+                    @if (Auth::check())
+                        @if (Auth::user()->id == 1)
+                            <a class="dropdown-item"
+                                href="{{ Route::has('users.index') ? route('users.index') : 'javascript:void(0);' }}">
+                                <i class="ti ti-users-group me-2 ti-sm"></i>
+                                <span class="align-middle">Roles</span>
+                            </a>
+                        @elseif (Auth::user()->id == 2)
+                            <a class="dropdown-item"
+                                href="{{ Route::has('users.index') ? route('users.index') : 'javascript:void(0);' }}">
+                                <i class="ti ti-users-group me-2 ti-sm"></i>
+                                <span class="align-middle">Roles</span>
+                            </a>
+                        @endif
+                    @endif
+
                 </li>
                 @if (Auth::check() && Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <li>
