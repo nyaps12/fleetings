@@ -69,7 +69,7 @@ $configData = Helper::appClasses();
           </div>
           <h4 class="ms-1 mb-0">13</h4>
         </div>
-        <p class="mb-1">Late vehicles</p>
+        <p class="mb-1">Return Refund</p>
         <p class="mb-0">
           <span class="fw-medium me-1">-2.5%</span>
           <small class="text-muted">than last week</small>

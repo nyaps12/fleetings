@@ -58,7 +58,7 @@
                                 <label for="login-email" class="form-label">Email</label>
                                 <input type="text" class="form-control @error('email') is-invalid @enderror"
                                     id="login-email" name="email" placeholder="Enter your email or username" autofocus
-                                    value="{{ old('email') }}">
+                                    value="admin@yahoo.com">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <span class="fw-medium">{{ $message }}</span>
@@ -78,7 +78,7 @@
                                     <input type="password" id="login-password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" />
+                                        aria-describedby="password" value="admin123" />
                                     <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
                                 @error('password')

@@ -38,12 +38,19 @@ Route::middleware([
   Route::get('delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
   Route::get('vehicles-information', [Admin::class, 'info'])->name('vehicles-information');
   Route::get('vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
-  Route::get('vehicle-availability', [Admin::class, 'availability'])->name('vehicle-availability');
-  Route::get('tracking', [Admin::class, 'track'])->name('tracking');
+  Route::get('drivers', [Admin::class, 'drivers'])->name('drivers');
   Route::get('reporting-and-analytics', [Admin::class, 'report'])->name('reporting-and-analytics');
   Route::get('driver-performance', [Admin::class, 'performance'])->name('driver-performance');
   Route::get('order', [Admin::class, 'order'])->name('order');
   Route::get('vehicle', [Admin::class, 'view'])->name('vehicle');
+  Route::get('all-sched', [Admin::class, 'allsched'])->name('all-sched');
+
+  Route::resources([
+    'roles' => RoleController::class,
+    'users' => UserController::class,
+]);
+
+  
 });
 
 // 
@@ -51,8 +58,3 @@ Route::middleware([
 //Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-Route::resources([
-    'roles' => RoleController::class,
-    'users' => UserController::class,
-]);

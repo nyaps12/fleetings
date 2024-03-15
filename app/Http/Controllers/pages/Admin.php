@@ -22,11 +22,6 @@ class Admin extends Controller
         return view('content.admin.vehicles-information');
     }
 
-    public function availability()
-    {
-        return view('content.admin.vehicle-availability');
-    }
-
     public function maintenance()
     {
         return view('content.admin.vehicle-maintenance');
@@ -43,9 +38,9 @@ class Admin extends Controller
         return view('content.admin.driver-performance');
     }
 
-    public function track()
+    public function drivers()
     {
-        return view('content.admin.tracking');
+        return view('content.admin.drivers');
     }
 
     public function order()
@@ -56,5 +51,10 @@ class Admin extends Controller
     public function view()
     {
         return view('content.admin.vehicle');
+    }
+
+    public function allsched()
+    {
+        return view('content.admin.all-sched');
     }
 }

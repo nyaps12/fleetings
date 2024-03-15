@@ -72,7 +72,7 @@
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                 <div class="avatar avatar-online">
-                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_url : asset('assets/img/avatars/1.png') }}"
+                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('assets/img/avatars/admin.png') }}"
                         alt class="h-auto rounded-circle">
                 </div>
             </a>
@@ -83,7 +83,7 @@
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar avatar-online">
-                                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_url : asset('assets/img/avatars/1.png') }}"
+                                    <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('assets/img/avatars/admin.png') }}"
                                         alt class="h-auto rounded-circle">
                                 </div>
                             </div>
@@ -92,10 +92,22 @@
                                     @if (Auth::check())
                                         {{ Auth::user()->name }}
                                     @else
-                                        John Doe
+                                    <span class="text-muted">NULL</span>
                                     @endif
                                 </span>
-                                <small class="text-muted">Admin</small>
+                                @if (Auth::check())
+                                @if (Auth::user()->id == 1)
+                                    <small class="text-muted">Superadmin</small>
+                                @elseif (Auth::user()->id == 2)
+                                    <small class="text-muted">Admin</small>
+                                @else
+                                    <small class="text-muted">Driver</small>
+                                @endif
+                            @else
+                                <!-- Handle the case where the user is not authenticated -->
+                            @endif
+                            
+
                             </div>
                         </div>
                     </a>
@@ -109,6 +121,24 @@
                         <i class="ti ti-user-check me-2 ti-sm"></i>
                         <span class="align-middle">My Profile</span>
                     </a>
+                </li>
+                <li>
+                @if (Auth::check())
+    @if (Auth::user()->id == 1)
+        <a class="dropdown-item"
+            href="{{ Route::has('users') ? route('users') : 'javascript:void(0);' }}">
+            <i class="ti ti-user-check me-2 ti-sm"></i>
+            <span class="align-middle">Roles</span>
+        </a>
+    @elseif (Auth::user()->id == 2)
+        <a class="dropdown-item"
+            href="{{ Route::has('users') ? route('users') : 'javascript:void(0);' }}">
+            <i class="ti ti-user-check me-2 ti-sm"></i>
+            <span class="align-middle">Roles</span>
+        </a>
+    @endif
+@endif
+
                 </li>
                 @if (Auth::check() && Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <li>

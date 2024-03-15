@@ -7,4 +7,5 @@ $configData = Helper::appClasses();
 @section('title', 'Dashboard')
 
 @section('content')
+
 @endsection

@@ -13,35 +13,16 @@
       "slug": "delivery-scheduling"
     },
     {
-      "url": "tracking",
-      "icon": "menu-icon ti ti-gps",
-      "name": "Tracking",
-      "slug": "tracking"
+      "url": "drivers",
+      "icon": "menu-icon ti ti-users",
+      "name": "Driver's List",
+      "slug": "drivers"
     },
     {
+      "url": "vehicles-information",
       "icon": "menu-icon tf-icons ti ti-truck",
-      "name": "Vehicles",
-      "slug": "pages-Vehicles",
-      "submenu": [
-        {
-          "url": "vehicles-information",
-          "icon": "menu-icon tf-icons ti ti-truck",
-          "name": "Vehicles Information",
-          "slug": "vehicles-information"
-        },
-        {
-          "url": "vehicle-maintenance",
-          "icon": "menu-icon tf-icons ti ti-book",
-          "name": "Vehicle Maintenance",
-          "slug": "vehicle-maintenance"
-        },
-        {
-          "url": "vehicle-availability",
-          "icon": "menu-icon ti ti-clipboard-check",
-          "name": "Vehicle Availability",
-          "slug": "vehicle-availability"
-        }
-      ]
+      "name": "Vehicles Information",
+      "slug": "vehicles-information"
     },
     {
       "icon": "menu-icon ti ti-report-analytics",
@@ -61,12 +42,6 @@
           "slug": "driver-performance"
         }
       ]
-    },
-    {
-      "url": "",
-      "icon": "menu-icon tf-icons ti ti-dashboard",
-      "name": "Roles",
-      "slug": "roles"
     }
   ]
 }
