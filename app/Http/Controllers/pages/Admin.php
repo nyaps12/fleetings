@@ -4,6 +4,8 @@ namespace App\Http\Controllers\pages;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class Admin extends Controller
 {
@@ -40,7 +42,10 @@ class Admin extends Controller
 
     public function drivers()
     {
-        return view('content.admin.drivers');
+        $user = Auth::user();
+        // Retrieve users except superadmin and admin
+        $drivers = User::whereNotIn('id', [1, 2])->get();
+        return view('content.admin.drivers', compact('user', 'drivers'));
     }
 
     public function order()
