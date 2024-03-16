@@ -43,6 +43,7 @@ Route::middleware([
   Route::get('admin/order', [Admin::class, 'order'])->name('order');
   Route::get('admin/vehicle', [Admin::class, 'view'])->name('vehicle');
   Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
+  Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
 
   /// PROFILE THINGS
   Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');

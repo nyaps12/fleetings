@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\VehicleInfo;
 
 class Admin extends Controller
 {
@@ -21,7 +22,10 @@ class Admin extends Controller
 
     public function info()
     {
-        return view('content.admin.vehicles-information');
+        $user = Auth::user();
+        // Retrieve users except superadmin and admin
+        $vehicles = VehicleInfo::all();
+        return view('content.admin.vehicles-information', compact('user', 'vehicles'));
     }
 
     public function maintenance()
@@ -61,6 +65,10 @@ class Admin extends Controller
     public function allsched()
     {
         return view('content.admin.all-sched');
+    }
+    public function onroute()
+    {
+        return view('content.admin.onroute');
     }
 
     public function profile()
