@@ -29,6 +29,7 @@ Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 Route::middleware([
   'auth:sanctum',
   config('jetstream.auth_session'),
+  'admin.auth',
   'verified',
 ])->group(function () {
   // Admin Routes
@@ -51,15 +52,23 @@ Route::middleware([
 
 });
 
-  // Driver Routes (nested within the auth middleware group)
-  Route::middleware('web')->group(function () {
-    // Define routes specific to driver users here
-    // For example:
-    Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard.index');
-    // Add more routes as needed for the driver user role
+// Driver Routes (nested within the auth middleware group)
+Route::middleware([
+  'auth:sanctum',
+  config('jetstream.auth_session'),
+  'verified',
+  'driver.auth', // Add your custom middleware here
+])->group(function () {
+  // Define routes specific to driver users here
+  // For example:
+  Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard.index');
+  // Add more routes as needed for the driver user role
 });
 
 
+
 Route::get('/home',[AdminController::class, 'index']);
+
+
 
 // 
