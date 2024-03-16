@@ -13,6 +13,12 @@
       "slug": "delivery-scheduling"
     },
     {
+      "url": "admin/assign",
+      "icon": "menu-icon tf-icons ti ti-truck",
+      "name": "Assign",
+      "slug": "assign"
+    },
+    {
       "url": "admin/drivers",
       "icon": "menu-icon ti ti-users",
       "name": "Driver's List",

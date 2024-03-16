@@ -27,10 +27,10 @@ class VehicleInfoFactory extends Factory
                 'Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'Hyundai', 'Volkswagen', 'Mercedes-Benz', 'BMW', 'Audi', 'Kia', 'Mazda', 'Subaru', 'Jeep', 'Lexus', 'Volvo', 'Tesla', 'Acura', 'Infiniti', 'Porsche'
             ]),
             'year_model' => $this->faker->year,
-            'vehicle_type' => $this->faker->randomElement(['SUV', 'Truck', 'Sedan']),
+            'vehicle_type' => $this->faker->randomElement(['SUV', 'Truck','Sedan','Motorcycle']), // Add 'Motorcycle' as an option for vehicle type
             'plate_number' => $this->faker->regexify('[A-Z]{3}-[0-9]{3}'),
-            'load_capacity' => $this->faker->randomFloat(2, 1000, 10000),
+            'load_capacity' => $this->faker->randomFloat(2, 300, 3000), // Adjusted range for load capacity based on vehicle type
             'status' => 'available', // Set default status
-        ];        
+        ];                            
     }
 }
