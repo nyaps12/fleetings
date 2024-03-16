@@ -44,10 +44,13 @@ Route::middleware([
   Route::get('admin/vehicle', [Admin::class, 'view'])->name('vehicle');
   Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
 
+  /// PROFILE THINGS
+  Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');
+
   // Resources for Roles and Users
   Route::resources([
-      'roles' => RoleController::class,
-      'users' => UserController::class,
+      'admin/roles' => RoleController::class,
+      'admin/users' => UserController::class,
   ]);
 
 });
@@ -62,6 +65,9 @@ Route::middleware([
   // Define routes specific to driver users here
   // For example:
   Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard.index');
+
+  /// PROFILE THINGS
+  Route::get('profile', [Driver::class, 'profile'])->name('profile');
   // Add more routes as needed for the driver user role
 });
 

@@ -57,4 +57,9 @@ class Admin extends Controller
     {
         return view('content.admin.all-sched');
     }
+
+    public function profile()
+    {
+        return view('profile.show');
+    }
 }

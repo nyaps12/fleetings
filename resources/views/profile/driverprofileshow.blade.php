@@ -1,4 +1,4 @@
-@extends('layouts.layoutMaster')
+@extends('layouts.contentNavbarLayout')
 
 @php
     $breadcrumbs = [

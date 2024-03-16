@@ -120,11 +120,20 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <a class="dropdown-item"
-                        href="{{ Route::has('profile.show') ? route('profile.show') : 'javascript:void(0);' }}">
-                        <i class="ti ti-user-circle me-2 ti-sm"></i>
-                        <span class="align-middle">My Profile</span>
-                    </a>
+                    @if (auth()->user() && in_array(auth()->user()->id, [1, 2]))
+                        <a class="dropdown-item"
+                            href="{{ Route::has('profile.show') ? route('profile.show') : 'javascript:void(0);' }}">
+                            <i class="ti ti-user-circle me-2 ti-sm"></i>
+                            <span class="align-middle">My Profile</span>
+                        </a>
+                    @else
+                        <a class="dropdown-item"
+                            href="{{ Route::has('profile') ? route('profile') : 'javascript:void(0);' }}">
+                            <i class="ti ti-user-circle me-2 ti-sm"></i>
+                            <span class="align-middle">My Profile</span>
+                        </a>
+                    @endif
+
                 </li>
                 <li>
                     @if (Auth::check())
