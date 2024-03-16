@@ -20,8 +20,9 @@ class PermissionSeeder extends Seeder
             'create-user',
             'edit-user',
             'delete-user',
-         ];
- 
+            'show-only', // Add the 'show-only' permission here
+        ];
+        
           // Looping and Inserting Array's Permissions into Permission Table
          foreach ($permissions as $permission) {
             Permission::create(['name' => $permission]);
