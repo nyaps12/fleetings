@@ -27,17 +27,25 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($driver as $row)
-                                    <tr>
-                                        <td>{{ $row->id }}</td>
-                                        <td>{{ $row->firstname }} {{ $row->lastname }}</td>
-                                        <td>{{ $row->vehicle_type }}</td> 
-                                        <td>{{ $row->phone }}</td>
-                                        <td>{{ $row->status }}</td>
-                                        <td>
-                                            <a href="#" class="btn btn-xs btn-primary">Assign</a>
-                                            <a href="#" class="btn btn-xs btn-warning">Cancel</a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ $row->id }}</td>
+                                            <td>{{ $row->firstname }} {{ $row->lastname }}</td>
+                                            <td>{{ $row->vehicle_type }}</td>
+                                            <td>{{ $row->phone }}</td>
+                                            <td>
+                                                @if ($row->status === 'active')
+                                                    <span class="badge bg-success">Active</span>
+                                                @elseif ($row->status === 'inactive')
+                                                    <span class="badge bg-danger">Not Active</span>
+                                                @else
+                                                    <span class="badge bg-secondary">Unknown</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-xs btn-primary">Assign</a>
+                                                <a href="#" class="btn btn-xs btn-warning">Cancel</a>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
