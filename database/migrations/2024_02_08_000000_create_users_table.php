@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('usertype')->default('user');
-            $table->string('status')->default('available');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('dlcodes')->nullable(); // Use 'restriction' as the table name
             $table->timestamps();
         });
