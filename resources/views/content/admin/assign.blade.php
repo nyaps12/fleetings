@@ -23,6 +23,7 @@
                         @endif
                         <form action="{{ route('assignSuccess') }}" method="POST">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $driver->id }}">
                             <p>ID: {{ $driver->id }}</p>
                             <p>Name: {{ $driver->firstname }} {{ $driver->lastname }}</p>
                             <p>DL Code:
@@ -32,7 +33,7 @@
                             </p>
                             <label for="cars">Choose a vehicle:</label>
                             <select id="cars" name="vehicle_type">
-                            @if ($driver->dlcodes == 1)
+                                @if ($driver->dlcodes == 1)
                                     @php $motorcycleExists = false; @endphp
                                     @foreach ($vehicles as $vehicle)
                                         @if ($vehicle->vehicle_type == 'Motorcycle' && $vehicle->vehicle_brand)
@@ -118,12 +119,12 @@
                                 @endforeach
                             @endif
                         </select>
+                        <div class="card-footer text-end">
+                            <button type="submit" class="btn btn-primary">Confirm</button>
+                            <a href="{{ route('drivers') }}" class="btn btn-warning">Cancel</a>
+                        </div>
+                    </form>
                 </div>
-                <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Confirm</button>
-                    <a href="{{ route('drivers') }}" class="btn btn-warning">Cancel</a>
-                </div>
-                </form>
             </div>
         </div>
     </div>

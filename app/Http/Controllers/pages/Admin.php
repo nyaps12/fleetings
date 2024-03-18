@@ -38,12 +38,10 @@ class Admin extends Controller
         return view('content.admin.vehicles-information', compact('user', 'vehicle'));
     }
     
-
     public function maintenance()
     {
         return view('content.admin.vehicle-maintenance');
     }
-
 
     public function report()
     {
@@ -79,6 +77,7 @@ class Admin extends Controller
     {
         return view('content.admin.all-sched');
     }
+
     public function onroute()
     {
         return view('content.admin.onroute');
@@ -101,43 +100,38 @@ class Admin extends Controller
 
     public function assignSuccess(Request $request)
     {
-        // Retrieve the user ID from the request
-        $userId = $request->input('user_id');
-        
-        // Retrieve the vehicle ID from the request
-        $vehicleId = $request->input('vehicle_id');
+        try {
+            $id = $request->input('id'); // Assuming 'id' is sent via form or query string
     
-        // Find the user and the vehicle
-        $user = User::findOrFail($userId);
-        $vehicle = VehicleInfo::findOrFail($vehicleId);
+            // Find the user and the vehicle
+            $user = User::findOrFail($id);
+            $vehicle = VehicleInfo::findOrFail($id);
     
-        // Create a new operator entry
-        Operator::create([
-            'firstname' => $user->firstname,
-            'lastname' => $user->lastname,
-            'vehicle_type' => $vehicle->vehicle_type,
-            'phone' => $user->phone,
-            'status' => 'active',
-        ]);
+            // Update the status of the user to 'inactive'
+            $user->update(['status' => 'inactive']);
     
-        // Update the status of the user to 'inactive'
-        $user->update(['status' => 'inactive']);
+            // Update the status of the vehicle to 'unavailable'
+            $vehicle->update(['status' => 'unavailable']);
     
-        // Update the status of the vehicle to 'unavailable'
-        $vehicle->update(['status' => 'unavailable']);
+            // Create a new operator entry
+            Operator::create([
+                'firstname' => $user->firstname,
+                'lastname' => $user->lastname,
+                'vehicle_type' => $vehicle->vehicle_type,
+                'phone' => $user->phone,
+                'status' => 'active',
+            ]);
     
-        // Redirect back to the drivers page with a success message
-        return redirect()->route('drivers')->with('success', 'Driver assigned successfully');
+            // Redirect back to the drivers page with a success message
+            return redirect()->route('drivers')->with('success', 'Driver assigned successfully');
+        } catch (\Exception $e) {
+            // Log or handle the exception as needed
+            return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
+        }
     }
     
     
     
-    
-    
-    
-    
-    
-
     public function profile()
     {
         return view('profile.show');
