@@ -44,9 +44,10 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.assign', ['id' => $driver->id]) }}" class="btn btn-primary btn-sm assign-button">
-                                            Assign
-                                        </a>
+                                        <button type="button" class="btn btn-sm btn-primary assign-button" data-bs-toggle="modal"
+                                            data-bs-target="#view-vehicle" data-driver-id="{{ $driver->id }}">
+                                            View
+                                        </button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -57,5 +58,7 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    @include('content.modal.assign')
 
 @endsection

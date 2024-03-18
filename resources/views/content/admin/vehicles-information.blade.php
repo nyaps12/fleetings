@@ -42,7 +42,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($vehicles as $row)
+                                @foreach ($vehicle as $row)
                                     <tr>
                                         <td> {{ $row->id }} </td>
                                         <td> {{ $row->vehicle_id }} </td>
@@ -67,7 +67,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#view-vehicle">
                                                 View
                                             </button>

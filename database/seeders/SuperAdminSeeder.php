@@ -40,7 +40,8 @@ class SuperAdminSeeder extends Seeder
             'address' => 'BLGU Payatas PIO, Quezon City, Philippines. A 80 929 els agrada',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '1'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -52,7 +53,8 @@ class SuperAdminSeeder extends Seeder
             'address' => 'Lot 103-117 Alabang-Zapote Road corner Filinvest Ave., Westgate Alabang, Muntinlupa M.M',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '1'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -64,7 +66,8 @@ class SuperAdminSeeder extends Seeder
             'address' => '3/F Jade Building, 335 Senator Gil Puyat Avenue',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '2'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -76,7 +79,8 @@ class SuperAdminSeeder extends Seeder
             'address' => 'SMSL 182-183 SM City San Lazaro, Felix Huertas corner A.H. Lacson Streets, Santa Cruz',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '3'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -88,7 +92,8 @@ class SuperAdminSeeder extends Seeder
             'address' => '8435 West Service RoadMarcelo Green Village South Superhighway',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '4'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -100,7 +105,8 @@ class SuperAdminSeeder extends Seeder
             'address' => '166 M. L. Quezon STreet, Femar Building',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '5'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -112,7 +118,8 @@ class SuperAdminSeeder extends Seeder
             'address' => 'Dalisay Building, Tungkong Mangga',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '6'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -124,7 +131,8 @@ class SuperAdminSeeder extends Seeder
             'address' => '3-B Industrial Road 1400',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '6'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -136,7 +144,8 @@ class SuperAdminSeeder extends Seeder
             'address' => 'G/F paramount Building, 434 Quintin Paredes Street, Binondo',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '5'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -148,7 +157,8 @@ class SuperAdminSeeder extends Seeder
             'address' => 'Ground Floor, SM City, Manila East Road',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '5'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -160,7 +170,8 @@ class SuperAdminSeeder extends Seeder
             'address' => '1977 Commonwealth Avenue, Diliman Quezon City',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'assets/img/avatars/driver.jpg',
-            'status' => 'active'
+            'status' => 'active',
+            'dlcodes' => '3'
         ])->assignRole('driver');
     }
 }

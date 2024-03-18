@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('plate_number');
             $table->string('load_capacity');
             $table->enum('status', ['available', 'unavailable'])->default('available'); // Define status field as ENUM
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }
