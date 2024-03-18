@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('usertype')->default('user');
             $table->string('status')->default('available');
+            $table->string('dlcodes')->nullable(); // Use 'restriction' as the table name
             $table->timestamps();
         });
     }

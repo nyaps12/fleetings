@@ -36,14 +36,24 @@ Route::middleware([
   Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('dashboard');
   Route::get('admin/delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
   Route::get('admin/vehicles-information', [Admin::class, 'info'])->name('vehicles-information');
+  Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
   Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
-  Route::get('admin/drivers', [Admin::class, 'drivers'])->name('drivers');
   Route::get('admin/reporting-and-analytics', [Admin::class, 'report'])->name('reporting-and-analytics');
   Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
   Route::get('admin/order', [Admin::class, 'order'])->name('order');
-  Route::get('admin/vehicle', [Admin::class, 'view'])->name('vehicle');
+
   Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
   Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
+
+  // DRIVER SIDE OPERATE AND ASSIGN
+  Route::get('admin/operator', [Admin::class, 'operator'])->name('operator');
+  Route::get('admin/vehicle', [Admin::class, 'view'])->name('vehicle');
+  Route::get('admin/drivers', [Admin::class, 'drivers'])->name('drivers');
+
+  Route::get('/admin/assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
+
+  Route::post('/admin/assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
+
 
   /// PROFILE THINGS
   Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');

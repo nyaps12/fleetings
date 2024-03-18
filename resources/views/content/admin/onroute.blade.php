@@ -36,7 +36,5 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    @include('content.modal.view-vehicle')
 
 @endsection
