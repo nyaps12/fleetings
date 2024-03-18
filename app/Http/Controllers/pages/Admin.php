@@ -105,7 +105,7 @@ class Admin extends Controller
     
             // Find the user and the vehicle
             $user = User::findOrFail($id);
-            $vehicle = VehicleInfo::findOrFail($id);
+            $vehicle = VehicleInfo::findOrFail($id);            
     
             // Update the status of the user to 'inactive'
             $user->update(['status' => 'inactive']);
