@@ -70,7 +70,7 @@
                                             <span class="badge bg-success">Active</span>
                                         </td>
                                         <td>
-                                            <a href="#" class="badge bg-primary">assign</a>
+                                            <a href="#" class="btn btn-sm bg-primary badge">Assign</a>
                                         </td>
                                     </tr>
                                 </tbody>

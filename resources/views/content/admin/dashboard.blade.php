@@ -17,11 +17,11 @@
                             <div class="avatar me-2">
                                 <span class="avatar-initial rounded bg-label-primary"><i class="ti ti-truck ti-md"></i></span>
                             </div>
-                            <h4 class="ms-1 mb-0">42</h4>
+                            <h4 class="ms-1 mb-0">0</h4>
                         </div>
                         <p class="mb-1">On route vehicles</p>
                         <p class="mb-0">
-                            <span class="fw-medium me-1">+18.2%</span>
+                            <span class="fw-medium me-1">0%</span>
                             <small class="text-muted">than last week</small>
                         </p>
                     </div>
@@ -38,11 +38,11 @@
                                 <span class="avatar-initial rounded bg-label-warning"><i
                                         class='ti ti-alert-triangle ti-md'></i></span>
                             </div>
-                            <h4 class="ms-1 mb-0">8</h4>
+                            <h4 class="ms-1 mb-0">0</h4>
                         </div>
                         <p class="mb-1">Vehicles with errors</p>
                         <p class="mb-0">
-                            <span class="fw-medium me-1">-8.7%</span>
+                            <span class="fw-medium me-1">0%</span>
                             <small class="text-muted">than last week</small>
                         </p>
                     </div>
@@ -56,11 +56,11 @@
                         <div class="avatar me-2">
                             <span class="avatar-initial rounded bg-label-danger"><i class='ti ti-git-fork ti-md'></i></span>
                         </div>
-                        <h4 class="ms-1 mb-0">27</h4>
+                        <h4 class="ms-1 mb-0">0</h4>
                     </div>
                     <p class="mb-1">Deviated from route</p>
                     <p class="mb-0">
-                        <span class="fw-medium me-1">+4.3%</span>
+                        <span class="fw-medium me-1">0%</span>
                         <small class="text-muted">than last week</small>
                     </p>
                 </div>
@@ -73,11 +73,11 @@
                         <div class="avatar me-2">
                             <span class="avatar-initial rounded bg-label-info"><i class='ti ti-clock ti-md'></i></span>
                         </div>
-                        <h4 class="ms-1 mb-0">13</h4>
+                        <h4 class="ms-1 mb-0">0</h4>
                     </div>
                     <p class="mb-1">Return Refund</p>
                     <p class="mb-0">
-                        <span class="fw-medium me-1">-2.5%</span>
+                        <span class="fw-medium me-1">0%</span>
                         <small class="text-muted">than last week</small>
                     </p>
                 </div>
