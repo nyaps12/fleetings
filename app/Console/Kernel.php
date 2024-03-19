@@ -4,6 +4,10 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Schema;
+use App\Models\User;
+use App\Models\VehicleInfo;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -12,7 +16,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function(){
+            if (Schema::hasColumn('users', 'inactive')) {
+                User::whereNull('inactive')->update(['status' => 'inactive']);
+            }
+        })->everySecond();
+        
+        $schedule->call(function(){
+            if (Schema::hasColumn('vehicle_infos', 'status')) {
+                VehicleInfo::where('status', 'unavailable')->update(['status' => 'updated_status']);
+            }
+        })->everySecond();
     }
 
     /**

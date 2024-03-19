@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -19,8 +19,11 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Vehicle ID</th>
+                                        <th scope="col">Vehicle Brand</th>
+                                        <th scope="col">Plate Number</th>
                                         <th scope="col">Vehicle Type</th>
-                                        <th scope="col">Phone Number</th>
+                                        <th scope="col">Contact No.</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -30,6 +33,9 @@
                                         <tr>
                                             <td>{{ $row->id }}</td>
                                             <td>{{ $row->firstname }} {{ $row->lastname }}</td>
+                                            <td>{{ $row->vehicle_id }}</td>
+                                            <td>{{ $row->vehicle_brand }}</td>
+                                            <td>{{ $row->plate_number }}</td>
                                             <td>{{ $row->vehicle_type }}</td>
                                             <td>{{ $row->phone }}</td>
                                             <td>
