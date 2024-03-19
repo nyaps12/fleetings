@@ -24,11 +24,12 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h4>Create Schedule </h4>
+                <h4>Schedule List </h4>
             </div>
 
             <div class="col-auto">
-                <a href="#" class="btn btn-sm btn-outline-primary"><span class="text-end">Add Schedule</span></a>
+                <a href="{{ url('/admin/add-schedule') }}" class="btn btn-sm btn-outline-primary"><span class="text-end">Add
+                        Schedule</span></a>
             </div>
         </div>
         <div class="row">

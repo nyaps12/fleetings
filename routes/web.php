@@ -35,6 +35,7 @@ Route::middleware([
   // Admin Routes
   Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('dashboard');
   Route::get('admin/delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
+  Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
   Route::get('admin/vehicles-information', [Admin::class, 'info'])->name('vehicles-information');
   Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
   Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
@@ -53,7 +54,6 @@ Route::middleware([
   Route::get('/admin/assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
 
   Route::post('/admin/assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
-
 
   /// PROFILE THINGS
   Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');
@@ -76,6 +76,9 @@ Route::middleware([
   // Define routes specific to driver users here
   // For example:
   Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard.index');
+  Route::get('map', [Driver::class, 'map'])->name('map');
+  Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
+  Route::get('report', [Driver::class, 'report'])->name('report');
 
   /// PROFILE THINGS
   Route::get('profile', [Driver::class, 'profile'])->name('profile');
