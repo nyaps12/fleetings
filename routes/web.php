@@ -54,7 +54,6 @@ Route::middleware([
 
   Route::post('/admin/assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
 
-
   /// PROFILE THINGS
   Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');
 
