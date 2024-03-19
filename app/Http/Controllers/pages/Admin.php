@@ -102,21 +102,28 @@ class Admin extends Controller
     {
         try {
             $id = $request->input('id'); // Assuming 'id' is sent via form or query string
+            // Retrieve the selected vehicle_type from the form
+            $vehicleType = $request->input('vehicle_type');
     
             // Find the user and the vehicle
             $user = User::findOrFail($id);
-            $vehicle = VehicleInfo::findOrFail($id);            
+            // $vehicle = VehicleInfo::findOrFail($id);   
+            $vehicle = VehicleInfo::where('vehicle_type', $vehicleType)->firstOrFail();          
     
             // Update the status of the user to 'inactive'
             $user->update(['status' => 'inactive']);
-    
-            // Update the status of the vehicle to 'unavailable'
+            
+            // Find the vehicle with the corresponding type
             $vehicle->update(['status' => 'unavailable']);
-    
+
+            
             // Create a new operator entry
             Operator::create([
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
+                'vehicle_id' => $vehicle->vehicle_id,
+                'vehicle_brand' => $vehicle->vehicle_brand,
+                'plate_number' => $vehicle->plate_number,
                 'vehicle_type' => $vehicle->vehicle_type,
                 'phone' => $user->phone,
                 'status' => 'active',
@@ -128,6 +135,7 @@ class Admin extends Controller
             // Log or handle the exception as needed
             return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
         }
+        /// NEED PA AYUSIN TO HAHAH
     }
     
     

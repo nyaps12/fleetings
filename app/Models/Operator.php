@@ -12,6 +12,9 @@ class Operator extends Model
     protected $fillable = [
         'firstname',
         'lastname',
+        'vehicle_id',
+        'vehicle_brand',
+        'plate_number',
         'vehicle_type',
         'phone',
         'status',
