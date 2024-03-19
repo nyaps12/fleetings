@@ -19,7 +19,7 @@
                                 <tr>
                                     <th scope="col">ID </th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Phone #</th>
+                                    <th scope="col">Contact No.</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Status</th>
@@ -29,7 +29,7 @@
                             <tbody>
                                 @foreach ($drivers as $driver)
                                 <tr>
-                                    <td>{{ $driver->id }}</td>
+                                    <th>{{ $driver->id }}</th>
                                     <td>{{ $driver->firstname }} {{ $driver->lastname }}</td>
                                     <td>{{ $driver->phone }}</td>
                                     <td>{{ $driver->address }}</td>
@@ -44,9 +44,12 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.assign', ['id' => $driver->id]) }}" class="btn btn-primary btn-sm assign-button">
-                                            Assign
-                                        </a>
+                                        <a href="{{ route('admin.assign', ['id' => $driver->id]) }}" class="btn btn-primary btn-sm {{ $driver->status === 'inactive' ? 'disabled' : '' }}" id="assignButton">
+                                            @if($driver->status === 'inactive')
+                                                <span class="fas fa-lock" aria-hidden="true"></span>
+                                            @endif
+                                            &nbsp;Assign
+                                        </a>                                                                                                                        
                                     </td>
                                 </tr>
                                 @endforeach

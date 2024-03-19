@@ -33,22 +33,21 @@
                             </p>
                             <label for="cars">Choose a vehicle:</label>
                             <select id="cars" name="vehicle_type">
-                                @if ($driver->dlcodes == 1)
-                                    @php $motorcycleExists = false; @endphp
-                                    @foreach ($vehicles as $vehicle)
-                                        @if ($vehicle->vehicle_type == 'Motorcycle' && $vehicle->vehicle_brand)
-                                            <option value="Motorcycle">{{ $vehicle->vehicle_brand }} - Motorcycle</option>
-                                            @php $motorcycleExists = true; @endphp
-                                        @break
+                            @if ($driver->dlcodes == 1)
+                                @php $motorcycleExists = false; @endphp
+                                @foreach ($vehicles as $vehicle)
+                                    @if ($vehicle->vehicle_type == 'Motorcycle' && $vehicle->status != 'unavailable')
+                                        <option value="Motorcycle">{{ $vehicle->vehicle_brand }} - Motorcycle</option>
+                                        @php $motorcycleExists = true; @endphp
                                     @endif
                                 @endforeach
                                 @if (!$motorcycleExists)
-                                    <option value="">No vehicle found</option>
-                                @endif
+                                    <option value="">No motorcycle found</option>
+                                @endif                          
                             @elseif ($driver->dlcodes == 2)
                                 @php $sedanExists = false; @endphp
                                 @foreach ($vehicles as $vehicle)
-                                    @if ($vehicle->vehicle_type == 'Sedan' && $vehicle->vehicle_brand)
+                                    @if ($vehicle->vehicle_type == 'Sedan' && $vehicle->status != 'unavailable')
                                         <option value="Sedan">{{ $vehicle->vehicle_brand }} - Sedan</option>
                                         @php $sedanExists = true; @endphp
                                     @endif
@@ -59,8 +58,8 @@
                             @elseif ($driver->dlcodes == 3)
                                 @php $sedanExists = false; @endphp
                                 @foreach ($vehicles as $vehicle)
-                                    @if ($vehicle->vehicle_type == 'SUV' && $vehicle->vehicle_brand)
-                                        <option value="SUV">{{ $vehicle->vehicle_brand }} - Sedan</option>
+                                    @if ($vehicle->vehicle_type == 'SUV' && $vehicle->status != 'unavailable')
+                                        <option value="SUV">{{ $vehicle->vehicle_brand }} - SUV</option>
                                         @php $sedanExists = true; @endphp
                                     @endif
                                 @endforeach
@@ -70,7 +69,7 @@
                             @elseif ($driver->dlcodes == 4)
                                 @php $sedanExists = false; @endphp
                                 @foreach ($vehicles as $vehicle)
-                                    @if ($vehicle->vehicle_type == 'Sedan' && $vehicle->vehicle_brand)
+                                    @if ($vehicle->vehicle_type == 'Sedan' && $vehicle->status != 'unavailable')
                                         <option value="Sedan">{{ $vehicle->vehicle_brand }} - Sedan</option>
                                         @php $sedanExists = true; @endphp
                                     @endif
@@ -81,8 +80,8 @@
                             @elseif ($driver->dlcodes == 5)
                                 @php $sedanExists = false; @endphp
                                 @foreach ($vehicles as $vehicle)
-                                    @if ($vehicle->vehicle_type == 'SUV' && $vehicle->vehicle_brand)
-                                        <option value="SUV">{{ $vehicle->vehicle_brand }} - Sedan</option>
+                                    @if ($vehicle->vehicle_type == 'SUV' && $vehicle->status != 'unavailable')
+                                        <option value="SUV">{{ $vehicle->vehicle_brand }} - SUV</option>
                                         @php $sedanExists = true; @endphp
                                     @endif
                                 @endforeach
@@ -92,7 +91,7 @@
                             @elseif ($driver->dlcodes == 6)
                                 @php $sedanExists = false; @endphp
                                 @foreach ($vehicles as $vehicle)
-                                    @if ($vehicle->vehicle_type == 'Truck' && $vehicle->vehicle_brand)
+                                    @if ($vehicle->vehicle_type == 'Truck' && $vehicle->status != 'unavailable')
                                         <option value="Truck">{{ $vehicle->vehicle_brand }} - Sedan</option>
                                         @php $sedanExists = true; @endphp
                                     @endif
@@ -103,7 +102,7 @@
                             @elseif ($driver->dlcodes == 7)
                                 @php $sedanExists = false; @endphp
                                 @foreach ($vehicles as $vehicle)
-                                    @if ($vehicle->vehicle_type == 'Sedan' && $vehicle->vehicle_brand)
+                                    @if ($vehicle->vehicle_type == 'Sedan' && $vehicle->status != 'unavailable')
                                         <option value="Sedan">{{ $vehicle->vehicle_brand }} - Sedan</option>
                                         @php $sedanExists = true; @endphp
                                     @endif
@@ -129,8 +128,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 @endsection
