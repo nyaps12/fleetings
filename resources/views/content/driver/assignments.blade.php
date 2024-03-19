@@ -9,6 +9,7 @@
 @section('content')
 
    <!-- Orders by Countries -->
+   <div class="row">
    <div class="col-xxl-12 col-xxl-4 mb-4 order-0 order-xxl-4">
     <div class="card h-100">
       <div class="card-header d-flex justify-content-between pb-2">
@@ -216,5 +217,6 @@
       </div>
     </div>
   </div>
+</div>
   <!--/ Orders by C
 @endsection

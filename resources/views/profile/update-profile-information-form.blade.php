@@ -22,7 +22,7 @@
 
         <!-- Current Profile Photo -->
         <div class="mt-2" x-show="! photoPreview">
-          <img src="{{ $this->user->profile_photo_url }}" class="rounded-circle" height="80px" width="80px">
+          <img src="{{ $this->user->profile_photo_path }}" class="rounded-circle" height="80px" width="80px">
         </div>
 
         <!-- New Profile Photo Preview -->
