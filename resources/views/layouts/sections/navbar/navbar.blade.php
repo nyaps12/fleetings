@@ -67,12 +67,14 @@
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">
 
+       
+        @if(Auth::check() && (Auth::user()->id != 1 && Auth::user()->id != 2))
         <!-- Notification -->
         <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
                 data-bs-auto-close="outside" aria-expanded="false">
                 <i class="ti ti-bell ti-md"></i>
-                <span class="badge bg-danger rounded-pill badge-notifications">5</span>
+                {{-- <span class="badge bg-danger rounded-pill badge-notifications">5</span> --}}
             </a>
             <ul class="dropdown-menu dropdown-menu-end py-0">
                 <li class="dropdown-menu-header border-bottom">
@@ -84,7 +86,7 @@
                     </div>
                 </li>
                 <li class="dropdown-notifications-list scrollable-container">
-
+    
                 </li>
                 <li class="dropdown-menu-footer border-top">
                     <a href="javascript:void(0);"
@@ -95,6 +97,9 @@
             </ul>
         </li>
         <!--/ Notification -->
+        @endif
+    
+
 
 
         <!-- User -->
@@ -104,11 +109,6 @@
                 <div class="avatar avatar-online">
                     <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('../assets/img/avatars/admin.png') }}"
                         alt class="h-auto rounded-circle">
-                    @if (Auth::check())
-                        {{ Auth::user()->name }}
-                    @else
-                        <span class="text-muted">NULL</span>
-                    @endif
                 </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">

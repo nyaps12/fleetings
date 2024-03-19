@@ -5,6 +5,7 @@ namespace App\Http\Controllers\pages;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Operator;
 
 
 class Driver extends Controller
@@ -22,9 +23,9 @@ class Driver extends Controller
                 if (Auth::check()) {
                     // Retrieve the authenticated user
                     $user = Auth::user();
-
+                    $driver = Operator::all();
                     // // Pass the user data to the view
-                    return view('content.driver.dashboard', compact('user'));
+                    return view('content.driver.dashboard', compact('user','driver'));
                 }
                 
                 // If the user is not authenticated, redirect them to the login page
