@@ -79,6 +79,7 @@ Route::middleware([
   Route::get('map', [Driver::class, 'map'])->name('map');
   Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
   Route::get('report', [Driver::class, 'report'])->name('report');
+  Route::get('history', [Driver::class, 'history'])->name('history');
 
   /// PROFILE THINGS
   Route::get('profile', [Driver::class, 'profile'])->name('profile');

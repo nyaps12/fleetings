@@ -59,9 +59,9 @@ class Driver extends Controller
                     return view('content.driver.report');
                 }
 
-                public function chat()
+                public function history()
                 {
-                    return view('content.driver.app-chat');
+                    return view('content.driver.history');
                 }
 
 }
