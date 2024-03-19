@@ -21,7 +21,7 @@
 
                             @if ($drivers->isNotEmpty())
                                 @foreach ($drivers as $driverItem)
-                                    <p>Status: <span class="badge bg-success">{{ $driverItem->status }}</span></p>
+                                    <p>Status: <span class="badge btn-sm bg-success">{{ $driverItem->status }}</span></p>
                                 @endforeach
                             @else
                                 <p>Status: <small class="text-muted">No Status</small></p>
