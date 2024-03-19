@@ -54,11 +54,12 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
-                            <span class="avatar-initial rounded bg-label-danger"><i class='ti ti-git-fork ti-md'></i></span>
+                            <span class="avatar-initial rounded bg-label-danger"><i
+                                    class='ti ti-truck-delivery ti-md'></i></span>
                         </div>
                         <h4 class="ms-1 mb-0">0</h4>
                     </div>
-                    <p class="mb-1">Deviated from route</p>
+                    <p class="mb-1">Delivered</p>
                     <p class="mb-0">
                         <span class="fw-medium me-1">0%</span>
                         <small class="text-muted">than last week</small>
@@ -71,11 +72,12 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center mb-2 pb-1">
                         <div class="avatar me-2">
-                            <span class="avatar-initial rounded bg-label-info"><i class='ti ti-clock ti-md'></i></span>
+                            <span class="avatar-initial rounded bg-label-info"><i
+                                    class='ti ti-truck-return ti-md'></i></span>
                         </div>
                         <h4 class="ms-1 mb-0">0</h4>
                     </div>
-                    <p class="mb-1">Return Refund</p>
+                    <p class="mb-1">Return & Refund</p>
                     <p class="mb-0">
                         <span class="fw-medium me-1">0%</span>
                         <small class="text-muted">than last week</small>
@@ -376,7 +378,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="{{ url('/order') }}"> Show all orders </a>
+                                <a href="{{ url('/admin/order') }}"> Show all orders </a>
                             </div>
 
                             <div class="tab-pane fade" id="navs-justified-link-preparing" role="tabpanel">
