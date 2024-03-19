@@ -50,6 +50,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            #20210301
+                                        </td>
+                                        <td>
+                                            Bagumbong Caloocan
+                                        </td>
+                                        <td>
+                                            March 31, 2024
+                                        </td>
+                                        <td>
+                                            April 25, 2024
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="badge bg-primary">assign</a>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

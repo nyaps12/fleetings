@@ -44,7 +44,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.assign', ['id' => $driver->id]) }}" class="btn btn-primary btn-sm {{ $driver->status === 'inactive' ? 'disabled' : '' }}" id="assignButton">
+                                        <a href="{{ route('admin.assign', ['id' => $driver->id]) }}" class="btn btn-primary badge {{ $driver->status === 'inactive' ? 'disabled' : '' }}" id="assignButton">
                                             @if($driver->status === 'inactive')
                                                 <span class="fas fa-lock" aria-hidden="true"></span>
                                             @endif

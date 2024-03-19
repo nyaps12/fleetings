@@ -48,8 +48,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-xs btn-primary">Assign</a>
-                                                <a href="#" class="btn btn-xs btn-warning">Cancel</a>
+                                                <a href="#" class="btn badge btn-warning">Cancel</a>
                                             </td>
                                         </tr>
                                     @endforeach
