@@ -16,7 +16,7 @@
 <!--  Brand demo (display only for navbar-full and hide on below xl) -->
 @if (isset($navbarFull))
     <div class="navbar-brand app-brand demo d-none d-xl-flex py-0 me-4">
-        <a href="{{ url('/') }}" class="app-brand-link gap-2">
+        <a href="{{ url('/admin/dashboard') }}" class="app-brand-link gap-2">
             <img src="{{ asset('assets\img\logo\bbox-express-logo.png') }}" alt="logo" width="45" height="45"
                 style="margin-top: 2px; margin-left: 15px" /></span>
             <span class="app-brand-text demo menu-text fw-bold">{{ config('variables.templateName') }}</span>
@@ -67,38 +67,38 @@
 
     <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-       
-        @if(Auth::check() && (Auth::user()->id != 1 && Auth::user()->id != 2))
-        <!-- Notification -->
-        <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
-            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
-                data-bs-auto-close="outside" aria-expanded="false">
-                <i class="ti ti-bell ti-md"></i>
-                {{-- <span class="badge bg-danger rounded-pill badge-notifications">5</span> --}}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end py-0">
-                <li class="dropdown-menu-header border-bottom">
-                    <div class="dropdown-header d-flex align-items-center py-3">
-                        <h5 class="text-body mb-0 me-auto">Notification</h5>
-                        <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
-                            data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
-                                class="ti ti-mail-opened fs-4"></i></a>
-                    </div>
-                </li>
-                <li class="dropdown-notifications-list scrollable-container">
-    
-                </li>
-                <li class="dropdown-menu-footer border-top">
-                    <a href="javascript:void(0);"
-                        class="dropdown-item d-flex justify-content-center text-primary p-2 h-px-40 mb-1 align-items-center">
-                        View all notifications
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <!--/ Notification -->
+
+        @if (Auth::check() && (Auth::user()->id != 1 && Auth::user()->id != 2))
+            <!-- Notification -->
+            <li class="nav-item dropdown-notifications navbar-dropdown dropdown me-3 me-xl-1">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
+                    data-bs-auto-close="outside" aria-expanded="false">
+                    <i class="ti ti-bell ti-md"></i>
+                    {{-- <span class="badge bg-danger rounded-pill badge-notifications">5</span> --}}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end py-0">
+                    <li class="dropdown-menu-header border-bottom">
+                        <div class="dropdown-header d-flex align-items-center py-3">
+                            <h5 class="text-body mb-0 me-auto">Notification</h5>
+                            <a href="javascript:void(0)" class="dropdown-notifications-all text-body"
+                                data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i
+                                    class="ti ti-mail-opened fs-4"></i></a>
+                        </div>
+                    </li>
+                    <li class="dropdown-notifications-list scrollable-container">
+
+                    </li>
+                    <li class="dropdown-menu-footer border-top">
+                        <a href="javascript:void(0);"
+                            class="dropdown-item d-flex justify-content-center text-primary p-2 h-px-40 mb-1 align-items-center">
+                            View all notifications
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--/ Notification -->
         @endif
-    
+
 
 
 

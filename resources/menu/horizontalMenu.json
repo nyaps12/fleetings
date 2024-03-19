@@ -31,23 +31,10 @@
       "slug": "vehicles-information"
     },
     {
+      "url": "admin/reporting-and-analytics",
       "icon": "menu-icon ti ti-report-analytics",
       "name": "Reports",
-      "slug": "pages-reports",
-      "submenu": [
-        {
-          "url": "admin/reporting-and-analytics",
-          "icon": "menu-icon ti ti-report-analytics",
-          "name": "Reporting and Analytics",
-          "slug": "reporting-and-analytics"
-        },
-        {
-          "url": "admin/driver-performance",
-          "icon": "menu-icon ti ti-report-money",
-          "name": "Driver Performance",
-          "slug": "driver-performance"
-        }
-      ]
+      "slug": "pages-reports"
     }
   ]
 }
