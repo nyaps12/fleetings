@@ -124,6 +124,7 @@ class Admin extends Controller
             
             // Create a new operator entry
             Operator::create([
+                'id' => $user->id,
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
                 'vehicle_id' => $vehicle->vehicle_id,
