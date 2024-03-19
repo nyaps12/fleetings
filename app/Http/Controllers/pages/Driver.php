@@ -30,10 +30,29 @@ class Driver extends Controller
                 // If the user is not authenticated, redirect them to the login page
                 // return redirect()->route('login');
     }
+                        public function profile()
+                {
+                    return view('profile.driverprofileshow');
+                }
 
-    public function profile()
-    {
-        return view('profile.driverprofileshow');
-    }
+                public function map()
+                {
+                    return view('content.driver.map');
+                }
+
+                public function assignments()
+                {
+                    return view('content.driver.assignments');
+                }
+
+                public function report()
+                {
+                    return view('content.driver.report');
+                }
+
+                public function chat()
+                {
+                    return view('content.driver.app-chat');
+                }
 
 }

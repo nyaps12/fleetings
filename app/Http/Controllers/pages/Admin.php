@@ -22,6 +22,11 @@ class Admin extends Controller
         return view('content.admin.delivery-scheduling');
     }
 
+    public function addsched()
+    {
+        return view('content.admin.add-sched');
+    }
+
     public function info()
     {
         $user = Auth::user();
