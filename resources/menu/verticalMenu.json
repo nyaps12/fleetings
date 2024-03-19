@@ -9,19 +9,19 @@
     {
       "url": "map",
       "name": "Map",
-      "icon": "menu-icon tf-icons ti ti-smart-home",
+      "icon": "menu-icon tf-icons ti ti-map-2",
       "slug": "map"
     },
     {
-      "url": "locations",
-      "icon": "menu-icon tf-icons ti ti-file",
-      "name": "Locations",
-      "slug": "locations"
+      "url": "assignments",
+      "icon": "menu-icon tf-icons ti ti-checkup-list",
+      "name": "Assignments",
+      "slug": "assignments"
     },
     {
       "url": "report",
       "name": "Report",
-      "icon": "menu-icon tf-icons ti ti-history",
+      "icon": "menu-icon tf-icons ti ti-message-report",
       "slug": "report"
     }
   ]
