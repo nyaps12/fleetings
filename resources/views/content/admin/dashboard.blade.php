@@ -498,5 +498,4 @@
                 </div>
             </div>
         </div>
-        <!--/ Orders by Countries -->
     @endsection
