@@ -28,13 +28,39 @@ class Admin extends Controller
         return view('content.admin.add-sched');
     }
 
-    public function info()
+    public function info(Request $request)
     {
         $user = Auth::user();
-        // Retrieve vehicle based on ID
-        $vehicle = VehicleInfo::paginate(8);
+        $query = VehicleInfo::query();
+    
+        // Filter by vehicle brand
+        if ($request->filled('filter-brand')) {
+            $brand = $request->input('filter-brand');
+            $query->where('vehicle_brand', $brand);
+        }
+        
+        if ($request->filled('filter-type')) {
+            $type = $request->input('filter-type');
+            $query->where('vehicle_type', $type);
+        }
+    
+        if ($request->filled('filter-status')) {
+            $status = $request->input('filter-status');
+            $query->where('status', $status);
+        }
+
+        if ($request->filled('filter-model')) {
+            $model = $request->input('filter-model');
+            $query->where('year_model', $type);
+        }
+
+
+        // Execute the query and retrieve the filtered data
+        $vehicle = $query->paginate(8);
+    
         return view('content.admin.vehicles-information', compact('user', 'vehicle'));
     }
+    
 
     public function infodisplay($id)
     {
@@ -58,16 +84,37 @@ class Admin extends Controller
     {
         return view('content.admin.driver-performance');
     }
-
-    public function drivers()
+    
+    public function drivers(Request $request)
     {
         $user = Auth::user();
-        // Retrieve users except superadmin and admin
-        $drivers = User::whereNotIn('id', [1, 2])->paginate(10);
+        $query = User::whereNotIn('id', [1, 2]);
     
+        // Filter by name
+        if ($request->has('searchInput')) {
+            $searchTerm = trim($request->searchInput); // Trim the search input
+            $query->where(function ($query) use ($searchTerm) {
+                $query->where('firstname', 'like', '%' . $searchTerm . '%')
+                      ->orWhere('lastname', 'like', '%' . $searchTerm . '%');
+            });
+        }
+    
+        // Filter by status
+        if ($request->filled('filter-status')) {
+            $status = $request->input('filter-status');
+            $query->where('status', $status);
+        }
+    
+        // Continue adding more filters if needed...
+    
+        // Execute the query and retrieve the filtered data with pagination
+        $drivers = $query->paginate(10);
         $vehicles = VehicleInfo::all();
-        return view('content.admin.drivers', compact('user', 'drivers','vehicles'));
+        
+        return view('content.admin.drivers', compact('user', 'drivers', 'vehicles'));
     }
+    
+    
 
     public function order()
     {

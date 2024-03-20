@@ -12,10 +12,10 @@
 
     <!doctype html>
     <!--
-                 @license
-                 Copyright 2019 Google LLC. All Rights Reserved.
-                 SPDX-License-Identifier: Apache-2.0
-                -->
+                             @license
+                             Copyright 2019 Google LLC. All Rights Reserved.
+                             SPDX-License-Identifier: Apache-2.0
+                            -->
     <html>
 
     <head>
@@ -51,8 +51,8 @@
             async function initMap() {
                 // The location of Uluru
                 const position = {
-                    lat: 14.7266118,
-                    lng: 121.0346469
+                    lat: 14.7131043,
+                    lng: 121.0542629
                 };
                 // Request needed libraries.
                 //@ts-ignore
