@@ -37,52 +37,77 @@
                                     </div> --}}
                                     <div class="col-md-2">
 
-                                        <select class="form-select" id="filterCategory" name="filterCategory">
+                                        <select class="form-select" name="filter-brand">
                                             <option value="">Select Vehicle Brand</option>
-                                            <option value="mercedez-benz">Mercedez-Benz</option>
-                                            <option value="ford">Ford </option>
-                                            <option value="bmw">BMW</option>
-                                            <option value="jeep">Jeep</option>
-                                            <option value="lexus">Lexus</option>
-                                            <option value="volkswagen">Volkswagen</option>
+                                            <option value="mercedes-benz"
+                                                {{ request()->get('filter-brand') == 'mercedes-benz' ? 'selected' : '' }}>
+                                                Mercedes-Benz</option>
+                                            <option value=" ford"
+                                                {{ request()->get('filter-brand') == 'ford' ? 'selected' : '' }}>Ford
+                                            </option>
+                                            <option
+                                                value=" bmw"{{ request()->get('filter-brand') == 'bmw' ? 'selected' : '' }}>
+                                                BMW</option>
+                                            <option value=" jeep"
+                                                {{ request()->get('filter-brand') == 'jeep' ? 'selected' : '' }}>Jeep
+                                            </option>
+                                            <option value=" lexus"
+                                                {{ request()->get('filter-brand') == 'lexus' ? 'selected' : '' }}>Lexus
+                                            </option>
+                                            <option value=" volkswagen"
+                                                {{ request()->get('filter-brand') == 'volkswagen' ? 'selected' : '' }}>
+                                                Volkswagen</option>
+                                        </select>
+                                    </div>
+
+                                    {{-- <div class=" col-md-2">
+
+                                        <select class=" form-select" name=" filter-model">
+                                            <option value=" ">Select Year Model</option>
+                                            <option value="1990-2000" {{request()-?get('filter-model') == '1990-2000' ? 'selected' : ''}}>1990-2000</option>
+                                            <option value="2001-2010" {{request()-?get('filter-model') == '2001-2010' ? 'selected' : ''}}>2001-2010</option>
+                                            <option value="2011-2020" {{request()-?get('filter-model') == '2011-2020' ? 'selected' : ''}}>2011-2020</option>
+                                            <option value="2021-2030" {{request()-?get('filter-model') == '2021-2030' ? 'selected' : ''}}>2021-2030</option>
+                                        </select>
+                                    </div> --}}
+
+                                    <div class=" col-md-2">
+
+                                        <select class=" form-select" name=" filter-type">
+                                            <option value=" ">Select
+                                                Vehicle Type</option>
+                                            <option
+                                                value="motorcycle"{{ request()->get('filter-type') == 'motorcycle' ? 'selected' : '' }}>
+                                                Motorcycle</option>
+                                            <option
+                                                value="suv"{{ request()->get('filter-type') == 'suv' ? 'selected' : '' }}>
+                                                SUV</option>
+                                            <option
+                                                value="truck"{{ request()->get('filter-type') == 'truck' ? 'selected' : '' }}>
+                                                Truck</option>
+                                            <option
+                                                value="sedan"{{ request()->get('filter-type') == 'sedan' ? 'selected' : '' }}>
+                                                Sedan</option>
                                         </select>
                                     </div>
 
                                     <div class="col-md-2">
 
-                                        <select class="form-select" id="filterCategory" name="filterCategory">
-                                            <option value="">Select Year Model</option>
-                                            <option value="1990-2000">1990-2000</option>
-                                            <option value="2001-2010">2001-2010</option>
-                                            <option value="2011-2020">2011-2020</option>
-                                            <option value="2021-203">2021-2030</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-2">
-
-                                        <select class="form-select" id="filterCategory" name="filterCategory">
-                                            <option value="">Select Vehicle Type</option>
-                                            <option value="motorcycle">Motorcycle</option>
-                                            <option value="suv">SUV</option>
-                                            <option value="truck">Truck</option>
-                                            <option value="sedan">Sedan</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-2">
-
-                                        <select class="form-select" id="filterCategory" name="filterCategory">
+                                        <select class="form-select" name="filter-capacity">
                                             <option value="">Select Load Capacity</option>
                                         </select>
                                     </div>
 
                                     <div class="col-md-2">
 
-                                        <select class="form-select" id="filterCategory" name="filterCategory">
+                                        <select class="form-select" name="filter-status">
                                             <option value="">Select Status</option>
-                                            <option value="available"> Available</option>
-                                            <option value="unvailable"> Unavailable</option>
+                                            <option value="available"
+                                                {{ request()->get('filter-status') == 'available' ? 'slected' : '' }}>
+                                                Available</option>
+                                            <option value="unavailable"
+                                                {{ request()->get('filter-status') == 'unavailable' ? 'slected' : '' }}>
+                                                Unavailable</option>
                                         </select>
                                     </div>
 
