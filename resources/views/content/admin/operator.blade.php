@@ -54,6 +54,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
+                            <div class="d-flex justify-content-end">
+                                {{ $drivers->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
