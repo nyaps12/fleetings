@@ -10,6 +10,7 @@ use App\Models\Operator;
 use App\Models\Restriction;
 use App\Models\VehicleInfo;
 
+
 class Admin extends Controller
 {
     public function dashboard()
@@ -31,7 +32,7 @@ class Admin extends Controller
     {
         $user = Auth::user();
         // Retrieve vehicle based on ID
-        $vehicle = VehicleInfo::all();
+        $vehicle = VehicleInfo::paginate(8);
         return view('content.admin.vehicles-information', compact('user', 'vehicle'));
     }
 
@@ -62,7 +63,7 @@ class Admin extends Controller
     {
         $user = Auth::user();
         // Retrieve users except superadmin and admin
-        $drivers = User::whereNotIn('id', [1, 2])->get();
+        $drivers = User::whereNotIn('id', [1, 2])->paginate(10);
     
         $vehicles = VehicleInfo::all();
         return view('content.admin.drivers', compact('user', 'drivers','vehicles'));
@@ -90,8 +91,8 @@ class Admin extends Controller
 
     public function operator()
     {
-        $drivers = User::whereNotIn('id', [1, 2])->get();
-        $driver = Operator::all();
+        $drivers = User::whereNotIn('id', [1, 2])->paginate(10);
+        $driver = Operator::paginate(10);
         return view('content.admin.operator', compact('drivers','driver'));
     }
 

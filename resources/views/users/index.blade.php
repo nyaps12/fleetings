@@ -47,12 +47,14 @@
                                     @if (in_array('Super Admin', $user->getRoleNames()->toArray() ?? []))
                                         @if (Auth::user()->hasRole('Super Admin'))
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm"><i
-                                                    class="bi bi-pencil-square"></i> Edit</a>
+                                                    class="bi bi-pencil-square"></i>
+                                                Edit</a>
                                         @endif
                                     @else
                                         @can('edit-user')
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm"><i
-                                                    class="bi bi-pencil-square"></i> Edit</a>
+                                                    class="bi bi-pencil-square"></i>
+                                                Edit</a>
                                         @endcan
 
                                         @can('delete-user')
@@ -68,18 +70,19 @@
                             </td>
                         </tr>
                     @empty
-                        <td colspan="5">
-                            <span class="text-danger">
-                                <strong>No User Found!</strong>
-                            </span>
-                        </td>
+                        <tr>
+                            <td colspan="5">
+                                <span class="text-danger">
+                                    <strong>No User Found!</strong>
+                                </span>
+                            </td>
+                        </tr>
                     @endforelse
                 </tbody>
             </table>
-
-            {{ $users->links() }}
-
+            <div class="d-flex justify-content-end">
+                {{ $users->OnEachSide(1)->links() }}
+            </div>
         </div>
     </div>
-
 @endsection

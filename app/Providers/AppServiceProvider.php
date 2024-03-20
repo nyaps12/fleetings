@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Vite;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
       }
       return [];
     });
+
+    Paginator::useBootstrap();
   }
 }
