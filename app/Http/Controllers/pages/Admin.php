@@ -15,6 +15,7 @@ class Admin extends Controller
 {
     public function dashboard()
     {
+        emotify('success', 'You are awesome, your data was successfully created');
         return view('content.admin.dashboard');
     }
 
@@ -88,7 +89,8 @@ class Admin extends Controller
     public function drivers(Request $request)
     {
         $user = Auth::user();
-        $query = User::whereNotIn('id', [1, 2]);
+        $query = User::whereNotNull('dlcodes')
+        ->whereNotIn('id', [1, 2]);
     
         // Filter by name
         if ($request->has('searchInput')) {
@@ -185,12 +187,58 @@ class Admin extends Controller
     
             // Redirect back to the drivers page with a success message
             return redirect()->route('drivers')->with('success', 'Driver assigned successfully');
+            
         } catch (\Exception $e) {
             // Log or handle the exception as needed
             return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
         }
         /// NEED PA AYUSIN TO HAHAH
     }
+    
+    public function cancel(Request $request)
+    {
+        try {
+            // Retrieve the ID from the request payload or query string
+            $id = $request->input('id');
+    
+            // Find the operator by ID
+            $operator = Operator::findOrFail($id);
+    
+            // Check if the operator exists
+            if (!$operator) {
+                throw new \Exception("Operator not found");
+            }
+    
+            // Retrieve the user associated with the operator
+            $user = $operator->user;
+    
+            // Check if the user exists
+            if (!$user) {
+                throw new \Exception("User not found for this operator");
+            }
+    
+            // Update the status of the user to 'active'
+            $user->update(['status' => 'active']);
+    
+            // Update the status of the vehicle to 'available'
+            $vehicle = $operator->vehicle;
+            if ($vehicle) {
+                $vehicle->update(['status' => 'available']);
+            }
+    
+            // Delete the operator record
+            $operator->delete();
+    
+            // Redirect back to the desired route with a success message
+            return redirect()->route('desired_route')->with('success', 'Operator canceled successfully');
+        } catch (\Exception $e) {
+            // Log or handle the exception as needed
+            return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
+        }
+    }
+    
+    
+    
     
     
     

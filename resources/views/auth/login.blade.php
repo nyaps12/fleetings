@@ -41,9 +41,8 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">Welcome to {{ config('variables.templateName') }}! 👋</h4>
-                        <p class="mb-4">Please sign-in to your account and start the adventure</p>
-
+                        <h4 class="mb-1 pt-2 text-center">Driver Login</h4>
+                        <p class="mb-4 text-center">Please sign-in to your account</p>
                         @if (session('status'))
                             <div class="alert alert-success mb-1 rounded-0" role="alert">
                                 <div class="alert-body">
@@ -68,11 +67,9 @@
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="login-password">Password</label>
-                                    @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}">
                                             <small>Forgot Password?</small>
                                         </a>
-                                    @endif
                                 </div>
                                 <div class="input-group input-group-merge @error('password') is-invalid @enderror">
                                     <input type="password" id="login-password"
@@ -102,30 +99,23 @@
                         </form>
 
                         <p class="text-center">
-                            @if (Route::has('register'))
-                                <span>New on our platform?</span>
-                                <a href="{{ route('register') }}">
-                                    <span>Create an account</span>
-                                </a>
-
                                 <div class="divider my-4">
                                     <div class="divider-text">or</div>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
+                                    {{-- <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
                                         <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-                                    </a>
+                                    </a> --}}
 
-                                    <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">
-                                        <i class="tf-icons fa-brands fa-google fs-5"></i>
-                                    </a>
-
+                                    <div class="text-center pt-3">
+                                        <a href="{{ url('auth/google') }}"><img src="{{ url('assets/img/logo/google.png') }}" class="img-fluid" width="25px" height="25px" alt="Google Logo"> Login using Google</a>
+                                    </div>
+                                        {{-- 
                                     <a href="javascript:;" class="btn btn-icon btn-label-twitter">
                                         <i class="tf-icons fa-brands fa-twitter fs-5"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
-                            @endif
                         </p>
                     </div>
                 </div>

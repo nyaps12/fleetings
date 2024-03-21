@@ -170,7 +170,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
+                            <br>
                             <div class="d-flex justify-content-end">
                                 {{ $vehicle->links() }}
                             </div>

@@ -39,9 +39,10 @@ class Driver extends Controller
                 // If the user is not authenticated, redirect them to the login page
                 // return redirect()->route('login');
     }
-                        public function profile()
+                public function profile()
                 {
-                    return view('profile.driverprofileshow');
+                    $user = Auth::user();
+                    return view('profile.driverprofileshow', compact('user'));
                 }
 
                 public function map()
