@@ -71,5 +71,8 @@ class Kernel extends HttpKernel
     'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
     'driver.auth' => \App\Http\Middleware\DriverAuthenticate::class,
     'admin.auth' => \App\Http\Middleware\AdminAuthenticate::class,
+
+    //custom auth ni jake
+    'profile.complete' => \App\Http\Middleware\CheckProfileCompletion::class,
   ];
 }
