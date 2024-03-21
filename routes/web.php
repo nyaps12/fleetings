@@ -9,6 +9,7 @@ use App\Http\Controllers\authentications\LoginBasic;
 use App\Http\Controllers\authentications\RegisterBasic;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GoogleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,11 +21,25 @@ use App\Http\Controllers\UserController;
 |
 */
 
-//Redirect to login page
+//Login Things
 Route::redirect(uri: '/', destination: 'login');
 
-// locale
+Route::get('auth/google', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
+Route::any('auth/google/callback', [GoogleController::class, 'callbackFromGoogle'])->name('google.callback');
+
+Route::get('/password-request', function () {
+  return view('auth.forgot-password');
+})->name('password.request');
+
+Route::get('/email-request', function () {
+  return view('auth.forgot-password');
+})->name('password.email');
+
+//
+
+//language
 Route::get('lang/{locale}', [LanguageController::class, 'swap']);
+
 
 Route::middleware([
   'auth:sanctum',
@@ -52,8 +67,9 @@ Route::middleware([
   Route::get('admin/drivers', [Admin::class, 'drivers'])->name('drivers');
 
   Route::get('/admin/assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
-
   Route::post('/admin/assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
+  //ASSIGN CANCEL
+  Route::post('admin/cancel', [Admin::class, 'cancel'])->name('assignCancel');
 
   /// PROFILE THINGS
   Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');
@@ -71,20 +87,26 @@ Route::middleware([
   'auth:sanctum',
   config('jetstream.auth_session'),
   'verified',
-  'driver.auth', // Add your custom middleware here
+  'driver.auth' // Add your custom middleware here
 ])->group(function () {
   // Define routes specific to driver users here
   // For example:
   Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard.index');
-  Route::get('map', [Driver::class, 'map'])->name('map');
-  Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
-  Route::get('report', [Driver::class, 'report'])->name('report');
-  Route::get('history', [Driver::class, 'history'])->name('history');
 
-  /// PROFILE THINGS
+  // Middleware for users who have completed their profile
+  Route::middleware('profile.complete')->group(function () {
+      Route::get('map', [Driver::class, 'map'])->name('map');
+      Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
+      Route::get('report', [Driver::class, 'report'])->name('report');
+      Route::get('history', [Driver::class, 'history'])->name('history');
+  });
+
+  // Profile related routes
   Route::get('profile', [Driver::class, 'profile'])->name('profile');
+  
   // Add more routes as needed for the driver user role
 });
+
 
 
 

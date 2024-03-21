@@ -13,9 +13,11 @@
     "laravel/framework": "^10.39",
     "laravel/jetstream": "^4.2",
     "laravel/sanctum": "^3.2",
+    "laravel/socialite": "^5.12",
     "laravel/tinker": "^2.8",
     "laravel/ui": "^4.5",
     "livewire/livewire": "^3.0",
+    "mckenziearts/laravel-notify": "^2.4",
     "spatie/laravel-permission": "^6.4"
   },
   "require-dev": {
