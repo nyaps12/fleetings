@@ -14,12 +14,6 @@ return [
     |
     */
 
-    'google' => [
-        'client_id' => '371669384771-6rc1c1p6idmtu4b23hoppj49sdffsglg.apps.googleusercontent.com',
-        'client_secret' => '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',
-        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
-    ],
-
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
@@ -35,6 +29,11 @@ return [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+    ],
+    'google' => [
+        'client_id' => '371669384771-6rc1c1p6idmtu4b23hoppj49sdffsglg.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://127.0.0.1:8000/auth/google/callback',
     ],
 
 ];
