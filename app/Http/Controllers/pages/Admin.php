@@ -150,7 +150,7 @@ class Admin extends Controller
         $driver = User::findOrFail($id);
         $dlCode = Restriction::findOrFail($driver->dlcodes); // Fetch the DL Code associated with the driver
         $vehicles = VehicleInfo::all();
-        return view('content.admin.assign', compact('driver', 'vehicles', 'dlCode'));
+        return view('content.admin.layout.assign', compact('driver', 'vehicles', 'dlCode'));
     }    
 
     public function assignSuccess(Request $request)
@@ -174,10 +174,10 @@ class Admin extends Controller
             
             // Create a new operator entry
             Operator::create([
-                'id' => $user->id,
+                'user_id' => $user->id,
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
-                'vehicle_id' => $vehicle->vehicle_id,
+                'vehicle_id' => $vehicle->id,
                 'vehicle_brand' => $vehicle->vehicle_brand,
                 'plate_number' => $vehicle->plate_number,
                 'vehicle_type' => $vehicle->vehicle_type,
@@ -195,23 +195,26 @@ class Admin extends Controller
         /// NEED PA AYUSIN TO HAHAH
     }
     
-    public function cancel(Request $request)
+    public function cancel($id)
+    {
+        $driver = Operator::findOrFail($id); // Fetch the DL Code associated with the driver
+        return view('content.admin.layout.canceloperator', compact('driver'));
+    }  
+
+    public function cancelSuccess(Request $request)
     {
         try {
             // Retrieve the ID from the request payload or query string
             $id = $request->input('id');
+            
     
-            // Find the operator by ID
+            // Find the operator by IDr
             $operator = Operator::findOrFail($id);
-    
-            // Check if the operator exists
-            if (!$operator) {
-                throw new \Exception("Operator not found");
-            }
+            
     
             // Retrieve the user associated with the operator
             $user = $operator->user;
-    
+            
             // Check if the user exists
             if (!$user) {
                 throw new \Exception("User not found for this operator");
@@ -220,22 +223,29 @@ class Admin extends Controller
             // Update the status of the user to 'active'
             $user->update(['status' => 'active']);
     
-            // Update the status of the vehicle to 'available'
+            // Retrieve the associated vehicle
             $vehicle = $operator->vehicle;
-            if ($vehicle) {
-                $vehicle->update(['status' => 'available']);
+            // dd($vehicle);
+            // Check if a vehicle is associated with the operator
+            if (!$vehicle) {
+                throw new \Exception("Vehicle not found for this operator");
             }
-    
+
+            // Update the status of the vehicle to 'available'
+            $vehicle->update(['status' => 'available']);
+                
             // Delete the operator record
             $operator->delete();
     
             // Redirect back to the desired route with a success message
-            return redirect()->route('desired_route')->with('success', 'Operator canceled successfully');
+            return redirect()->route('operator')->with('success', 'Operator canceled successfully');
         } catch (\Exception $e) {
             // Log or handle the exception as needed
             return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
         }
     }
+    
+    
     
     
     
