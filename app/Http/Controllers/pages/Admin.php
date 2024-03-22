@@ -178,6 +178,7 @@ class Admin extends Controller
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
                 'vehicle_id' => $vehicle->id,
+                'vehicles_id' => $vehicle->vehicle_id,
                 'vehicle_brand' => $vehicle->vehicle_brand,
                 'plate_number' => $vehicle->plate_number,
                 'vehicle_type' => $vehicle->vehicle_type,

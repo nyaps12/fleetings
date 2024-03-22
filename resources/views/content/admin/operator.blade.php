@@ -33,7 +33,7 @@
                                         <tr>
                                             <td>{{ $row->id }}</td>
                                             <td>{{ $row->firstname }} {{ $row->lastname }}</td>
-                                            <td>{{ $row->vehicle_id }}</td>
+                                            <td>{{ $row->vehicles_id }}</td>
                                             <td>{{ $row->vehicle_brand }}</td>
                                             <td>{{ $row->plate_number }}</td>
                                             <td>{{ $row->vehicle_type }}</td>
