@@ -16,6 +16,7 @@ class Operator extends Model
         'firstname',
         'lastname',
         'vehicle_id',
+        'vehicles_id',
         'vehicle_brand',
         'plate_number',
         'vehicle_type',
