@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Operator extends Model
 {
     use HasFactory;
+
     protected $table = 'operators';
+
     protected $fillable = [
-        'id',
+        'user_id',
         'firstname',
         'lastname',
         'vehicle_id',
@@ -20,4 +22,14 @@ class Operator extends Model
         'phone',
         'status',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }    
+
+    public function vehicle()
+    {
+        return $this->belongsTo(VehicleInfo::class, 'vehicle_id');
+    }   
 }

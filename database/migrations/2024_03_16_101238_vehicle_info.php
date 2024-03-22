@@ -15,16 +15,20 @@ return new class extends Migration
     {
         Schema::create('vehicle_info', function (Blueprint $table) {
             $table->id();
-            $table->string('vehicle_id'); // Change to string for custom vehicle ID
+            $table->string('vehicle_id')->unique(); // Ensure vehicle IDs are unique
             $table->string('vehicle_brand');
             $table->string('year_model');
             $table->string('vehicle_type');
             $table->string('plate_number');
             $table->string('load_capacity');
-            $table->enum('status', ['available', 'unavailable'])->default('available'); // Define status field as ENUM
+            $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
+        
+            // Optionally, add foreign key constraints if needed
+            // $table->foreign('vehicle_id')->references('id')->on('operators')->onDelete('cascade');
         });
+        
     }
 
     /**
