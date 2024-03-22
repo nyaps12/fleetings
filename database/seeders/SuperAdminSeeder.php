@@ -61,7 +61,7 @@ class SuperAdminSeeder extends Seeder
             'firstname' => 'Soham', 
             'lastname' => 'Carr', 
             'name' => 'Soham Carr', 
-            'email' => 'soham.carr@gmail.com',
+            'email' => 'soham.carr@yahoo.com',
             'phone' => '09286343067',
             'address' => '3/F Jade Building, 335 Senator Gil Puyat Avenue',
             'password' => Hash::make('admin123'),
