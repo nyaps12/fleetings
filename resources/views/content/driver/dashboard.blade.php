@@ -11,25 +11,23 @@
     <!--/ Card Border Shadow -->
     <div class="row">
 
-        <div class="col-xl-4 mb-4 col-lg-5 col-12">
+        <div class="col-xl-4 mb-4 col-lg-5 col-md-6 col-12">
             <div class="card">
                 <div class="d-flex align-items-end row">
                     <div class="col-5">
                         <div class="card-body text-nowrap">
                             <h5 class="card-title mb-0">Welcome, {{ $user->firstname }} {{ $user->lastname }}</h5>
                             <br>
-
-                            @if ($drivers->isNotEmpty())
-                                @foreach ($drivers as $driverItem)
-                                    <p>Status: <span class="badge btn-sm bg-success">{{ $driverItem->status }}</span></p>
-                                @endforeach
-                            @else
-                                <p>Status: <small class="text-muted">No Status</small></p>
+                            @if ($user)
+                                @if ($user->status === 'active')
+                                    <p>Status: <span class="badge bg-success">Active</span></p>
+                                @elseif ($user->status === 'inactive')
+                                    <p>Status: <span class="badge bg-success">Active</span></p>
+                                @else
+                                    <p>Status: <span class="badge bg-secondary">No Status</span></p>
+                                @endif
                             @endif
-
-
                             <br>
-                            {{-- <a href="{{ route('profile') }}" class="btn btn-primary">My Profile</a> --}}
                         </div>
                     </div>
                     <div class="col-7 text-center text-sm-left">
@@ -38,11 +36,87 @@
                                 alt="user profile">
                         </div>
                     </div>
+                    <div class="col-12">
+                        <ul>
+                            <li class="d-flex">
+                                <div class="d-flex">
+                                    <h6 class="card-title mb-0 mr-2">Vehicle Brand:  &nbsp;</h6>
+                                    <h6>
+                                        @if ($drivers->isNotEmpty())
+                                            @foreach ($drivers as $driverItem)
+                                                @if ($driverItem->vehicle_brand)
+                                                    <p><span>{{ $driverItem->vehicle_brand }}</span></p>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <small class="text-muted">No Vehicle Brand found</small>
+                                        @endif
+                                    </h6>
+                                </div>
+                            </li>
+                            <li class="d-flex">
+                                <div class="d-flex">
+                                        <h6 class="mb-0">Plate Number:  &nbsp;</h6>
+                                    <h6>
+                                        @if ($drivers->isNotEmpty())
+                                            @foreach ($drivers as $driverItem)
+                                                @if ($driverItem->plate_number)
+                                                    <p><span>{{ $driverItem->plate_number }}</span></p>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <small class="text-muted">No Plate Number found</small>
+                                        @endif
+
+                                    </div>
+                            </li>
+                            <li class="d-flex">
+                                <div class="d-flex">
+                                        <h6 class="mb-0">Vehicle Type:  &nbsp;</h6>
+                                    <h6>
+                                        @if ($drivers->isNotEmpty())
+                                            @foreach ($drivers as $driverItem)
+                                                @if ($driverItem->vehicle_type)
+                                                    <p><span>{{ $driverItem->vehicle_type }}</span></p>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <small class="text-muted">No Vehicle Type found</small>
+                                        @endif
+                                    </h6>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="col-xl-8 mb-4 col-lg-7 col-12">
+            <div class="card h-100">
+                <div class="card-header">
+                    <div>
+                        <small id="current-date">Loading...</small>
+                        <small>|</small>
+                        <small id="current-time">Loading...</small> <!-- Added -->
+                        <h5 class="card-title">Weather in Manila, PH</h5>
+                        <div class="d-flex justify-content align-items-center align-self-center align-content-center mb-3">
+                            <img class="card-title mb-0" id="weather-icon" src="" alt="Weather Icon" />
+                            <span class="display-6" id="temperature">Loading...</span>
+                        </div>
+                        <h5 class="mb-0">Weather Condition</h5>
+                        <small id="weather-condition">Loading...</small>
+                        <br>
+                        <br>
+                        <h5 class="mb-0">Wind Speed</h5>
+                        <small id="wind-speed">Loading...</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 mb-4 col-lg-12 col-12">
             <div class="card h-100">
                 <div class="card-header">
                     <div class="d-flex justify-content-between mb-3">
@@ -88,78 +162,7 @@
             </div>
         </div>
 
-        <div class="col-xl-4 col-md-6 mb-4">
-            <div class="card h-20">
-                <div class="card-header d-flex justify-content-between">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Vehicle Information</h5>
-                        {{-- <small class="text-muted">test</small> --}}
-                    </div>
-                </div>
-                <div class="card-body pb-0">
-                    <ul class="p-0 m-0">
-                        <li class="d-flex mb-3">
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0">Vehicle Brand :</h6>
-                                </div>
-                                <div class="user-progress d-flex align-items-start gap-3">
-
-                                    @if ($drivers->isNotEmpty())
-                                        @foreach ($drivers as $driverItem)
-                                            @if ($driverItem->vehicle_brand)
-                                                <p><span>{{ $driverItem->vehicle_brand }}</span></p>
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <small class="text-muted">No Vehicle Brand found</small>
-                                    @endif
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-3">
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0">Plate Number :</h6>
-                                </div>
-                                <div class="user-progress d-flex align-items-center gap-3">
-                                    @if ($drivers->isNotEmpty())
-                                        @foreach ($drivers as $driverItem)
-                                            @if ($driverItem->plate_number)
-                                                <p><span>{{ $driverItem->plate_number }}</span></p>
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <small class="text-muted">No Plate Number found</small>
-                                    @endif
-
-                                </div>
-                            </div>
-                        </li>
-                        <li class="d-flex mb-3">
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0">Vehicle Type :</h6>
-                                </div>
-                                <div class="user-progress d-flex align-items-center gap-3">
-                                    @if ($drivers->isNotEmpty())
-                                        @foreach ($drivers as $driverItem)
-                                            @if ($driverItem->vehicle_type)
-                                                <p><span>{{ $driverItem->vehicle_type }}</span></p>
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <small class="text-muted">No Vehicle Type found</small>
-                                    @endif
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-8 mb-10 col-lg-10 col-md-10 col-sm-10 col-10">
+        <div class="col-xl-6 mb-10 col-lg-12 col-md-10 col-sm-12 col-12">
             <div class="card h-100">
                 <div class="card-header">
                     <div class="d-flex justify-content-between mb-3">
@@ -193,8 +196,8 @@
             </div>
         </div>
 
-        <div class="col-xl-4 col-md-6 mb-4">
-            <div class="card h-20">
+        <div class="col-xl-6 mb-4 col-lg-12 col-12">
+            <div class="card h-100">
                 <div class="card-header d-flex justify-content-between">
                     <div class="card-title mb-0">
                         <h5 class="m-0 me-2">Driver Performance</h5>
@@ -211,6 +214,73 @@
         </div>
 
     </div>
+
+    <script>
+        // Function to update current date and time
+        function updateDateTime() {
+            const currentDate = new Date();
+    
+            // Update current date
+            const dateString = currentDate.toDateString();
+            document.getElementById('current-date').innerText = dateString;
+    
+            // Update current time
+            const timeString = currentDate.toLocaleTimeString();
+            document.getElementById('current-time').innerText = timeString;
+        }
+    
+        // Call updateDateTime initially to avoid initial delay
+        updateDateTime();
+    
+        // Set interval to update date and time every second
+        setInterval(updateDateTime, 1000);
+    
+        // Function to update current weather
+        function updateWeatherData() {
+            navigator.geolocation.getCurrentPosition(position => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+    
+                fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=ca7c6d4f1b2096b6279840b062ca8d9d&units=metric`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Round temperature value to remove decimal part
+                        const temperature = Math.floor(data.main.temp);
+                        document.getElementById('temperature').innerText = `${temperature}°C`;
+    
+                        // Update weather condition
+                        document.getElementById('weather-condition').innerText = data.weather[0].description;
+    
+                        // Update wind speed
+                        document.getElementById('wind-speed').innerText = `${data.wind.speed.toFixed(1)} m/s`;
+    
+                        // Update weather icon
+                        const iconCode = data.weather[0].icon;
+                        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+                        document.getElementById('weather-icon').src = iconUrl;
+                    })
+                    .catch(error => console.error('Error fetching weather data:', error));
+            }, error => {
+                console.error('Error getting current position:', error);
+            });
+        }
+    
+        // Function to update weather data initially and set interval for real-time updates
+        function initWeatherUpdate() {
+            // Call updateWeatherData initially to avoid initial delay
+            updateWeatherData();
+    
+            // Set interval to update weather data every minute (adjust as needed)
+            setInterval(updateWeatherData, 60000); // Update every minute
+        }
+    
+        // Call initWeatherUpdate to start real-time weather updates
+        initWeatherUpdate();
+    </script>
+    
+    
+
+
 
 
 

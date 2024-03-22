@@ -71,7 +71,7 @@
                                                 @if ($driver->status === 'active')
                                                     <span class="badge bg-success">Active</span>
                                                 @elseif ($driver->status === 'inactive')
-                                                    <span class="badge bg-danger">Not Active</span>
+                                                    <span class="badge bg-success">Active</span>
                                                 @else
                                                     <span class="badge bg-secondary">Unknown</span>
                                                 @endif
