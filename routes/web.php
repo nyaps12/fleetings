@@ -75,7 +75,7 @@ Route::middleware([
   Route::delete('admin/cancel', [Admin::class, 'cancelSuccess'])->name('assignCancel');
 
   /// PROFILE THINGS
-  Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');
+  // Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');
 
   // Resources for Roles and Users
   Route::resources([

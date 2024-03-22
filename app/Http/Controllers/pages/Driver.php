@@ -27,7 +27,7 @@ class Driver extends Controller
                     $user = Auth::user();
                     
                     // Retrieve the operators associated with the current user's ID
-                    $drivers = Operator::where('id', $user->id)->get();
+                    $drivers = Operator::where('user_id', $user->id)->get();
                     
                     // Pass the user data and drivers to the view
                     return view('content.driver.dashboard', compact('user', 'drivers'));
