@@ -66,10 +66,13 @@ Route::middleware([
   Route::get('admin/vehicle', [Admin::class, 'view'])->name('vehicle');
   Route::get('admin/drivers', [Admin::class, 'drivers'])->name('drivers');
 
-  Route::get('/admin/assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
-  Route::post('/admin/assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
+  //ASSIGN OPERATOR
+  Route::get('admin/assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
+  Route::post('admin/assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
+
   //ASSIGN CANCEL
-  Route::post('admin/cancel', [Admin::class, 'cancel'])->name('assignCancel');
+  Route::get('admin/canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
+  Route::delete('admin/cancel', [Admin::class, 'cancelSuccess'])->name('assignCancel');
 
   /// PROFILE THINGS
   Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');

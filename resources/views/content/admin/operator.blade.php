@@ -48,11 +48,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <form id="cancel-form-{{ $row->id }}" action="{{ route('assignCancel', ['id' => $row->id]) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn badge btn-warning">Cancel</button>
-                                                </form>                                                    
+                                                <a href="{{ route('admin.assigncancel', ['id' => $row->id]) }}" class="btn btn-warning badge">Cancel</a>                                        
                                             </td>                                            
                                         </tr>
                                     @endforeach

@@ -13,16 +13,22 @@ return new class extends Migration
     {
         Schema::create('operators', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id')->nullable();
+            $table->string('vehicle_id')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('vehicle_id')->nullable();
             $table->string('vehicle_brand')->nullable();
             $table->string('plate_number')->nullable();
             $table->string('vehicle_type')->nullable();
             $table->string('phone')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
+        
+            // Optionally, add foreign key constraints if needed
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('vehicle_id')->references('id')->on('vehicle_info')->onDelete('cascade');
         });
+        
     }
 
     /**
