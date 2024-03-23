@@ -178,10 +178,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- Modal -->
-        @include('content.modal.view-vehicle')
+    </div>
+    <!-- Modal -->
+    @include('content.modal.view-vehicle')
 
 
-    @endsection
+@endsection
