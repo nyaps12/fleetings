@@ -50,29 +50,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($schedules as $schedule)
                                     <tr>
+                                        <th>{{ $schedule->id }}</th>
+                                        <td>{{ $schedule->schedule_id }}</td>
+                                        <td>{{ $schedule->start_point }}</td>
+                                        <td>{{ $schedule->waypoints }}</td>
+                                        <td>{{ $schedule->end_point }}</td>
                                         <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            #20210301
-                                        </td>
-                                        <td>
-                                            Bagumbong Caloocan
-                                        </td>
-                                        <td>
-                                            March 31, 2024
-                                        </td>
-                                        <td>
-                                            April 25, 2024
-                                        </td>
-                                        <td>
-                                            <span class="badge bg-success">Active</span>
+                                            @if($schedule->status == 'pending')
+                                                <span class="badge bg-warning">{{ $schedule->status }}</span>
+                                            @elseif($schedule->status == 'in_transit')
+                                                <span class="badge bg-info">Transit</span>
+                                            @elseif($schedule->status == 'delivered')
+                                                <span class="badge bg-success">{{ $schedule->status }}</span>
+                                            @elseif($schedule->status == 'cancelled')
+                                                <span class="badge bg-danger">{{ $schedule->status }}</span>
+                                            @endif
                                         </td>
                                         <td>
                                             <a href="#" class="btn btn-sm bg-primary badge">Assign</a>
                                         </td>
                                     </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>

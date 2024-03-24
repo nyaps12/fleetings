@@ -86,8 +86,7 @@
                                     </h6>
                                 </div>
                             </li>
-                        </ul>
-                        
+                        </ul>        
                     </div>
                 </div>
             </div>
@@ -97,12 +96,12 @@
             <div class="card h-100">
                 <div class="card-header">
                     <div>
-                        <small id="current-date">Loading...</small>
+                        <small id="current-date" class="text-warning">Loading...</small>
                         <small>|</small>
-                        <small id="current-time">Loading...</small> <!-- Added -->
-                        <h5 class="card-title">Weather in Manila, PH</h5>
+                        <small id="current-time" class="text-warning">Loading...</small> <!-- Added -->
+                        <h5 class="card-title fw-bolder">Weather in Manila, PH</h5>
                         <div class="d-flex justify-content align-items-center align-self-center align-content-center mb-3">
-                            <img class="card-title mb-0" id="weather-icon" src="" alt="Weather Icon" />
+                            <img class="card-title mb-0" id="weather-icon" src="" alt="Loading..." />
                             <span class="display-6" id="temperature">Loading...</span>
                         </div>
                         <h5 class="mb-0">Weather Condition</h5>
@@ -271,7 +270,7 @@
             updateWeatherData();
     
             // Set interval to update weather data every minute (adjust as needed)
-            setInterval(updateWeatherData, 60000); // Update every minute
+            setInterval(updateWeatherData, 5000); // Update every minute
         }
     
         // Call initWeatherUpdate to start real-time weather updates

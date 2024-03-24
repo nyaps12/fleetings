@@ -49,8 +49,16 @@ Route::middleware([
 ])->group(function () {
   // Admin Routes
   Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('dashboard');
+
+  //SCHEDULE
+
   Route::get('admin/delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
-  Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
+  // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
+  Route::get('admin/add-schedule', [Admin::class, 'addSchedule'])->name('add.schedule');
+  Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
+  // Route::post('save-route', [Admin::class, 'saveRoute']);
+
+  //
   Route::get('admin/vehicles-information', [Admin::class, 'info'])->name('vehicles-information');
   Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
   Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
@@ -101,7 +109,7 @@ Route::middleware([
   Route::middleware('profile.complete')->group(function () {
       Route::get('map', [Driver::class, 'map'])->name('map');
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
-      Route::get('report', [Driver::class, 'report'])->name('report');
+      // Route::get('report', [Driver::class, 'report'])->name('report');
       Route::get('history', [Driver::class, 'history'])->name('history');
       Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
       Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');

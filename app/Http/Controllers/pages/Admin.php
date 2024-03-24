@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Schedule;
 use App\Models\Operator;
 use App\Models\Restriction;
 use App\Models\VehicleInfo;
@@ -21,7 +22,8 @@ class Admin extends Controller
 
     public function scheduling()
     {
-        return view('content.admin.delivery-scheduling');
+        $schedules = Schedule::all();
+        return view('content.admin.delivery-scheduling', compact('schedules'));
     }
 
     public function addsched()
@@ -61,7 +63,6 @@ class Admin extends Controller
     
         return view('content.admin.vehicles-information', compact('user', 'vehicle'));
     }
-    
 
     public function infodisplay($id)
     {
@@ -115,9 +116,7 @@ class Admin extends Controller
         $vehicles = VehicleInfo::all();
         
         return view('content.admin.drivers', compact('user', 'drivers', 'vehicles'));
-    }
-    
-    
+    }   
 
     public function order()
     {
@@ -261,4 +260,69 @@ class Admin extends Controller
     {
         return view('content.admin.vehicle-issues');
     }
+
+    public function addSchedule()
+    {
+        $schedules = Schedule::all();
+        return view('content.admin.add-sched', compact('schedules'));
+    }
+
+    public function saveSchedule(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'loc1' => 'required',
+            'loc2' => 'nullable',
+            'loc3' => 'required',
+            'shipment-date' => 'required|date',
+        ]);
+
+        // Create a new Schedule instance
+        $schedule = new Schedule();
+        $schedule->start_point = $request->input('loc1');
+        $schedule->end_point = $request->input('loc3');
+        $schedule->waypoints = $request->input('loc2');
+        $schedule->shipping_date = $request->input('shipment-date');
+        $schedule->status = 'pending'; // Set default status
+        // Add other fields as necessary
+        
+        // Save the schedule to the database
+        $schedule->save();
+
+        // Optionally, you can return a response to the client
+        // return response()->json(['message' => 'Schedule added successfully']);
+        return redirect()->route('add.schedule')->with('success', 'Schedule Created successfully');
+    }
+
+    // public function saveRoute(Request $request)
+    // {
+    //     // Validate the request data
+    //     $validatedData = $request->validate([
+    //         'delivery_id' => 'required',
+    //         'operator_id' => 'required',
+    //         'route-name' => 'required',
+    //         'start' => 'required',
+    //         'waypoints' => 'required',
+    //         'end' => 'required',
+    //         'shipment-date' => 'required|date',
+    //     ]);
+
+    //     // Process the request and save the route to the database
+    //     // You can access the request data using $request->input('input_name')
+
+    //     // Example code to save the route data to the database
+    //     // Replace this with your actual database logic
+    //     $route = new Route();
+    //     $route->delivery_id = $request->input('delivery_id');
+    //     $route->operator_id = $request->input('operator_id');
+    //     $route->route_name = $request->input('route-name');
+    //     $route->start_point = $request->input('start');
+    //     $route->waypoints = $request->input('waypoints');
+    //     $route->end_point = $request->input('end');
+    //     $route->shipping_date = $request->input('shipment-date');
+    //     $route->save();
+
+    //     // Optionally, you can return a response to the client
+    //     return response()->json(['message' => 'Route saved successfully']);
+    // }
 }
