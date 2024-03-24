@@ -54,12 +54,13 @@ Route::middleware([
   Route::get('admin/vehicles-information', [Admin::class, 'info'])->name('vehicles-information');
   Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
   Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
-  Route::get('admin/reporting-and-analytics', [Admin::class, 'report'])->name('reporting-and-analytics');
+  Route::get('admin/reports', [Admin::class, 'report'])->name('report');
   Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
   Route::get('admin/order', [Admin::class, 'order'])->name('order');
-
   Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
   Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
+  Route::get('admin/driver-reports', [Admin::class, 'reported'])->name('drive-reports');
+  Route::get('admin/vehicle-issues', [Admin::class, 'issues'])->name('vehicle-issues');
 
   // DRIVER SIDE OPERATE AND ASSIGN
   Route::get('admin/operator', [Admin::class, 'operator'])->name('operator');
@@ -102,6 +103,8 @@ Route::middleware([
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
       Route::get('report', [Driver::class, 'report'])->name('report');
       Route::get('history', [Driver::class, 'history'])->name('history');
+      Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
+      Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
   });
 
   // Profile related routes

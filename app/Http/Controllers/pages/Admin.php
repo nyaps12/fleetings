@@ -78,7 +78,8 @@ class Admin extends Controller
 
     public function report()
     {
-        return view('content.admin.reporting-and-analytics');
+
+        return view('content.admin.reports');
     }
 
     public function performance()
@@ -246,15 +247,18 @@ class Admin extends Controller
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
     public function profile()
     {
         return view('profile.show');
+    }
+
+    public function reported()
+    {
+        return view('content.admin.driver-reports');
+    }
+
+    public function issues()
+    {
+        return view('content.admin.vehicle-issues');
     }
 }

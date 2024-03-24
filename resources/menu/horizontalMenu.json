@@ -31,10 +31,10 @@
       "slug": "vehicles-information"
     },
     {
-      "url": "admin/reporting-and-analytics",
+      "url": "admin/reports",
       "icon": "menu-icon ti ti-report-analytics",
       "name": "Reports",
-      "slug": "pages-reports"
+      "slug": "report"
     }
   ]
 }
