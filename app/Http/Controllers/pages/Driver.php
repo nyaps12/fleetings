@@ -65,4 +65,14 @@ class Driver extends Controller
                     return view('content.driver.history');
                 }
 
+                public function vreport()
+                {
+                    return view('content.driver.vehicle-report');
+                }
+
+                public function freport()
+                {
+                    return view('content.driver.fuel-report');
+                }
+
 }
