@@ -10,6 +10,7 @@ use App\Models\Schedule;
 use App\Models\Operator;
 use App\Models\Restriction;
 use App\Models\VehicleInfo;
+use App\Models\Vehiclereport;
 
 
 class Admin extends Controller
@@ -261,6 +262,27 @@ class Admin extends Controller
         return view('content.admin.vehicle-issues');
     }
 
+    public function service()
+    {
+        return view('content.admin.service');
+    }
+
+    public function maintenanceOverview()
+    {
+        return view('content.admin.maintenance-overview');
+    }
+
+    public function vehicleReport()
+    {
+        $reports = VehicleReport::all();
+        
+        return view('content.admin.vehicles-report', compact('reports'));
+    }
+
+    public function fuelReport()
+    {
+        return view('content.admin.fuel-report');
+    }
     public function addSchedule()
     {
         $schedules = Schedule::all();

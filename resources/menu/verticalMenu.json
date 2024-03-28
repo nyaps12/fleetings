@@ -19,7 +19,7 @@
       "slug": "assignments"
     },
     {
-      "url": "report",
+      "url": "driver-report",
       "name": "Report",
       "icon": "menu-icon tf-icons ti ti-message-report",
       "slug": "report"
