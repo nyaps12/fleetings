@@ -21,18 +21,17 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h4>Schedule List </h4>
+                <h4>Schedule's List </h4>
             </div>
 
             <div class="col-auto">
                 <a href="{{ url('/admin/add-schedule') }}" class="btn btn-sm btn-outline-primary"><span class="text-end">Add
                         Schedule</span></a>
             </div>
-        </div>
-        <div class="row">
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
@@ -46,6 +45,7 @@
                                         <th scope="col">Starting Date</th>
                                         <th scope="col">End Date</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Operator</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -68,6 +68,13 @@
                                                 <span class="badge bg-danger">{{ $schedule->status }}</span>
                                             @endif
                                         </td>
+                                        <td>
+                                            @if(empty($schedule->user_id))
+                                                No operator found <img src="{{ asset('path/to/your/image.jpg') }}" alt="No Operator Image" class="rounded-circle">
+                                            @else
+                                                {{ $schedule->user_id }}
+                                            @endif
+                                        </td>                                                                               
                                         <td>
                                             <a href="#" class="btn btn-sm bg-primary badge">Assign</a>
                                         </td>

@@ -55,9 +55,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="login-email" class="form-label">Email</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                    id="login-email" name="email" placeholder="Enter your email or username" autofocus
-                                    value="admin@yahoo.com">
+                                <input type="text" class="form-control @error('email') is-invalid @enderror" id="login-email" name="email" placeholder="Enter your email or username" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <span class="fw-medium">{{ $message }}</span>
@@ -67,15 +65,12 @@
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="login-password">Password</label>
-                                        <a href="{{ route('password.request') }}">
-                                            <small>Forgot Password?</small>
-                                        </a>
+                                    <a href="{{ route('password.request') }}">
+                                        <small>Forgot Password?</small>
+                                    </a>
                                 </div>
                                 <div class="input-group input-group-merge @error('password') is-invalid @enderror">
-                                    <input type="password" id="login-password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                        aria-describedby="password" value="admin123" />
+                                    <input type="password" id="login-password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                                 </div>
                                 @error('password')
@@ -86,8 +81,7 @@
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me" name="remember"
-                                        {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="checkbox" id="remember-me" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="remember-me">
                                         Remember Me
                                     </label>
@@ -97,6 +91,7 @@
                                 <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                             </div>
                         </form>
+                        
 
                         <p class="text-center">
                                 <div class="divider my-4">

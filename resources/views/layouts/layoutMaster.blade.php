@@ -1,3 +1,4 @@
+
 @isset($pageConfigs)
 {!! Helper::updatePageConfig($pageConfigs) !!}
 @endisset

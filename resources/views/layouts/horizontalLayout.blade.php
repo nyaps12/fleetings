@@ -31,6 +31,7 @@ $containerNav = ($configData['contentLayout'] === 'compact') ? 'container-xxl' :
 @endphp
 
 @section('layoutContent')
+
 <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
   <div class="layout-container">
 

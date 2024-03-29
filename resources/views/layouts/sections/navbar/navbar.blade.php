@@ -119,16 +119,21 @@
                             <div class="flex-shrink-0 me-3">
                                 <div class="avatar avatar-online">
                                     <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('../assets/img/avatars/admin.png') }}"
-                                        alt class="h-auto rounded-circle">
-                                </div>
+                                         alt=""
+                                         class="h-auto rounded-circle border border-primary">
+                                </div>                                
                             </div>
                             <div class="flex-grow-1">
                                 <span class="fw-medium d-block">
                                     @if (Auth::check())
-                                        {{ Auth::user()->name }}
+                                    @if (Auth::user()->firstname && Auth::user()->lastname)
+                                        {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                                     @else
-                                        <span class="text-muted">NULL</span>
+                                        {{ Auth::user()->name ?? 'NULL' }}
                                     @endif
+                                @else
+                                    <span class="text-muted">NULL</span>
+                                @endif                                
                                 </span>
                                 @if (Auth::check())
                                     @if (Auth::user()->id == 1)
@@ -240,17 +245,17 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 @if (Auth::check())
-                    <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class='ti ti-logout me-2'></i>
-                            <span class="align-middle">Logout</span>
-                        </a>
-                    </li>
-                    <form method="POST" id="logout-form" action="{{ route('logout') }}">
-                        @csrf
-                    </form>
-                @else
+                <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class='ti ti-logout me-2'></i>
+                        <span class="align-middle">Logout</span>
+                    </a>
+                </li>
+                <form method="POST" id="logout-form" action="{{ route('logout') }}">
+                    @csrf
+                </form>
+            @else            
                     <li>
                         <a class="dropdown-item"
                             href="{{ Route::has('login') ? route('login') : url('auth/login-basic') }}">

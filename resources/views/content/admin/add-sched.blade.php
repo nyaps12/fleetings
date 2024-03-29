@@ -151,8 +151,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                        </div>
+                            <br>
                             <a href="{{ url('/all-sched') }}">Show all schedule</a>
+                        </div>
+                            
                     </div>
                 </div>
             </div>

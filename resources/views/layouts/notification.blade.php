@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 @if (Session::has('success'))
 <script>
@@ -27,4 +27,51 @@
         timeout: 12000
     });
 </script>
-@endif
+@endif --}}
+
+{{-- <div class="container" style="z-index: 100;">
+    <x-notify::notify />
+  </div> --}}
+
+<style>
+.notification {
+    position: fixed;
+    top: 80px; /* Adjust the distance from the top as needed */
+    right: 30px; /* Adjust the distance from the right as needed */
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 20px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 100; /* Ensure the notification appears above other content */
+    display: none; /* Initially hide the notification */
+    width: 300px; /* Adjust the width as needed */
+}
+
+
+.notification.show {
+    display: block; /* Show the notification when the 'show' class is applied */
+}
+
+.notification .message {
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+/* Close button styles */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+}
+
+.close-btn:hover {
+    color: lightgray; /* Change color on hover */
+}
+
+
+</style>
