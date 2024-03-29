@@ -69,6 +69,13 @@ Route::middleware([
   Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
   Route::get('admin/driver-reports', [Admin::class, 'reported'])->name('drive-reports');
   Route::get('admin/vehicle-issues', [Admin::class, 'issues'])->name('vehicle-issues');
+  Route::get('admin/service', [Admin::class, 'service'])->name('service');
+  Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
+  Route::get('admin/fuel-report', [Admin::class, 'fuelReport'])->name('fuel-report');
+
+  // Vehicle Report
+  Route::get('admin/vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
+  
 
   // DRIVER SIDE OPERATE AND ASSIGN
   Route::get('admin/operator', [Admin::class, 'operator'])->name('operator');
@@ -109,10 +116,14 @@ Route::middleware([
   Route::middleware('profile.complete')->group(function () {
       Route::get('map', [Driver::class, 'map'])->name('map');
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
-      // Route::get('report', [Driver::class, 'report'])->name('report');
+       Route::get('driver-report', [Driver::class, 'report'])->name('report');
       Route::get('history', [Driver::class, 'history'])->name('history');
-      Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
       Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
+
+      // Vehicle Report Form
+
+      Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
+      Route::post('submitReport', [Driver::class, 'submitReport'])->name('submitReport');
   });
 
   // Profile related routes

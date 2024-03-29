@@ -17,6 +17,7 @@
             <table class="table datatable-project border-top">
                 <thead>
                     <tr>
+                        <th></th>
                         <th class="text-center">Vehicle</th>
                         <th class="text-center">Issue</th>
                         <th class="text-center">Operator</th>
@@ -26,6 +27,7 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td></td>
                         <td class="text-center"> <b> Van</b></td>
                         <td class="text-center">
                             <h6 class=mb-1> <b> Tire Puncture </b> </h6>

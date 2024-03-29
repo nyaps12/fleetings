@@ -14,7 +14,9 @@
             <h2 class="">Vehicle Report Form</h2>
         </div>
         <div class="card-body">
-            <form>
+            <form method="post" action="{{ route('submitReport') }}">
+                @csrf <!-- CSRF Protection -->
+
                 <div class="mb-3 col-md-5">
                     <label for="dateInput" class="form-label">Date</label>
                     <input type="date" class="form-control" id="dateInput" name="date">
