@@ -37,7 +37,6 @@ $contentLayout = (isset($container) ? (($container === 'container-xxl') ? "layou
 
 <body>
 
-
   <!-- Layout Content -->
   @yield('layoutContent')
   <!--/ Layout Content -->

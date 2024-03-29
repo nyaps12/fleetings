@@ -19,13 +19,15 @@
 
 
 @section('content')
+<div class="container-fluid">
+
 
 
     <div class="row">
         <div class="col-sm-12 col-lg-12 mb-4">
+            <h2> Vehicle's Information</h2>
             <div class="card">
                 <div class="card-header">
-                    <h2> Vehicle Information</h2>
                     <div class="row">
                         <div class="card-body">
                             <form action="" method="GET">
@@ -180,8 +182,11 @@
             </div>
         </div>
     </div>
+
+</div>
     <!-- Modal -->
     @include('content.modal.view-vehicle')
+
 
 
 @endsection

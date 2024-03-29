@@ -4,13 +4,38 @@
 @endphp
 
 @extends('layouts.layoutMaster')
+
 @section('title', 'Driver List')
 
+@include('layouts/notification')
+
 @section('content')
+<div class="container-fluid">
+
+    @if (session('success'))
+    <div id="notification" class="notification show">
+        <span class="message">{{ session('success') }}</span>
+        <button class="close-btn" onclick="hideNotification()">X</button>
+    </div>
+    <script>
+        // Set the duration (in milliseconds) for the notification to be displayed
+        var duration = 5000; // 5 seconds (adjust as needed)
+
+        // Function to hide the notification after the specified duration
+        function hideNotification() {
+            var notification = document.getElementById('notification');
+            notification.style.display = 'none';
+        }
+
+        // Hide the notification after the specified duration
+        setTimeout(hideNotification, duration);
+            </script>
+        @endif
+
     <div class="row">
 
-
         <div class="col-sm-12 col-lg-12 mb-4">
+            <h2> Driver's Information</h2>
             <div class="card">
                 <div class="row">
                     <div class="card-body">
@@ -100,4 +125,6 @@
             </div>
         </div>
     </div>
+
+</div>
 @endsection
