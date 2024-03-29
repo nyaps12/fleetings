@@ -5,7 +5,7 @@
 @yield('vendor-script')
 
 {{-- @extends('layouts/notification') --}}
-@notifyJs
+
 {{-- @notifyJs --}}
 <!-- END: Page Vendor JS-->
 <!-- BEGIN: Theme JS-->
