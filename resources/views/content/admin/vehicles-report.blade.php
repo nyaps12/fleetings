@@ -10,9 +10,9 @@
 
     <div class="row">
         <div class="col-sm-12 col-lg-12 mb-4">
+            <h2> Vehicle Report</h2>
             <div class="card">
                 <div class="card-header">
-                    <h2> Vehicle Report</h2>
                     <div class="row">
                         <div class="card-body">
 

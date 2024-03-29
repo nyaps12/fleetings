@@ -17,7 +17,7 @@ class Admin extends Controller
 {
     public function dashboard()
     {
-        emotify('success', 'You are awesome, your data was successfully created');
+        notify('success', 'TESTING');
         return view('content.admin.dashboard');
     }
 
@@ -316,6 +316,11 @@ class Admin extends Controller
         return redirect()->route('add.schedule')->with('success', 'Schedule Created successfully');
     }
 
+    public function deliveryList()
+    {
+        return view('content.admin.deliverylist');
+    }
+    
     // public function saveRoute(Request $request)
     // {
     //     // Validate the request data

@@ -51,3 +51,9 @@ $configData = Helper::appClasses();
   </div>
 </aside>
 <!--/ Horizontal Menu -->
+
+{{-- <!-- Notification Container -->
+<div class="container absolute" style="z-index: 100;">
+  <x-notify::notify />
+</div>
+<!--/ Notification Container --> --}}

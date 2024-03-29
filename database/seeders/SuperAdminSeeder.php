@@ -16,7 +16,7 @@ class SuperAdminSeeder extends Seeder
         // Creating Super Admin User
         User::factory()->create([
             'name' => 'Super Admin', 
-            'email' => 'superadmin@yahoo.com',
+            'email' => 'superadmin@gmail.com',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => '../assets/img/avatars/admin.png',
             'usertype' => 'admin'
@@ -25,7 +25,7 @@ class SuperAdminSeeder extends Seeder
         // Creating Admin User
         User::factory()->create([
             'name' => 'Admin', 
-            'email' => 'admin@yahoo.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('admin123'),
             'profile_photo_path' => '../assets/img/avatars/admin.png',
             'usertype' => 'admin'
@@ -35,7 +35,7 @@ class SuperAdminSeeder extends Seeder
             'firstname' => 'Raffy', 
             'lastname' => 'Limbo', 
             'name' => 'Raffy', 
-            'email' => 'raffy@yahoo.com',
+            'email' => 'raffy@gmail.com',
             'phone' => '09435488895',
             'address' => 'BLGU Payatas PIO, Quezon City, Philippines. A 80 929 els agrada',
             'password' => Hash::make('admin123'),
@@ -48,7 +48,7 @@ class SuperAdminSeeder extends Seeder
             'firstname' => 'Jake', 
             'lastname' => 'Bartolay', 
             'name' => 'Jake', 
-            'email' => 'jake@yahoo.com',
+            'email' => 'jake@gmail.com',
             'phone' => '09435489822',
             'address' => 'Lot 103-117 Alabang-Zapote Road corner Filinvest Ave., Westgate Alabang, Muntinlupa M.M',
             'password' => Hash::make('admin123'),
@@ -61,7 +61,7 @@ class SuperAdminSeeder extends Seeder
             'firstname' => 'Soham', 
             'lastname' => 'Carr', 
             'name' => 'Soham Carr', 
-            'email' => 'soham.carr@yahoo.com',
+            'email' => 'soham.carr@gmail.com',
             'phone' => '09286343067',
             'address' => '3/F Jade Building, 335 Senator Gil Puyat Avenue',
             'password' => Hash::make('admin123'),

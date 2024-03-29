@@ -6,11 +6,33 @@
 
 @section('title', 'Operator')
 
+@include('layouts/notification')
+
 @section('content')
 
     <div class="container-fluid">
+        @if (session('success'))
+        <div id="notification" class="notification show">
+            <span class="message">{{ session('success') }}</span>
+            <button class="close-btn" onclick="hideNotification()">X</button>
+        </div>
+        <script>
+            // Set the duration (in milliseconds) for the notification to be displayed
+            var duration = 5000; // 5 seconds (adjust as needed)
+    
+            // Function to hide the notification after the specified duration
+            function hideNotification() {
+                var notification = document.getElementById('notification');
+                notification.style.display = 'none';
+            }
+    
+            // Hide the notification after the specified duration
+            setTimeout(hideNotification, duration);
+                </script>
+            @endif
         <div class="row">
             <div class="col-md-12">
+                <h2> Operator's List</h2>
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive card-datatable">

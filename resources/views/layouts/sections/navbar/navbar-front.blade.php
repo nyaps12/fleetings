@@ -67,3 +67,4 @@ $activeClass = in_array($currentRouteName, $activeRoutes) ? 'active' : '';
   </div>
 </nav>
 <!-- Navbar: End -->
+
