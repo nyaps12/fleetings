@@ -115,6 +115,9 @@ use App\Http\Controllers\GoogleController;
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
       // Route::get('report', [Driver::class, 'report'])->name('report');
       Route::get('history', [Driver::class, 'history'])->name('history');
+      Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
+
+      // Vehicle Report Form
       Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
       Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
   });
