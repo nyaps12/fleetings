@@ -34,15 +34,15 @@ class SuperAdminSeeder extends Seeder
         User::factory()->create([
             'firstname' => 'Raffy', 
             'lastname' => 'Limbo', 
-            'name' => 'Raffy', 
+            'name' => 'Raffy', // Assuming 'name' field is required, you may want to change this
             'email' => 'raffy@gmail.com',
             'phone' => '09435488895',
             'address' => 'BLGU Payatas PIO, Quezon City, Philippines. A 80 929 els agrada',
             'password' => Hash::make('admin123'),
-            'profile_photo_path' => 'assets/img/avatars/driver.jpg',
+            'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Raffy Limbo'), // Use provided first name and last name
             'status' => 'active',
             'dlcodes' => '1'
-        ])->assignRole('driver');
+        ])->assignRole('driver');        
 
         User::factory()->create([
             'firstname' => 'Jake', 
@@ -52,20 +52,20 @@ class SuperAdminSeeder extends Seeder
             'phone' => '09435489822',
             'address' => 'Lot 103-117 Alabang-Zapote Road corner Filinvest Ave., Westgate Alabang, Muntinlupa M.M',
             'password' => Hash::make('admin123'),
-            'profile_photo_path' => 'assets/img/avatars/driver.jpg',
+            'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Jake Bartolay'), // Use provided first name and last name
             'status' => 'active',
             'dlcodes' => '1'
         ])->assignRole('driver');
 
         User::factory()->create([
-            'firstname' => 'Soham', 
-            'lastname' => 'Carr', 
-            'name' => 'Soham Carr', 
-            'email' => 'soham.carr@gmail.com',
+            'firstname' => 'Juan', 
+            'lastname' => 'Delecruz', 
+            'name' => 'Juan Delecruz', 
+            'email' => 'juandelecruz@gmail.com',
             'phone' => '09286343067',
             'address' => '3/F Jade Building, 335 Senator Gil Puyat Avenue',
             'password' => Hash::make('admin123'),
-            'profile_photo_path' => 'assets/img/avatars/driver.jpg',
+            'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Juan Delecruz'), // Use provided first name and last name
             'status' => 'active',
             'dlcodes' => '2'
         ])->assignRole('driver');

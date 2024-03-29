@@ -108,7 +108,7 @@
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                 <div class="avatar avatar-online">
                     <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('../assets/img/avatars/admin.png') }}"
-                        alt class="h-auto rounded-circle">
+                        alt class="h-auto rounded-circle border">
                 </div>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -120,7 +120,7 @@
                                 <div class="avatar avatar-online">
                                     <img src="{{ Auth::user() ? Auth::user()->profile_photo_path : asset('../assets/img/avatars/admin.png') }}"
                                          alt=""
-                                         class="h-auto rounded-circle border border-primary">
+                                         class="h-auto rounded-circle">
                                 </div>                                
                             </div>
                             <div class="flex-grow-1">
