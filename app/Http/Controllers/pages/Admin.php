@@ -11,6 +11,7 @@ use App\Models\Operator;
 use App\Models\Restriction;
 use App\Models\VehicleInfo;
 use App\Models\Vehiclereport;
+use App\Models\FuelReport;
 
 
 class Admin extends Controller
@@ -274,14 +275,15 @@ class Admin extends Controller
 
     public function vehicleReport()
     {
-        $reports = VehicleReport::all();
+        $reports = VehicleReport::paginate(10);
         
         return view('content.admin.vehicles-report', compact('reports'));
     }
 
     public function fuelReport()
     {
-        return view('content.admin.fuel-report');
+        $fuelreport = FuelReport::paginate(10);
+        return view('content.admin.fuels-report', compact('fuelreport'));
     }
     public function addSchedule()
     {
