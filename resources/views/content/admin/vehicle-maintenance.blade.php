@@ -16,7 +16,7 @@
                         <h2>Vehicle Maintenance Schedule</h2>
                     </div>
                     <div class="col-md-3 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-label-dark me-3"> Cancel</button>
+                        <a href="{{ route('vehicles-report') }}" class="btn btn-label-dark me-3"> Cancel </a>
                         <button class="btn btn-primary me-4"> Save Work Order </button>
                     </div>
                 </div>

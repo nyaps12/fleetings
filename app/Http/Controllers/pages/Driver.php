@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Operator;
+use App\Models\Vehiclereport;
 
 
 class Driver extends Controller
@@ -57,7 +58,7 @@ class Driver extends Controller
 
                 public function report()
                 {
-                    return view('content.driver.report');
+                    return view('content.driver.driver-report');
                 }
 
                 public function history()
@@ -67,7 +68,31 @@ class Driver extends Controller
 
                 public function vreport()
                 {
-                    return view('content.driver.vehicle-report');
+                    $reports = VehicleReport::all();
+                  
+                    return view('content.driver.vehicle-report', compact('reports'));
+                }
+
+                public function submitReport(Request $request)
+                {
+
+                    
+                    // Validate the incoming request data
+                $validatedData = $request->validate([
+                    'date' => 'required|date',
+                    'maintenance_cost' => 'nullable|numeric',
+                    'maintenance_receipt' => 'nullable|string',
+                    'vehicle_condition' => 'required|string',
+                    'vehicle_odometer' => 'required|numeric',
+                    'vehicle_issues' => 'required|string',
+
+                   
+                ]);
+
+                // dd($request->all());
+             
+
+                return redirect()->route('content.driver.vehicle-report')->with('success', 'Vehicle report submitted successfully.');
                 }
 
                 public function freport()
