@@ -37,7 +37,7 @@ class GoogleController extends Controller
                         'name' => $user->getName(),
                         'email' => $user->getEmail(),
                         'password' => Hash::make($user->getName() . '@' . $user->getId()),
-                        'profile_photo_path' => 'assets/img/avatars/driver.jpg',
+                        'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode($user->user['given_name'] . ' ' . $user->user['family_name']),
                         'dlcodes' => null
                     ]
                 );
