@@ -16,7 +16,11 @@
         <div class="card-body">
             <form method="post" action="{{ route('submitReport') }}">
                 @csrf <!-- CSRF Protection -->
-
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p style="color:red;">{{ $error }}</p>
+                    @endforeach
+                @endif
                 <div class="mb-3 col-md-5">
                     <label for="dateInput" class="form-label">Date</label>
                     <input type="date" class="form-control" id="dateInput" name="date">
@@ -31,6 +35,7 @@
                             accept="image/*">
                     </div>
                 </div>
+
 
                 <div class="mb-3 col-md-5">
                     <label for="vehicleCondition" class="form-label">Vehicle Condition</label>

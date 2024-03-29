@@ -74,10 +74,8 @@ class Driver extends Controller
                 }
 
                 public function submitReport(Request $request)
-                {
-
-                    
-                    // Validate the incoming request data
+                {    
+                // Validate the incoming request data
                 $validatedData = $request->validate([
                     'date' => 'required|date',
                     'maintenance_cost' => 'nullable|numeric',
@@ -85,13 +83,25 @@ class Driver extends Controller
                     'vehicle_condition' => 'required|string',
                     'vehicle_odometer' => 'required|numeric',
                     'vehicle_issues' => 'required|string',
-
-                   
                 ]);
+                dd($validatedData);
 
-                // dd($request->all());
-             
+                // Create a new instance of the model
+                $report = new Vehiclereport();
 
+                // Set attributes with validated data
+                $report->date = $validatedData['date'];
+                $report->maintenance_cost = $validatedData['maintenance_cost'] ?? null;
+                $report->maintenance_receipt = $validatedData['maintenance_receipt'] ?? null;
+                $report->vehicle_condition = $validatedData['vehicle_condition'];
+                $report->vehicle_odometer = $validatedData['vehicle_odometer'];
+                $report->vehicle_issues = $validatedData['vehicle_issues'];
+
+                // Save the report to the database
+               
+                $report->save();
+
+                // Redirect the user after successful submission
                 return redirect()->route('content.driver.vehicle-report')->with('success', 'Vehicle report submitted successfully.');
                 }
 
