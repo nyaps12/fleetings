@@ -122,6 +122,7 @@ Route::middleware([
 
       // Vehicle Report Form
 
+      
       Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
       Route::post('submitReport', [Driver::class, 'submitReport'])->name('submitReport');
   });
