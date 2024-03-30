@@ -13,17 +13,25 @@ return new class extends Migration
     {
         Schema::create('vehicle_report', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('vehicle_id');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->date('date');
             $table->decimal('maintenance_cost', 10, 2)->nullable();
             $table->string('maintenance_receipt')->nullable();
             $table->string('vehicle_type');
             $table->string('vehicle_engine_no');
             $table->string('vehicle_condition');
-            $table->string('vehicle_odometer');
+            $table->decimal('vehicle_odometer', 10, 2);
             $table->text('vehicle_issues');
-            $table->string('action');
             $table->timestamps();
+        
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
         });
+        
     }
 
     /**
