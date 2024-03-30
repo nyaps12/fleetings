@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Operator;
 use App\Models\Vehiclereport;
 use App\Models\FuelReport;
+use App\Models\MaintenanceSchedule;
 
 
 class Driver extends Controller
@@ -81,6 +82,8 @@ class Driver extends Controller
                     'date' => 'required|date',
                     'maintenance_cost' => 'nullable|numeric',
                     'maintenance_receipt' => 'nullable|string',
+                    'engine_no' => 'required|string',
+                    'vehicle_type' => 'required|string',
                     'vehicle_condition' => 'required|string',
                     'vehicle_odometer' => 'required|numeric',
                     'vehicle_issues' => 'required|string',
@@ -95,6 +98,8 @@ class Driver extends Controller
                 $report->date = $validatedData['date'];
                 $report->maintenance_cost = $validatedData['maintenance_cost'] ?? null;
                 $report->maintenance_receipt = $validatedData['maintenance_receipt'] ?? null;
+                $report->vehicle_type = $validatedData['vehicle_type'];
+                $report->vehicle_engine_no = $validatedData['engine_no'];
                 $report->vehicle_condition = $validatedData['vehicle_condition'];
                 $report->vehicle_odometer = $validatedData['vehicle_odometer'];
                 $report->vehicle_issues = $validatedData['vehicle_issues'];

@@ -19,21 +19,25 @@
                         <p style="color:red;">{{ $error }}</p>
                     @endforeach
                 @endif
-                <div class="mb-3">
+                <div class="col-sm-2 mb-3">
                     <label for="dateInput" class="form-label">Date</label>
                     <input type="date" class="form-control" id="dateInput" name="date" min="{{ date('Y-m-d') }}"
                         max="{{ date('Y-m-d') }}" value="{{ date('Y-m-d') }}">
                 </div>
-
-
-                <div class="mb-3">
-                    <label for="maintenance_cost" class="form-label">Maintenance Cost (not required)</label>
-                    <div class="input-group">
-                        <input type="number" class="form-control" id="maintenanceCost" name="maintenance_cost"
-                            placeholder="Enter maintenance cost">
-                        <input type="file" class="form-control" id="maintenanceReceipt" name="maintenance_receipt"
-                            accept="image/*">
+                <div class="row">
+                    <div class="col-md-2 mb-3">
+                        <label for="vehicleType" class="form-label">Vehicle Type</label>
+                        <textarea class="form-control" id="vehicleType" name="vehicle_type" rows="3" placeholder="Enter Vehicle Type"
+                            required></textarea>
                     </div>
+
+                    <div class="col-md-2 mb-3">
+                        <label for="vehicleEngineNo" class="form-label">Vehicle Engine No.</label>
+                        <textarea class="form-control" id="vehicleEngineNo" name="engine_no" rows="3"
+                            placeholder="Enter Vehicle Engine No." required></textarea>
+                    </div>
+
+
                 </div>
 
                 <div class="mb-3 col-md-5">
@@ -54,6 +58,16 @@
                     <label for="vehicleIssues" class="form-label">Vehicle Issues</label>
                     <textarea class="form-control" id="vehicleIssues" name="vehicle_issues" rows="3"
                         placeholder="Enter vehicle issues" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="maintenance_cost" class="form-label">Maintenance Cost (not required)</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="maintenanceCost" name="maintenance_cost"
+                            placeholder="Enter maintenance cost">
+                        <input type="file" class="form-control" id="maintenanceReceipt" name="maintenance_receipt"
+                            accept="image/*">
+                    </div>
                 </div>
 
 

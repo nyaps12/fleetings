@@ -65,7 +65,6 @@ use App\Http\Controllers\GoogleController;
   //
   Route::get('admin/vehicles-information', [Admin::class, 'info'])->name('vehicles-information');
   Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
-  Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
   Route::get('admin/reports', [Admin::class, 'report'])->name('report');
   Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
   Route::get('admin/order', [Admin::class, 'order'])->name('order');
@@ -76,9 +75,16 @@ use App\Http\Controllers\GoogleController;
   Route::get('admin/service', [Admin::class, 'service'])->name('service');
   Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
   Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
+  Route::get('admin/utilization', [Admin::class, 'utilization'])->name('utilization');
 
-  // Vehicle Report
-  Route::get('admin/vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
+      
+
+      // Maintenance Schedule
+      Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
+      Route::post('admin/schedMaintenance', [Admin::class, 'schedMaintenance'])->name('schedMaintenance');
+
+      // Vehicle Report
+      Route::get('admin/vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
   
 
       // DRIVER SIDE OPERATE AND ASSIGN

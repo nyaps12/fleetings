@@ -23,6 +23,8 @@
                                     <tr>
 
                                         <th><strong> Operator</strong></th>
+                                        <th><strong> Vehicle Type </strong></th>
+                                        <th><strong> Vehicle Engine No. </strong></th>
                                         <th><strong> Vehicle Condition </strong></th>
                                         <th><strong> Vehicle Odometer </strong></th>
                                         <th><strong> Vehicle Issues </strong></th>
@@ -39,6 +41,8 @@
                                         <tr>
 
                                             <td></td>
+                                            <td> {{ $report->vehicle_type }}</td>
+                                            <td> {{ $report->vehicle_engine_no }} </td>
                                             <td> {{ $report->vehicle_condition }}</td>
                                             <td> {{ $report->vehicle_odometer }} </td>
                                             <td> {{ $report->vehicle_issues }}</td>

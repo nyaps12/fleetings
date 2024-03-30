@@ -47,7 +47,7 @@
                                         <div class="col-md-8">
                                             <h6> Vehicle Utilization Summary</h6>
                                             <p class="text-muted">Listing of vehicle utilization</p>
-                                            <a href="">See Report <b>&rarr;</b></a>
+                                            <a href="utilization">See Report <b>&rarr;</b></a>
                                         </div>
                                     </div>
                                 </div>
