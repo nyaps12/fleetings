@@ -24,7 +24,8 @@ class Admin extends Controller
     public function scheduling()
     {
         $schedules = Schedule::all();
-        return view('content.admin.delivery-scheduling', compact('schedules'));
+        $operators = Operator::all();
+        return view('content.admin.delivery-scheduling', compact('schedules','operators'));
     }
 
     public function addsched()
@@ -32,7 +33,7 @@ class Admin extends Controller
         return view('content.admin.add-sched');
     }
 
-    public function info(Request $request)
+    public function vehicleInfo(Request $request)
     {
         $user = Auth::user();
         $query = VehicleInfo::query();
@@ -283,6 +284,7 @@ class Admin extends Controller
     {
         return view('content.admin.fuel-report');
     }
+
     public function addSchedule()
     {
         $schedules = Schedule::all();

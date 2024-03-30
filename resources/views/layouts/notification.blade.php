@@ -73,5 +73,22 @@
     color: lightgray; /* Change color on hover */
 }
 
+/* Error notification styles */
+.error {
+    background-color: #FF5733; /* Red background color */
+}
+
+.error .message {
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+.error .close-btn {
+    color: white; /* Set close button color for error notification */
+}
+
+.error .close-btn:hover {
+    color: lightgray; /* Change close button color on hover */
+}
+
 
 </style>
