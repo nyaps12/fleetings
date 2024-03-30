@@ -16,6 +16,8 @@ return new class extends Migration
             $table->date('date');
             $table->decimal('maintenance_cost', 10, 2)->nullable();
             $table->string('maintenance_receipt')->nullable();
+            $table->string('vehicle_type');
+            $table->string('vehicle_engine_no');
             $table->string('vehicle_condition');
             $table->string('vehicle_odometer');
             $table->text('vehicle_issues');

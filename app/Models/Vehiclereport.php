@@ -16,6 +16,8 @@ class Vehiclereport extends Model
         'date',
         'maintenance_cost',
         'maintenance_receipt',
+        'vehicle_type',
+        'vehicle_engine_no'.
         'vehicle_condition',
         'vehicle_odometer',
         'vehicle_issues',
