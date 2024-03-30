@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             SuperAdminSeeder::class,
             RestrictionSeeder::class,
+            VehicleInfoSeeder::class,
         ]);
     }
 }
