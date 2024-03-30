@@ -18,7 +18,7 @@
                     <div class="col-md-4">
                         <div class="card">
                             <a href="{{ url('/vehicle-report') }}">
-                                <img src="{{ asset('assets/img/vehicle/sedan.jpg') }}" class="card-img-top"
+                                <img src="{{ asset('assets/img/vehicle/car.jpg') }}" class="card-img-top"
                                     style="height: 400px" alt="Placeholder Image">
                             </a>
                             <div class="card-body">
@@ -40,11 +40,11 @@
                     <div class="col-md-4">
                         <div class="card">
                             <a href="{{ url('/fuel-report') }}">
-                                <img src="{{ asset('assets/img/vehicle/fuel.jpg') }}" class="card-img-top"
+                                <img src="{{ asset('assets/img/vehicle/incident.jpg') }}" class="card-img-top"
                                     style="height: 400px" alt="Placeholder Image">
                             </a>
                             <div class="card-body">
-                                <h5 class="card-title d-flex justify-center">Fuel Report</h5>
+                                <h5 class="card-title d-flex justify-center">Incident Report</h5>
                             </div>
                         </div>
                     </div>

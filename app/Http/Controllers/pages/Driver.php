@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Operator;
 use App\Models\Vehiclereport;
+use App\Models\FuelReport;
+use App\Models\MaintenanceSchedule;
 
 
 class Driver extends Controller
@@ -80,11 +82,14 @@ class Driver extends Controller
                     'date' => 'required|date',
                     'maintenance_cost' => 'nullable|numeric',
                     'maintenance_receipt' => 'nullable|string',
+                    'engine_no' => 'required|string',
+                    'vehicle_type' => 'required|string',
                     'vehicle_condition' => 'required|string',
                     'vehicle_odometer' => 'required|numeric',
                     'vehicle_issues' => 'required|string',
+                    
                 ]);
-                dd($validatedData);
+                // dd($validatedData);
 
                 // Create a new instance of the model
                 $report = new Vehiclereport();
@@ -93,21 +98,62 @@ class Driver extends Controller
                 $report->date = $validatedData['date'];
                 $report->maintenance_cost = $validatedData['maintenance_cost'] ?? null;
                 $report->maintenance_receipt = $validatedData['maintenance_receipt'] ?? null;
+                $report->vehicle_type = $validatedData['vehicle_type'];
+                $report->vehicle_engine_no = $validatedData['engine_no'];
                 $report->vehicle_condition = $validatedData['vehicle_condition'];
                 $report->vehicle_odometer = $validatedData['vehicle_odometer'];
                 $report->vehicle_issues = $validatedData['vehicle_issues'];
+                $report->action = 'action'; // Provide a value for 'action'
 
                 // Save the report to the database
                
                 $report->save();
 
                 // Redirect the user after successful submission
-                return redirect()->route('content.driver.vehicle-report')->with('success', 'Vehicle report submitted successfully.');
+                return redirect()->route('vehicle-report')->with('success', 'Vehicle report submitted successfully.');
                 }
 
                 public function freport()
                 {
-                    return view('content.driver.fuel-report');
+
+                    $fuelreport = FuelReport::all();
+                    return view('content.driver.fuel-report', compact('fuelreport'));
+                }
+
+                public function FuelReport(Request $request)
+                {
+                    $validatedData = $request->validate([
+                        'date' => 'required|date',
+                        'price_per_liter' => 'required|numeric',
+                        'liters' => 'required|numeric',
+                        'total_cost' => 'required|numeric',
+                        'vehicle_odometer' => 'required|numeric',
+                        'fuel_type' => 'required|string',
+                        'fuel_brand' => 'required|string',
+                        'fuel_receipt' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image upload
+                    ]);
+
+                    // dd($validatedData);
+
+                      // Create a new instance of the model
+                $fuelReport = new FuelReport();
+
+                // Set attributes with validated data
+                $fuelReport->date = $validatedData['date'];
+                $fuelReport->price_per_liter = $validatedData['price_per_liter'];
+                $fuelReport->liters = $validatedData['liters'];
+                $fuelReport->total_cost = $validatedData['total_cost'];
+                $fuelReport->vehicle_odometer = $validatedData['vehicle_odometer'];
+                $fuelReport->fuel_type = $validatedData['fuel_type'];
+                $fuelReport->fuel_brand = $validatedData['fuel_brand'];
+                $fuelReport->fuel_receipt = $validatedData['fuel_receipt']?? null;
+
+                $fuelReport->save();
+            
+                    
+
+
+                    return redirect()->route('fuel-report')->with('success', 'Vehicle report submitted successfully.');
                 }
 
 }
