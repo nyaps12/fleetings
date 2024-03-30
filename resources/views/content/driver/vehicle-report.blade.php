@@ -27,14 +27,13 @@
                 <div class="row">
                     <div class="col-md-2 mb-3">
                         <label for="vehicleType" class="form-label">Vehicle Type</label>
-                        <textarea class="form-control" id="vehicleType" name="vehicle_type" rows="3" placeholder="Enter Vehicle Type"
-                            required></textarea>
+                        <input class="form-control" id="vehicleType" name="vehicle_type" rows="3" value="{{ $drivers->isNotEmpty() ? $drivers->first()->vehicle_brand ?? 'No Vehicle Brand found' : 'No Vehicle Brand found' }}" required>
                     </div>
 
                     <div class="col-md-2 mb-3">
                         <label for="vehicleEngineNo" class="form-label">Vehicle Engine No.</label>
-                        <textarea class="form-control" id="vehicleEngineNo" name="engine_no" rows="3"
-                            placeholder="Enter Vehicle Engine No." required></textarea>
+                        <input class="form-control" id="vehicleEngineNo" name="engine_no" rows="3"
+                            placeholder="Enter Vehicle Engine No." required></input>
                     </div>
 
 

@@ -70,47 +70,71 @@ class Driver extends Controller
 
                 public function vreport()
                 {
+                    $user = Auth::user();
+
+
                     $reports = VehicleReport::all();
-                  
-                    return view('content.driver.vehicle-report', compact('reports'));
+                    $drivers = Operator::where('user_id', $user->id)->get();
+                    return view('content.driver.vehicle-report', compact('reports','drivers'));
                 }
 
                 public function submitReport(Request $request)
                 {    
-                // Validate the incoming request data
-                $validatedData = $request->validate([
-                    'date' => 'required|date',
-                    'maintenance_cost' => 'nullable|numeric',
-                    'maintenance_receipt' => 'nullable|string',
-                    'engine_no' => 'required|string',
-                    'vehicle_type' => 'required|string',
-                    'vehicle_condition' => 'required|string',
-                    'vehicle_odometer' => 'required|numeric',
-                    'vehicle_issues' => 'required|string',
+                    if (Auth::check()) {
+                        // Validate the incoming request data
+                        $validatedData = $request->validate([
+                            'date' => 'required|date',
+                            'maintenance_cost' => 'nullable|numeric',
+                            'maintenance_receipt' => 'nullable|string',
+                            'engine_no' => 'required|string',
+                            'vehicle_type' => 'required|string',
+                            'vehicle_condition' => 'required|string',
+                            'vehicle_odometer' => 'required|numeric',
+                            'vehicle_issues' => 'required|string',
+                        ]);
                     
-                ]);
-                // dd($validatedData);
-
-                // Create a new instance of the model
-                $report = new Vehiclereport();
-
-                // Set attributes with validated data
-                $report->date = $validatedData['date'];
-                $report->maintenance_cost = $validatedData['maintenance_cost'] ?? null;
-                $report->maintenance_receipt = $validatedData['maintenance_receipt'] ?? null;
-                $report->vehicle_type = $validatedData['vehicle_type'];
-                $report->vehicle_engine_no = $validatedData['engine_no'];
-                $report->vehicle_condition = $validatedData['vehicle_condition'];
-                $report->vehicle_odometer = $validatedData['vehicle_odometer'];
-                $report->vehicle_issues = $validatedData['vehicle_issues'];
-                $report->action = 'action'; // Provide a value for 'action'
-
-                // Save the report to the database
-               
-                $report->save();
-
-                // Redirect the user after successful submission
-                return redirect()->route('vehicle-report')->with('success', 'Vehicle report submitted successfully.');
+                        // Get the authenticated user's ID
+                        $userId = Auth::id();
+                    
+                        // Retrieve the authenticated user's operator record
+                        $operator = Operator::where('user_id', $userId)->first();
+                    
+                        if ($operator) {
+                            // Retrieve the vehicle ID associated with the operator
+                            $vehicleId = $operator->vehicle_id;
+                    
+                            // Create a new instance of the model
+                            $report = new Vehiclereport();
+                    
+                            // Set attributes with validated data
+                            $report->date = $validatedData['date'];
+                            $report->user_id = $userId;
+                            $report->firstname = Auth::user()->firstname;
+                            $report->lastname = Auth::user()->lastname;
+                            $report->profile_photo_path = Auth::user()->profile_photo_path;
+                            $report->vehicle_id = $vehicleId;
+                            $report->maintenance_cost = $validatedData['maintenance_cost'] ?? null;
+                            $report->maintenance_receipt = $validatedData['maintenance_receipt'] ?? null;
+                            $report->vehicle_type = $validatedData['vehicle_type'];
+                            $report->vehicle_engine_no = $validatedData['engine_no'];
+                            $report->vehicle_condition = $validatedData['vehicle_condition'];
+                            $report->vehicle_odometer = $validatedData['vehicle_odometer'];
+                            $report->vehicle_issues = $validatedData['vehicle_issues'];
+                    
+                            // Save the report to the database
+                            $report->save();
+                    
+                            // Redirect the user after successful submission
+                            return redirect()->route('vehicle-report')->with('success', 'Vehicle report submitted successfully.');
+                        } else {
+                            // If operator record not found, handle accordingly
+                            return redirect()->route('vehicle-report')->with('error', 'Operator record not found.');
+                        }
+                    } else {
+                        // If user is not authenticated, handle accordingly
+                        return redirect()->route('login')->with('error', 'You must be logged in to submit a vehicle report.');
+                    }                    
+                    
                 }
 
                 public function freport()
