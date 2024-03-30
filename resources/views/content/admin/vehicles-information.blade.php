@@ -163,8 +163,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#view-vehicle">
+                                                    <button type="button" class="btn btn-sm btn-primary view-vehicle-btn" data-vehicle-id="{{ $row->id }}">
                                                         View
                                                     </button>
                                                 </td>

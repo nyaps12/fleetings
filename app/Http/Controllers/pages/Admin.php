@@ -19,7 +19,6 @@ class Admin extends Controller
 {
     public function dashboard()
     {
-        notify('success', 'TESTING');
         return view('content.admin.dashboard');
     }
 
