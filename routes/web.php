@@ -65,7 +65,7 @@ use App\Http\Controllers\GoogleController;
       //
       Route::get('admin/vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
       Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
-      Route::get('admin/reports', [Admin::class, 'report'])->name('report');
+      Route::get('admin/reports', [Admin::class, 'report'])->name('reports');
       Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
       Route::get('admin/order', [Admin::class, 'order'])->name('order');
       Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
