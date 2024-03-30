@@ -63,16 +63,29 @@ use App\Http\Controllers\GoogleController;
       // Route::post('save-route', [Admin::class, 'saveRoute']);
 
       //
-      Route::get('admin/vehicles-information', [Admin::class, 'info'])->name('vehicles-information');
+      Route::get('admin/vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
       Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
-      Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
-      Route::get('admin/reports', [Admin::class, 'report'])->name('report');
+      Route::get('admin/reports', [Admin::class, 'report'])->name('reports');
       Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
       Route::get('admin/order', [Admin::class, 'order'])->name('order');
       Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
       Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
       Route::get('admin/driver-reports', [Admin::class, 'reported'])->name('drive-reports');
       Route::get('admin/vehicle-issues', [Admin::class, 'issues'])->name('vehicle-issues');
+      Route::get('admin/service', [Admin::class, 'service'])->name('service');
+      Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
+      Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
+      Route::get('admin/utilization', [Admin::class, 'utilization'])->name('utilization');
+
+      
+
+      // Maintenance Schedule
+      Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
+      Route::post('admin/schedMaintenance', [Admin::class, 'schedMaintenance'])->name('schedMaintenance');
+
+      // Vehicle Report
+      Route::get('admin/vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
+  
 
       // DRIVER SIDE OPERATE AND ASSIGN
       Route::get('admin/operator', [Admin::class, 'operator'])->name('operator');
@@ -87,6 +100,10 @@ use App\Http\Controllers\GoogleController;
       Route::get('canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
       Route::delete('admin/cancel', [Admin::class, 'cancelSuccess'])->name('assignCancel');
 
+      //ASSIGN SCHEDULE
+      // Route::get('canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
+      // Route::get('canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
+      
       /// PROFILE THINGS
       // Route::get('admin/profile', [Admin::class, 'profile'])->name('profile.show');
 
@@ -113,13 +130,17 @@ use App\Http\Controllers\GoogleController;
   Route::middleware('profile.complete')->group(function () {
       Route::get('map', [Driver::class, 'map'])->name('map');
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
-      // Route::get('report', [Driver::class, 'report'])->name('report');
+       Route::get('driver-report', [Driver::class, 'report'])->name('report');
       Route::get('history', [Driver::class, 'history'])->name('history');
-      Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
+     
 
       // Vehicle Report Form
       Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
+      Route::post('submitVehicleReport', [Driver::class, 'submitReport'])->name('submitVehicleReport');
+
+      // Fuel Report Form
       Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
+      Route::post('submitFuelReport', [Driver::class, 'FuelReport'])->name('submitFuelReport');
   });
 
       // Profile related routes

@@ -11,6 +11,8 @@ use App\Models\Operator;
 use App\Models\Restriction;
 use App\Models\VehicleInfo;
 use App\Models\Vehiclereport;
+use App\Models\FuelReport;
+use App\Models\MaintenanceSchedule;
 
 
 class Admin extends Controller
@@ -24,7 +26,8 @@ class Admin extends Controller
     public function scheduling()
     {
         $schedules = Schedule::all();
-        return view('content.admin.delivery-scheduling', compact('schedules'));
+        $operators = Operator::all();
+        return view('content.admin.delivery-scheduling', compact('schedules','operators'));
     }
 
     public function addsched()
@@ -32,7 +35,7 @@ class Admin extends Controller
         return view('content.admin.add-sched');
     }
 
-    public function info(Request $request)
+    public function vehicleInfo(Request $request)
     {
         $user = Auth::user();
         $query = VehicleInfo::query();
@@ -264,8 +267,45 @@ class Admin extends Controller
 
     public function service()
     {
-        return view('content.admin.service');
+
+        $service = MaintenanceSchedule::paginate(10);
+        return view('content.admin.service',compact('service'));
     }
+
+    public function schedMaintenance(Request $request)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'vehicle_type' => 'required|string',
+            'engine_no' => 'required|string',
+            'issues' => 'required|string',
+            'vehicle_condition' => 'required|string',
+            'date_issue' => 'required|date',
+            'vehicle_odometer' => 'required|numeric',
+            'start_date' => 'nullable|date',
+            'completion_date' => 'nullable|date',
+        ]);
+        
+
+        // Create a new instance of the model
+        $service = new MaintenanceSchedule();
+
+        // Set attributes with validated data
+        $service->date_issue = $validatedData['date'];
+        $service->vehicle_type = $validatedData['vehicle_type'];
+        $service->engine_no = $validatedData['engine_no']; // Changed to match the column name in the schema
+        $service->issues = $validatedData['issues']; // Changed to match the column name in the schema
+        // $service->status = 'status'; // Provide a value for 'status'
+        $service->vehicle_odometer = $validatedData['vehicle_odometer'];
+        $service->start_date = now(); // Assuming start date is current date/time
+        $service->completion_date = null; // Initially, completion date is null
+
+        // Save the service to the database
+        $service->save();
+            
+        return redirect()->route('service')->with('success', 'Vehicle Maintenance submitted successfully.');
+    }
+    
 
     public function maintenanceOverview()
     {
@@ -274,15 +314,22 @@ class Admin extends Controller
 
     public function vehicleReport()
     {
-        $reports = VehicleReport::all();
+        $reports = VehicleReport::paginate(10);
         
         return view('content.admin.vehicles-report', compact('reports'));
     }
 
     public function fuelReport()
     {
-        return view('content.admin.fuel-report');
+        $fuelreport = FuelReport::paginate(10);
+        return view('content.admin.fuels-report', compact('fuelreport'));
     }
+
+    public function utilization()
+    {
+        return view('content.admin.utilization');
+    }
+
     public function addSchedule()
     {
         $schedules = Schedule::all();

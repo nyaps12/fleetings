@@ -105,9 +105,6 @@ class AdminController extends Controller
             }
         }
         
-        
-        
-        
         // If user is not authenticated, redirect to login
         return redirect()->route('login');
 
@@ -130,21 +127,21 @@ class AdminController extends Controller
     public function redirectDash()
     {
         $redirect = '';
-
+    
         if(Auth::check()) { // Check if the user is authenticated
-            if(Auth::user()->id == 1) { // Check if the user's role is super-admin
-                $redirect = '/admin/dashboard'; // Redirect to the super-admin dashboard
-            } elseif(Auth::user()->id == 2) { // Check if the user's role is admin
-                $redirect = '/admin/dashboard'; // Redirect to the admin dashboard
-            }
-            else 
-            {
-                $redirect = '/dashboard'; // Default dashboard route for users with other roles
+            if(Auth::user()->hasRole('Super Admin')) { // Check if the user's role is super-admin
+                $redirect = 'admin/dashboard'; // Redirect to the super-admin dashboard
+            } elseif(Auth::user()->hasRole('Admin')) { // Check if the user's role is admin
+                $redirect = 'admin/dashboard'; // Redirect to the admin dashboard
+            } elseif(Auth::user()->hasRole('Driver')) { // Check if the user's role is driver
+                $redirect = 'dashboard'; // Redirect to the driver dashboard
+            } else {
+                $redirect = 'dashboard'; // Default dashboard route for users with other roles
             }
         } else {
             $redirect = '/login'; // If the user is not authenticated, redirect to the login page
         }
         
         return $redirect;
-    }
+    }    
 }
