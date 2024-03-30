@@ -125,6 +125,33 @@
                                 <table class="table datatable-invoice border-top">
                                     <thead>
                                         <tr>
+                                            <td> {{ $row->id }} </td>
+                                            <td> {{ $row->vehicle_id }} </td>
+                                            <td> {{ $row->vehicle_brand }} </td>
+                                            <td> {{ $row->year_model }} </td>
+                                            <td> {{ $row->vehicle_type }} </td>
+                                            <td> {{ $row->plate_number }} </td>
+                                            <td> {{ $row->load_capacity }} </td>
+                                            <td>
+                                                @if ($row->status === 'available')
+                                                    <span class="badge bg-success">
+                                                        Available
+                                                    </span>
+                                                @elseif ($row->status === 'unavailable')
+                                                    <span class="badge bg-danger">
+                                                        Unavailable
+                                                    </span>
+                                                @else
+                                                    <span class="badge bg-secondary">
+                                                        Unknown
+                                                    </span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-primary view-vehicle-btn" data-vehicle-id="{{ $row->id }}">
+                                                    View
+                                                </button>
+                                            </td>
                                             <th><strong> # </strong> </th>
                                             <th><strong> Vehicle ID </strong> </th>
                                             <th><strong> Vehicle Brand </strong></th>
@@ -186,7 +213,4 @@
     </div>
     <!-- Modal -->
     @include('content.modal.view-vehicle')
-
-
-
 @endsection
