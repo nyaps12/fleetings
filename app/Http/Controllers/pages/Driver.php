@@ -127,13 +127,13 @@ class Driver extends Controller
                             // Redirect the user after successful submission
                             return redirect()->route('vehicle-report')->with('success', 'Vehicle report submitted successfully.');
                         } else {
-                            // If operator record not found, handle accordingly
-                            return redirect()->route('vehicle-report')->with('error', 'Operator record not found.');
+                            // If operator record not found, inform the user to contact support
+                            return redirect()->route('vehicle-report')->with('error', 'Operator record not found. Please contact support.');
                         }
                     } else {
                         // If user is not authenticated, handle accordingly
                         return redirect()->route('login')->with('error', 'You must be logged in to submit a vehicle report.');
-                    }                    
+                    }                                      
                     
                 }
 
