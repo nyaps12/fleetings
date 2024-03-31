@@ -83,11 +83,14 @@ class AdminController extends Controller
         // test4
 
         if (Auth::check()) {
+            // Get the authenticated user
+            $user = Auth::user();
+            
             // Generate a token for the authenticated user
-            $accessToken = Auth::user()->createToken('MyAppToken')->accessToken;
+            $accessToken = $user->createToken('MyAppToken')->accessToken;
             
             // Get the user's roles
-            $roles = Auth::user()->getRoleNames();
+            $roles = $user->getRoleNames();
             
             // Debugging: Print out the roles
             // dd($roles);
@@ -107,7 +110,6 @@ class AdminController extends Controller
         
         // If user is not authenticated, redirect to login
         return redirect()->route('login');
-
     }
 
     public function logout()
