@@ -12,10 +12,10 @@
         <div class="row justify-content-center align-items-center">
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-6">
-                        <img src="{{ asset('assets/img/vehicle/Truck.jpg') }}" alt="" class="img-fluid"
-                            style="max-width: 250px;">
-                    </div>
+
+                    <img src="{{ asset('assets/img/vehicle/Truck.jpg') }}" alt="" class="img-fluid"
+                        style="max-width: 250px;">
+
                     <div class="col-6"> <!-- Adjusted to col-6 -->
                         <h3 class="d-flex text-start">2011 Truck</h3>
                         <p class="text-muted"> Truck. 2011 ZZZ</p>
