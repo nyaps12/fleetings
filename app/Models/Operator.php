@@ -20,6 +20,7 @@ class Operator extends Model
         'vehicle_brand',
         'plate_number',
         'vehicle_type',
+        'profile_photo_path',
         'phone',
         'status',
     ];
