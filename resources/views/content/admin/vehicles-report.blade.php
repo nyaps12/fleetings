@@ -41,7 +41,8 @@
 
                                             <th> {{ $report->id }}</th>
                                             <td>
-                                                <img src="{{ $report->profile_photo_path }}" alt="Profile Picture" class="rounded-circle" style="width: 25px; height: 25px;">
+                                                <img src="{{ $report->profile_photo_path }}" alt="Profile Picture"
+                                                    class="rounded-circle" style="width: 25px; height: 25px;">
                                                 {{ $report->firstname }} {{ $report->lastname }}
                                             </td>
                                             <td> {{ $report->vehicle_type }}</td>

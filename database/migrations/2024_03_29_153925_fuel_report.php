@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('fuel_report', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('vehicle_id');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->date('date');
             $table->decimal('price_per_liter', 8, 2);
             $table->decimal('liters', 8, 2);

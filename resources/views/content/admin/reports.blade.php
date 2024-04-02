@@ -33,19 +33,19 @@
                 </div>
 
                 <div class="col-md-5 mb-4">
-                    <h6> Vehicle Utilization </h6>
+                    <h6> Fuel</h6>
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
 
-                                    <img src="{{ asset('assets/img/vehicle/vehicle-uti.jpg') }}" alt=""
+                                    <img src="{{ asset('assets/img/vehicle/fuel-icon.jpg') }}" alt=""
                                         class="img-fluid" style="max-width: 90px;">
                                 </div>
                                 <div class="col-md-8">
-                                    <h6> Vehicle Utilization Summary</h6>
-                                    <p class="text-muted">Listing of vehicle utilization</p>
-                                    <a href="utilization">See Report <b>&rarr;</b></a>
+                                    <h6>Fuel Report</h6>
+                                    <p class="text-muted">Listing of all fuel reports</p>
+                                    <a href="fuels-report">See Report <b>&rarr;</b></a>
                                 </div>
                             </div>
                         </div>
@@ -56,19 +56,19 @@
 
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <h6> Fuel </h6>
+                        <h6> Incidents </h6>
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
 
-                                        <img src="{{ asset('assets/img/vehicle/fuel-icon.jpg') }}" alt=""
+                                        <img src="{{ asset('assets/img/vehicle/incidents.jpg') }}" alt=""
                                             class="img-fluid" style="max-width: 90px;">
                                     </div>
                                     <div class="col-md-8">
-                                        <h6>Fuel Report</h6>
+                                        <h6>Incident Report</h6>
                                         <p class="text-muted">Listing of all fuel <br> reports</p>
-                                        <a href="fuels-report">See Report <b>&rarr;</b></a>
+                                        <a href="incident-report">See Report <b>&rarr;</b></a>
                                     </div>
                                 </div>
                             </div>

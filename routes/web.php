@@ -75,7 +75,7 @@ use App\Http\Controllers\GoogleController;
       Route::get('admin/service', [Admin::class, 'service'])->name('service');
       Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
       Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
-      Route::get('admin/utilization', [Admin::class, 'utilization'])->name('utilization');
+      Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
 
       
 
@@ -130,7 +130,7 @@ use App\Http\Controllers\GoogleController;
   Route::middleware('profile.complete')->group(function () {
       Route::get('map', [Driver::class, 'map'])->name('map');
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
-       Route::get('driver-report', [Driver::class, 'report'])->name('report');
+      Route::get('driver-report', [Driver::class, 'report'])->name('report');
       Route::get('history', [Driver::class, 'history'])->name('history');
      
 
@@ -141,6 +141,10 @@ use App\Http\Controllers\GoogleController;
       // Fuel Report Form
       Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
       Route::post('submitFuelReport', [Driver::class, 'FuelReport'])->name('submitFuelReport');
+
+      // Incident Report Form
+      Route::get('incident', [Driver::class, 'incident'])->name('incident');
+      Route::post('submitIncident', [Driver::class, 'submitIncident'])->name('submitIncident');
   });
 
       // Profile related routes
