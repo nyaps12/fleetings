@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('vehicle_brand')->nullable();
             $table->string('plate_number')->nullable();
             $table->string('vehicle_type')->nullable();
+            $table->string('profile_photo_path')->nullable();
             $table->string('phone')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
