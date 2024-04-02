@@ -109,15 +109,15 @@
             <div class="col-12">
                 <label class="col-sm-3 col-form-label" for="multicol-language">Operator</label>
                 <div class="col-sm-9">
-                    <select id="operator" class="select2 form-select">
-                        @if ($operators->isNotEmpty())
-                            @foreach ($operators as $operator)
-                                <option value="{{ $operator->id }}">{{ $operator->firstname }} {{ $operator->lastname }}</option>
-                            @endforeach
-                        @else
-                            <option selected>No operator found</option>
-                        @endif
-                    </select>                                   
+                        <select id="operator" class="select2 form-select">
+                            @if ($operators->isNotEmpty())
+                                @foreach ($operators as $operator)
+                                    <option value="{{ $operator->id }}">{{ $operator->vehicle_type }} - {{ $operator->firstname }} {{ $operator->lastname }}</option>
+                                @endforeach
+                            @else
+                                <option selected>No operator found</option>
+                            @endif
+                        </select>                                                       
                 </div>                                
             </div>
             <div class="col-12 text-end">

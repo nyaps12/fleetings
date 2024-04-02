@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\language\LanguageController;
 use App\Http\Controllers\pages\Admin;
 use App\Http\Controllers\pages\Driver;
-use App\Http\Controllers\pages\AdminController;
+use App\Http\Controllers\pages\AuthController;
 use App\Http\Controllers\authentications\LoginBasic;
 use App\Http\Controllers\authentications\RegisterBasic;
 use App\Http\Controllers\RoleController;
@@ -24,7 +24,7 @@ use App\Http\Controllers\GoogleController;
 
     //Login Things
     Route::redirect(uri: '/', destination: 'login');
-    Route::post('logout', [AdminController::class, 'logout'])->name('logout');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('auth/google', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
     Route::any('auth/google/callback', [GoogleController::class, 'callbackFromGoogle'])->name('google.callback');
@@ -152,7 +152,7 @@ use App\Http\Controllers\GoogleController;
 
 
 
-    Route::get('/home',[AdminController::class, 'index']);
+    Route::get('/home',[AuthController::class, 'index']);
 
 
 
