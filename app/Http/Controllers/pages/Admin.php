@@ -13,6 +13,7 @@ use App\Models\VehicleInfo;
 use App\Models\Vehiclereport;
 use App\Models\FuelReport;
 use App\Models\MaintenanceSchedule;
+use App\Models\IncidentReport;
 
 
 class Admin extends Controller
@@ -325,9 +326,10 @@ class Admin extends Controller
         return view('content.admin.fuels-report', compact('fuelreport'));
     }
 
-    public function utilization()
+    public function incidents()
     {
-        return view('content.admin.utilization');
+        $incidents = IncidentReport::paginate(10);
+        return view('content.admin.incident-report', compact('incidents'));
     }
 
     public function addSchedule()

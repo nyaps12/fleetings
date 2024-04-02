@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card">
-                            <a href="{{ url('/fuel-report') }}">
+                            <a href="{{ url('/incident') }}">
                                 <img src="{{ asset('assets/img/vehicle/incident.jpg') }}" class="card-img-top"
                                     style="height: 400px" alt="Placeholder Image">
                             </a>

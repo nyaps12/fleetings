@@ -21,7 +21,7 @@
                             <table class="table datatable-invoice border-top">
                                 <thead>
                                     <tr>
-
+                                        <th><strong> # </strong> </th>
                                         <th><strong> Operator </strong> </th>
                                         <th><strong> Price Per Liter </strong> </th>
                                         <th><strong> Liters </strong></th>
@@ -37,8 +37,10 @@
                                 <tbody>
                                     @foreach ($fuelreport as $fuel)
                                         <tr>
-
-                                            <td></td>
+                                            <th> {{ $fuel->id }}</th>
+                                            <td>
+                                                {{ $fuel->firstname }} {{ $fuel->lastname }}
+                                            </td>
                                             <td>{{ $fuel->price_per_liter }} </td>
                                             <td>{{ $fuel->liters }} </td>
                                             <td>{{ $fuel->total_cost }} </td>
