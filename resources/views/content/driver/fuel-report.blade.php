@@ -4,9 +4,52 @@
 
 @extends('layouts/contentNavbarLayout')
 
+@include('layouts/notification')
+
+
 @section('title', 'Fuel Report')
 
 @section('content')
+    @if (session('success'))
+        <div id="notification" class="notification show">
+            <span class="message">{{ session('success') }}</span>
+            <button class="close-btn" onclick="hideNotification()">X</button>
+        </div>
+        <script>
+            // Set the duration (in milliseconds) for the notification to be displayed
+            var duration = 5000; // 5 seconds (adjust as needed)
+
+            // Function to hide the notification after the specified duration
+            function hideNotification() {
+                var notification = document.getElementById('notification');
+                notification.style.display = 'none';
+            }
+
+            // Hide the notification after the specified duration
+            setTimeout(hideNotification, duration);
+        </script>
+    @endif
+
+    @if (session('error'))
+        <div id="errorNotification" class="notification show error">
+            <span class="message">{{ session('error') }}</span>
+            <button class="close-btn" onclick="hideErrorNotification()">X</button>
+        </div>
+        <script>
+            // Set the duration (in milliseconds) for the error notification to be displayed
+            var duration = 5000; // 5 seconds (adjust as needed)
+
+            // Function to hide the error notification after the specified duration
+            function hideErrorNotification() {
+                var errorNotification = document.getElementById('errorNotification');
+                errorNotification.style.display = 'none';
+            }
+
+            // Hide the error notification after the specified duration
+            setTimeout(hideErrorNotification, duration);
+        </script>
+    @endif
+
     <div class="card">
         <div class="card-header">
             <h3>Fuel Report</h3>

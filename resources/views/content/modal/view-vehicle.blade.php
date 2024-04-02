@@ -9,7 +9,10 @@
                 <form id="viewVehicleForm" class="row g-3">
                     <div class="row">
                         <div class="col-12">
-                            <img src="{{ asset($vehicle->profile_photo_path) }}" alt="Vehicle Photo" id="vehicleImage">
+                            @foreach ($vehicle as $vehicles)
+                                <img src="{{ asset($vehicles->profile_photo_path) }}" alt="Vehicle Photo"
+                                    id="vehicleImage-{{ $vehicles->id }}">
+                            @endforeach
                             <p id="vehicleId"></p>
                             <p id="vehicleBrand"></p>
                             <p id="vehicleYearModel"></p>
@@ -28,9 +31,7 @@
 <script>
     // Function to populate modal content and open the modal
     function populateModal(vehicle) {
-        console.log(imageSrc)
 
-        document.getElementById('vehicleImage').src = imageSrc;
         document.getElementById('vehicleId').innerText = 'Vehicle ID: ' + vehicle.id;
         document.getElementById('vehicleBrand').innerText = 'Brand: ' + vehicle.vehicle_brand;
         document.getElementById('vehicleYearModel').innerText = 'Year Model: ' + vehicle.year_model;
