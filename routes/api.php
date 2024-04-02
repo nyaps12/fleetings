@@ -20,5 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 ///GETTING USER USING API
-Route::get('driver',[DriverContoller::class,'index']);
+Route::get('users',[DriverContoller::class,'users']);
+///
+
+///GETTING USER USING API
+Route::get('vehicle',[DriverContoller::class,'vehicle']);
+///
+
+///GETTING USER USING API
+Route::get('driver/operator',[DriverContoller::class,'operator']);
 ///
