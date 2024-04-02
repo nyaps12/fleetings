@@ -186,6 +186,7 @@ class Admin extends Controller
                 'vehicle_brand' => $vehicle->vehicle_brand,
                 'plate_number' => $vehicle->plate_number,
                 'vehicle_type' => $vehicle->vehicle_type,
+                'profile_photo_path' => $user->profile_photo_path,
                 'phone' => $user->phone,
                 'status' => 'active',
             ]);

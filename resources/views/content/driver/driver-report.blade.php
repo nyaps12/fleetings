@@ -9,7 +9,6 @@
 @section('content')
 
     <div class="container">
-        <div class="card">
             <div class="card-header">
                 <h4>Daily Reports</h4>
             </div>
@@ -52,6 +51,5 @@
 
                 </div>
             </div>
-        </div>
     </div>
 @endsection

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
-class AdminController extends Controller
+class AuthController extends Controller
 {
     public function index()
     {
@@ -92,21 +92,19 @@ class AdminController extends Controller
             // Get the user's roles
             $roles = $user->getRoleNames();
             
-            // Debugging: Print out the roles
-            // dd($roles);
-        
             // Redirect based on the user's roles
             if ($roles->contains('Admin') || $roles->contains('Super Admin')) {
-                // Redirect to the appropriate admin dashboard
-                return redirect()->route('admin.dashboard')->with('access_token', $accessToken);
+                // Redirect to the appropriate admin dashboard with access token and welcome message
+                return redirect()->route('admin.dashboard')->with(['access_token' => $accessToken, 'welcome_message' => "Welcome, {$user->name}!"]);
             } elseif ($roles->contains('Driver')) {
-                // Redirect to the appropriate dashboard for drivers
-                return redirect()->route('user.dashboard')->with('access_token', $accessToken);
+                // Redirect to the appropriate dashboard for drivers with access token and welcome message
+                return redirect()->route('user.dashboard')->with(['access_token' => $accessToken, 'welcome_message' => "Welcome, {$user->name}!"]);
             } else {
                 // Redirect to the login page if user role is not recognized
                 return redirect()->route('login');
             }
         }
+        
         
         // If user is not authenticated, redirect to login
         return redirect()->route('login');
