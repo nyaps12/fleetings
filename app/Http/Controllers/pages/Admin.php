@@ -62,9 +62,9 @@ class Admin extends Controller
 
 
         // Execute the query and retrieve the filtered data
-        $vehicle = $query->paginate(8);
+        $vehicle = $query->paginate(10);
     
-        return view('content.admin.vehicles-information', compact('user', 'vehicle'));
+        return view('content.admin.vehicles-information', compact('user', 'vehicle',));
     }
 
     public function infodisplay($id)

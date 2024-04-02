@@ -23,7 +23,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'USQ-280',
             'load_capacity' => 1575.56, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/ford-suv.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -35,7 +35,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'NNI-193',
             'load_capacity' => 2833.51, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/subaru-truck.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -47,7 +47,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'FN3H55',
             'load_capacity' => 1795.53, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/toyota-sedan.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -59,7 +59,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'EVM386',
             'load_capacity' => 210.52, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/honda-click.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -71,7 +71,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'GLU178',
             'load_capacity' => 1636.62, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/nissan-suv.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -83,7 +83,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'PU658L6',
             'load_capacity' => 2010.11, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/mitsubishi-suv.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -95,7 +95,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'DRD8346',
             'load_capacity' => 1700.66, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/audi-sedan.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -107,7 +107,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'FJ8Q71',
             'load_capacity' => 18000.52, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/volvo-truck.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -119,7 +119,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'DRD8346',
             'load_capacity' => 20000.12, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/acura-truck.jpg',
             // You can set created_at and updated_at if needed
         ]);
 
@@ -131,7 +131,7 @@ class VehicleInfoSeeder extends Seeder
             'plate_number' => 'JL7V64',
             'load_capacity' => 175.20, // example value
             'status' => 'available',
-            'profile_photo_path' => 'example_profile_photo_path.jpg',
+            'profile_photo_path' => '../assets/img/vehicle/yamaha-mio.jpg',
             // You can set created_at and updated_at if needed
         ]);
         
