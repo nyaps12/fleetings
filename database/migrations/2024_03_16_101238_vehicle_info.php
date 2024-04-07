@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('year_model');
             $table->string('vehicle_type');
             $table->string('plate_number');
-            $table->string('load_capacity');
+            $table->decimal('load_capacity', 10, 2);
             $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();

@@ -146,7 +146,7 @@
                                                 <td> {{ $row->year_model }} </td>
                                                 <td> {{ $row->vehicle_type }} </td>
                                                 <td> {{ $row->plate_number }} </td>
-                                                <td> {{ $row->load_capacity }} </td>
+                                                <td> {{ $row->load_capacity }} KG </td>
                                                 <td>
                                                     @if ($row->status === 'available')
                                                         <span class="badge bg-success">
@@ -163,7 +163,8 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-primary view-vehicle-btn" data-vehicle-id="{{ $row->id }}">
+                                                    <button type="button" class="btn btn-sm btn-primary view-vehicle-btn"
+                                                        data-vehicle-id="{{ $row->id }}">
                                                         View
                                                     </button>
                                                 </td>
@@ -171,7 +172,12 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <br>
+                                <div class="d-flex justify-content-end">
+                                    <a href="">
+                                        <h4> Need vehicle? request now</h4>
+                                    </a>
+                                </div>
+
                                 <div class="d-flex justify-content-end">
                                     {{ $vehicle->links() }}
                                 </div>

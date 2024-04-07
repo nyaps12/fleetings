@@ -50,7 +50,7 @@ use App\Http\Controllers\GoogleController;
       'verified',
     ])->group(function () {
       // Admin Routes
-      Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('admin.dashboard');
+      Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('dashboard');
 
       //DELIVERY LIST
       Route::get('admin/delivery', [Admin::class, 'deliveryList'])->name('delivery');
@@ -65,7 +65,7 @@ use App\Http\Controllers\GoogleController;
       //
       Route::get('admin/vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
       Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
-      Route::get('admin/reports', [Admin::class, 'report'])->name('reports');
+      Route::get('admin/reports', [Admin::class, 'report'])->name('report');
       Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
       Route::get('admin/order', [Admin::class, 'order'])->name('order');
       Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
@@ -124,7 +124,7 @@ use App\Http\Controllers\GoogleController;
     ])->group(function () {
       // Define routes specific to driver users here
       // For example:
-      Route::get('dashboard', [Driver::class, 'dashboard'])->name('user.dashboard');
+      Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard.index');
 
   // Middleware for users who have completed their profile
   Route::middleware('profile.complete')->group(function () {
