@@ -283,5 +283,8 @@ class Driver extends Controller
                     }       
                 
                     }
+    public function faq(){
+        return view('content.driver.pages-faq');
+    }
 
 }

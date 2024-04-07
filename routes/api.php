@@ -15,16 +15,14 @@ use App\Http\Controllers\Api\DriverContoller;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 ///GETTING USER USING API
 Route::get('users',[DriverContoller::class,'users']);
 ///
 
 ///GETTING USER USING API
 Route::get('vehicle',[DriverContoller::class,'vehicle']);
+
+Route::get('vehicle/{id}',[DriverContoller::class,'vehiclefind']);
 ///
 
 ///GETTING USER USING API

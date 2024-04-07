@@ -14,13 +14,36 @@ use App\Models\Vehiclereport;
 use App\Models\FuelReport;
 use App\Models\MaintenanceSchedule;
 use App\Models\IncidentReport;
+use Carbon\Carbon;
+
 
 
 class Admin extends Controller
 {
     public function dashboard()
     {
-        return view('content.admin.dashboard');
+        // Count of vehicle reports in the current week
+        $currentWeekReports = Vehiclereport::whereBetween('created_at', [
+            Carbon::now()->startOfWeek(), // Start of the current week
+            Carbon::now()->endOfWeek()    // End of the current week
+        ])->count();
+    
+        // Count of vehicle reports in the previous week
+        $previousWeekReports = Vehiclereport::whereBetween('created_at', [
+            Carbon::now()->startOfWeek()->subWeek(), // Start of the previous week
+            Carbon::now()->endOfWeek()->subWeek()    // End of the previous week
+        ])->count();
+    
+        // Calculate the percentage change
+        if ($previousWeekReports != 0) {
+            $percentageChange = (($currentWeekReports - $previousWeekReports) / $previousWeekReports) * 100;
+        } else {
+            // Handle division by zero (no reports in the previous week)
+            $percentageChange = 0;
+        }
+    
+        // Return the counts and percentage change to the view
+        return view('content.admin.dashboard', compact('currentWeekReports', 'previousWeekReports', 'percentageChange'));
     }
 
     public function scheduling()
