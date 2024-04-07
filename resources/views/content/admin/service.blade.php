@@ -35,7 +35,7 @@
                             <table class="table datatable-invoice border-top">
                                 <thead>
                                     <tr>
-                                        <th><strong> # </strong> </th>
+                                        <th><strong> ID </strong> </th>
                                         <th><strong> Operator </strong> </th>
                                         <th><strong> Vehicle Type </strong></th>
                                         <th><strong> Vehicle Engine No. </strong></th>
