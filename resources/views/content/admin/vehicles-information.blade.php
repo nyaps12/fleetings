@@ -119,7 +119,7 @@
                                 <table class="table datatable-invoice border-top">
                                     <thead>
                                         <tr>
-                                            <th><strong> # </strong> </th>
+                                            <th><strong> ID </strong> </th>
                                             <th><strong> Vehicle ID </strong> </th>
                                             <th><strong> Vehicle Brand </strong></th>
                                             <th><strong> Year Model </strong></th>

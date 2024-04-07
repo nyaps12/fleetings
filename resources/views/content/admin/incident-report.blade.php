@@ -5,7 +5,12 @@
 @extends('layouts/layoutMaster')
 
 @section('title', 'Incident Report')
+<style>
 
+/* #test {
+  white-space: nowrap;
+} */
+</style>
 @section('content')
     <div class="row">
         <div class="col-sm-12 col-lg-12 mb-4">
@@ -18,20 +23,18 @@
                             <div class="table-responsive card-datatable">
                                 <table class="table datatable-invoice border-top">
                                     <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Phone Number</th>
-                                            <th>Address</th>
-                                            <th>Vehicle Type</th>
-                                            <th>Vehicle Engine No.</th>
-
-                                            <th>Incident Location</th>
-                                            <th>Incident Description</th>
-                                            <th>Date</th>
-                                            <th>Time</th>
-                                            <th></th>
-
+                                        <tr id="test">
+                                            <th><strong>ID</strong></th>
+                                            <th><strong>Name</strong></th>
+                                            <th><strong>Phone Number</strong></th>
+                                            <th><strong>Address</strong></th>
+                                            <th><strong>Vehicle Type</strong></th>
+                                            <th><strong>Vehicle Engine No.</strong></th>
+                                            <th><strong>Incident Location</strong></th>
+                                            <th><strong>Incident Description</strong></th>
+                                            <th><strong>Date</strong></th>
+                                            <th><strong>Time</strong></th>
+                                            <th><strong>Action</strong></th>
                                         </tr>
                                     </thead>
 

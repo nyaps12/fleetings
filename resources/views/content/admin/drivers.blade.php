@@ -9,6 +9,13 @@
 
 @include('layouts/notification')
 
+<style>
+
+    #test {
+      white-space: nowrap;
+    }
+    </style>
+
 @section('content')
 <div class="container-fluid">
 
@@ -72,14 +79,14 @@
                         <table class="table datatable-invoice border-top">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID </th>
-                                    <th scope="col">Picture</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Contact No.</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
+                                    <th><strong> ID </strong> </th>
+                                    <th><strong>Picture</strong></th>
+                                    <th><strong>Name</strong></th>
+                                    <th><strong>Contact No.</strong></th>
+                                    <th><strong>Address</strong></th>
+                                    <th><strong>Email</strong></th>
+                                    <th><strong>Status</strong></th>
+                                    <th><strong>Action</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +94,7 @@
                                     <tr>
                                         <th>{{ $driver->id }}</th>
                                         <td colspan="1" class="text-center"><img src="{{ $driver->profile_photo_path }}" alt="driver profile" width="35px" height="35px" class="rounded-circle"></td>
-                                        <td>{{ $driver->firstname }} {{ $driver->lastname }}</td>
+                                        <td id="test">{{ $driver->firstname }} {{ $driver->lastname }}</td>
                                         <td>{{ $driver->phone }}</td>
                                         <td>{{ $driver->address }}</td>
                                         <td>{{ $driver->email }}</td>
