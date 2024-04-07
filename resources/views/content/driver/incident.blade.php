@@ -132,8 +132,8 @@
                     <div class="row">
                         <div class="col-md-12 mt-2">
                             <label for="incident_description" class="form-label">State what happen</label>
-                            <input type="text" class="form-control form-control-lg" name="incident_description"
-                                placeholder="Description">
+                            <textarea type="text" class="form-control form-control-lg" rows="3" name="incident_description"
+                                placeholder="Description"></textarea>
                         </div>
                         <div class="col-md-6 mt-2">
                             <label for="image" class="form-label">Upload Incident Photos</label>
