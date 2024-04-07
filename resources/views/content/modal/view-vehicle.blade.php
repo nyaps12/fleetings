@@ -9,55 +9,71 @@
                 <form id="viewVehicleForm" class="row g-3">
                     <div class="row">
                         <div class="col-12">
-                            @foreach ($vehicle as $vehicles)
-                                <img src="{{ asset($vehicles->profile_photo_path) }}" alt="Vehicle Photo"
-                                    id="vehicleImage-{{ $vehicles->id }}">
-                            @endforeach
+                            <!-- Image element to display the vehicle image -->
+                            <img id="vehicleImage" src="" alt="" style="width: 200px; height: auto;">
                             <p id="vehicleId"></p>
                             <p id="vehicleBrand"></p>
                             <p id="vehicleYearModel"></p>
                         </div>
                     </div>
-                    <div class="col-12 text-end">
+                    {{-- <div class="col-12 text-end">
                         <button type="button" class="btn btn-label-secondary btn-md btn-reset badge"
                             data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                    </div>
-                </form>
+                    </div> --}}
+                </form>                
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // Function to populate modal content and open the modal
-    function populateModal(vehicle) {
+// Function to populate modal content and open the modal
+function populateModal(response) {
+    // Extract the vehicle data from the response
+    var driver = response.driver;
 
-        document.getElementById('vehicleId').innerText = 'Vehicle ID: ' + vehicle.id;
-        document.getElementById('vehicleBrand').innerText = 'Brand: ' + vehicle.vehicle_brand;
-        document.getElementById('vehicleYearModel').innerText = 'Year Model: ' + vehicle.year_model;
-
-        // Open the modal
-        var modal = new bootstrap.Modal(document.getElementById('viewVehicleModal'));
-        modal.show();
+    if (!driver || !driver.profile_photo_path) {
+        console.error('Vehicle data is invalid or incomplete:', driver);
+        return;
     }
 
-    // Event listener for the button click
-    document.querySelectorAll('.view-vehicle-btn').forEach(function(button) {
-        button.addEventListener('click', function() {
-            // Retrieve the vehicle ID from the button's data attribute
-            var vehicleId = this.getAttribute('data-vehicle-id');
+    // Set the image source
+    document.getElementById('vehicleImage').src = driver.profile_photo_path;
 
-            // Make an AJAX request to fetch the vehicle data based on the ID
-            // Replace the following lines with your AJAX request implementation
-            var vehicle = {
-                id: vehicleId,
-                vehicle_brand: 'Example Brand',
-                year_model: '2022'
-                // Add more properties as needed
-            };
+    document.getElementById('vehicleId').innerText = 'Vehicle ID: ' + driver.vehicle_id;
+    document.getElementById('vehicleBrand').innerText = 'Brand: ' + driver.vehicle_brand;
+    document.getElementById('vehicleYearModel').innerText = 'Year Model: ' + driver.year_model;
 
-            // Populate the modal with the fetched vehicle data
-            populateModal(vehicle);
-        });
+    // Open the modal
+    var modal = new bootstrap.Modal(document.getElementById('viewVehicleModal'));
+    modal.show();
+}
+
+// Event listener for the button click
+document.querySelectorAll('.view-vehicle-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+        // Retrieve the vehicle ID from the button's data attribute
+        var vehicleId = this.getAttribute('data-vehicle-id');
+
+        // Make an AJAX request to fetch the vehicle data based on the ID
+        fetch('http://127.0.0.1:8000/api/vehicle/' + vehicleId)
+            .then(response => {
+                // Check if response is successful (status code 200-299)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse JSON response
+            })
+            .then(response => {
+                // Populate the modal with the fetched vehicle data
+                populateModal(response);
+            })
+            .catch(error => {
+                console.error('Error fetching vehicle data:', error);
+            });
     });
+});
+
+
 </script>
+    

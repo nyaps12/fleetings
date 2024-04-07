@@ -50,7 +50,7 @@ use App\Http\Controllers\GoogleController;
       'verified',
     ])->group(function () {
       // Admin Routes
-      Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('dashboard');
+      Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('admin.dashboard');
 
       //DELIVERY LIST
       Route::get('admin/delivery', [Admin::class, 'deliveryList'])->name('delivery');
@@ -124,7 +124,8 @@ use App\Http\Controllers\GoogleController;
     ])->group(function () {
       // Define routes specific to driver users here
       // For example:
-      Route::get('dashboard', [Driver::class, 'dashboard'])->name('dashboard.index');
+      Route::get('dashboard', [Driver::class, 'dashboard'])->name('user.dashboard');
+
 
   // Middleware for users who have completed their profile
   Route::middleware('profile.complete')->group(function () {
@@ -132,7 +133,7 @@ use App\Http\Controllers\GoogleController;
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
       Route::get('driver-report', [Driver::class, 'report'])->name('report');
       Route::get('history', [Driver::class, 'history'])->name('history');
-     
+      Route::get('faq', [Driver::class, 'faq'])->name('user.faq');
 
       // Vehicle Report Form
       Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');

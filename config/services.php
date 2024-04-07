@@ -30,6 +30,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    // 'google' => [
+    //     'client_id' => '371669384771-hgsl1m21bpg31l7i1dg7n5ekn354qgv0.apps.googleusercontent.com',
+    //     'client_secret' => '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',
+    //     'redirect' => 'https://fleet-g43.bbox-express.com/auth/google/callback',
+    // ],
     'google' => [
         'client_id' => '371669384771-6rc1c1p6idmtu4b23hoppj49sdffsglg.apps.googleusercontent.com',
         'client_secret' => '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',

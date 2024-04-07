@@ -12,7 +12,7 @@
 
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   @vite(['resources/assets/js/config.js'])
-{{-- 
+
 @if ($configData['hasCustomizer'])
 <script type="module">
     window.templateCustomizer = new TemplateCustomizer({
@@ -41,4 +41,4 @@
         'controls': <?php echo json_encode($configData['customizerControls']); ?>,
     });
 </script>
-@endif --}}
+@endif

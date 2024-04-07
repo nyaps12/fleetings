@@ -4,7 +4,7 @@
       "url": "dashboard",
       "name": "Dashboard",
       "icon": "menu-icon tf-icons ti ti-smart-home",
-      "slug": "dashboard.index"
+      "slug": "user.dashboard"
     },
     {
       "url": "map",
@@ -23,6 +23,12 @@
       "name": "Report",
       "icon": "menu-icon tf-icons ti ti-message-report",
       "slug": "report"
+    },
+    {
+      "url": "faq",
+      "name": "Faq",
+      "icon": "menu-icon tf-icons ti ti-message-report",
+      "slug": "faq"
     }
   ]
 }
