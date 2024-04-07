@@ -39,16 +39,16 @@
                             <table class="table datatable-invoice border-top">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Picture</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Vehicle ID</th>
-                                        <th scope="col">Vehicle Brand</th>
-                                        <th scope="col">Plate Number</th>
-                                        <th scope="col">Vehicle Type</th>
-                                        <th scope="col">Contact No.</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th><strong>ID</strong></th>
+                                        <th><strong>Picture</strong></th>
+                                        <th><strong>Name</strong></th>
+                                        <th><strong>Vehicle ID</strong></th>
+                                        <th><strong>Vehicle Brand</strong></th>
+                                        <th><strong>Plate Number</strong></th>
+                                        <th><strong>Vehicle Type</strong></th>
+                                        <th><strong>Contact No.</strong></th>
+                                        <th><strong>Status</strong></th>
+                                        <th><strong>Action</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>

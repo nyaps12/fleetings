@@ -42,14 +42,14 @@
                             <table class="table datatable-invoice border-top">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Schedule ID</th>
-                                        <th scope="col">Address</th>
-                                        <th scope="col">Starting Date</th>
-                                        <th scope="col">End Date</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Operator</th>
-                                        <th scope="col">Action</th>
+                                        <th><strong>ID</strong></th>
+                                        <th><strong>Schedule ID</strong></th>
+                                        <th><strong>Address</strong></th>
+                                        <th><strong>Starting Date</strong></th>
+                                        <th><strong>End Date</strong></th>
+                                        <th><strong>Status</strong></th>
+                                        <th><strong>Operator</strong></th>
+                                        <th><strong>Action</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
