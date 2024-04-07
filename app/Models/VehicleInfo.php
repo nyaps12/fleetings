@@ -19,6 +19,8 @@ class VehicleInfo extends Model
         'load_capacity',
         'status', // Include the status field here
         'profile_photo_path',
+        'engine_number',
+        'chassis_number'
     ];
     
 }

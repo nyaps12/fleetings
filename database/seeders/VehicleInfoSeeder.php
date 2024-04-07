@@ -25,6 +25,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/ford-suv.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -37,6 +39,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/subaru-truck.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -49,6 +53,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/toyota-sedan.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -61,6 +67,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/honda-click.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -73,6 +81,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/nissan-suv.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -85,6 +95,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/mitsubishi-suv.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -97,6 +109,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/audi-sedan.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -109,6 +123,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/volvo-truck.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -121,6 +137,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/acura-truck.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
 
         VehicleInfo::factory()->create([
@@ -133,6 +151,8 @@ class VehicleInfoSeeder extends Seeder
             'status' => 'available',
             'profile_photo_path' => '../assets/img/vehicle/yamaha-mio.jpg',
             // You can set created_at and updated_at if needed
+            'engine_number' => 'G235T7YU',
+            'chassis_number' => 'WZS4546L9A',
         ]);
         
     }
