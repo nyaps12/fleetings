@@ -23,6 +23,8 @@ return new class extends Migration
             $table->decimal('load_capacity', 10, 2);
             $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('engine_number'); // Add engine number field
+            $table->string('chassis_number'); //
             $table->timestamps();
         
             // Optionally, add foreign key constraints if needed
