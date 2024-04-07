@@ -27,7 +27,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h4>Schedule's List </h4>
+                <h1>Schedule's List </h1>
             </div>
 
             <div class="col-auto">

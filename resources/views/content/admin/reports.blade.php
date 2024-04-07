@@ -7,7 +7,7 @@
 @section('title', 'Reports ')
 
 @section('content')
-    <h1 class="text-start">Report</h1>
+    <h1 class="text-start">Report's</h1>
     <div class="container">
         <div class="row">
 
@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 mb-4">
+                    <div class="col-md-4 mb-4">
                         <h6>Driver's Ranking</h6>
                         <div class="card">
                             <div class="card-body">
@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="col-md-7">
                                         <h6>Top Driver List</h6>
-                                        <p class="text-muted">List of all driver's according ratings
+                                        <p class="text-muted">List of all driver's rank according to their ratings
                                         </p>
                                         <a href="#">See Report <b>&rarr;</b></a>
                                     </div>

@@ -39,7 +39,8 @@
                             <table class="table datatable-invoice border-top">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Picture</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Vehicle ID</th>
                                         <th scope="col">Vehicle Brand</th>
@@ -54,6 +55,7 @@
                                     @foreach ($driver as $row)
                                         <tr>
                                             <td>{{ $row->id }}</td>
+                                            <td colspan="1" class="text-center"><img src="{{ $row->profile_photo_path }}" alt="driver profile" width="35px" height="35px" class="rounded-circle"></td>
                                             <td>{{ $row->firstname }} {{ $row->lastname }}</td>
                                             <td>{{ $row->vehicles_id }}</td>
                                             <td>{{ $row->vehicle_brand }}</td>
