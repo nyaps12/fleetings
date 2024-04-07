@@ -33,6 +33,29 @@ class DriverContoller extends Controller
         return response()->json($data);        
     }
 
+    public function vehiclefind($id)
+    {
+        $driver = VehicleInfo::find($id);
+
+        if (!$driver) {
+            // If no driver is found with the provided ID, return a custom response
+            $data = [
+                'status' => 404,
+                'message' => 'Vehicle not found',
+            ];
+        } else {
+            // If a driver is found, return their data in the response
+            $data = [
+                'status' => 200,
+                'driver' => $driver
+            ];
+        }
+        
+        // Return JSON response
+        return response()->json($data);
+    }
+    
+
     //DRIVER USERS
     public function users()
     {

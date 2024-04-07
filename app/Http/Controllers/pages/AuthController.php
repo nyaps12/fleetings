@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // if (Auth::check()) {
         //     $usertype = Auth()->user()->usertype;
@@ -32,33 +32,34 @@ class AuthController extends Controller
         // return redirect()->route('login');
         // test2
         // Authenticate the user
-        // if (Auth::check()) {
-        //     // Generate a token for the authenticated user
-        //     $accessToken = Auth::user()->createToken('MyAppToken')->accessToken;
+        if (Auth::check()) {
+            // Generate a token for the authenticated user
             
-        //     // Get the user's usertype
-        //     $usertype = Auth::user()->usertype;
+            // Get the user's usertype
+            $usertype = Auth::user()->usertype;
 
-        //     // Redirect based on the user's usertype
-        //     if ($usertype == 'user') {
-        //         // Redirect to the appropriate route for regular users
-        //         return redirect()->route('user.dashboard')->with('access_token', $accessToken);
-        //     } elseif ($usertype == 'admin') {
-        //         // Redirect to the appropriate admin dashboard
-        //         return redirect()->route('admin.dashboard')->with('access_token', $accessToken);
-        //     }
-        // }
+            // Redirect based on the user's usertype
+            if ($usertype == 'user') {
+                // Redirect to the appropriate route for regular users
+                return redirect()->route('user.dashboard');
+            } elseif ($usertype == 'admin') {
+                // Redirect to the appropriate admin dashboard
+                return redirect()->route('admin.dashboard');
+            }
+        }
         
-        // // If user is not authenticated or usertype is not recognized, redirect to login
-        // return redirect()->route('login');
+        // If user is not authenticated or usertype is not recognized, redirect to login
+        return redirect()->route('login');
 
         //test3
         // Check if the user submitted the login form
+
+
+        // Assuming $request contains form input data
         // $email = $request->input('email');
         // $password = $request->input('password');
-        // $remember = $request->has('remember');
 
-        // if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+        // if (Auth::attempt(['email' => $email, 'password' => $password])) {
         //     // Authentication successful
         //     // Generate a token for the authenticated user
         //     $accessToken = Auth::user()->createToken('MyAppToken')->accessToken;
@@ -80,34 +81,35 @@ class AuthController extends Controller
         //     // For example, redirect back to the login page with an error message
         //     return redirect()->route('login')->with('error', 'Invalid email or password');
         // }
+        
         // test4
 
-        if (Auth::check()) {
-            // Get the authenticated user
-            $user = Auth::user();
+        // if (Auth::check()) {
+        //     // Get the authenticated user
+        //     $user = Auth::user();
             
-            // Generate a token for the authenticated user
-            $accessToken = $user->createToken('MyAppToken')->accessToken;
+        //     // Generate a token for the authenticated user
+        //     $accessToken = $user->createToken('MyAppToken')->accessToken;
             
-            // Get the user's roles
-            $roles = $user->getRoleNames();
+        //     // Get the user's roles
+        //     $roles = $user->getRoleNames();
             
-            // Redirect based on the user's roles
-            if ($roles->contains('Admin') || $roles->contains('Super Admin')) {
-                // Redirect to the appropriate admin dashboard with access token and welcome message
-                return redirect()->route('admin.dashboard')->with(['access_token' => $accessToken, 'welcome_message' => "Welcome, {$user->name}!"]);
-            } elseif ($roles->contains('Driver')) {
-                // Redirect to the appropriate dashboard for drivers with access token and welcome message
-                return redirect()->route('user.dashboard')->with(['access_token' => $accessToken, 'welcome_message' => "Welcome, {$user->name}!"]);
-            } else {
-                // Redirect to the login page if user role is not recognized
-                return redirect()->route('login');
-            }
-        }
+        //     // Redirect based on the user's roles
+        //     if ($roles->contains('Admin') || $roles->contains('Super Admin')) {
+        //         // Redirect to the appropriate admin dashboard with access token and welcome message
+        //         return redirect()->route('admin.dashboard')->with(['access_token' => $accessToken, 'welcome_message' => "Welcome, {$user->name}!"]);
+        //     } elseif ($roles->contains('Driver')) {
+        //         // Redirect to the appropriate dashboard for drivers with access token and welcome message
+        //         return redirect()->route('user.dashboard')->with(['access_token' => $accessToken, 'welcome_message' => "Welcome, {$user->name}!"]);
+        //     } else {
+        //         // Redirect to the login page if user role is not recognized
+        //         return redirect()->route('login');
+        //     }
+        // }
         
         
-        // If user is not authenticated, redirect to login
-        return redirect()->route('login');
+        // // If user is not authenticated, redirect to login
+        // return redirect()->route('login');
     }
 
     public function logout()

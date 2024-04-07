@@ -18,6 +18,7 @@ class VehicleInfo extends Model
         'plate_number',
         'load_capacity',
         'status', // Include the status field here
+        'profile_photo_path',
     ];
     
 }
