@@ -57,22 +57,41 @@
             // Retrieve the vehicle ID from the button's data attribute
             var vehicleId = this.getAttribute('data-vehicle-id');
 
-            // Make an AJAX request to fetch the vehicle data based on the ID
-            fetch('http://127.0.0.1:8000/api/vehicle/' + vehicleId)
-                .then(response => {
-                    // Check if response is successful (status code 200-299)
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json(); // Parse JSON response
-                })
-                .then(response => {
-                    // Populate the modal with the fetched vehicle data
-                    populateModal(response);
-                })
-                .catch(error => {
-                    console.error('Error fetching vehicle data:', error);
-                });
-        });
+        // Make an AJAX request to fetch the vehicle data based on the ID
+        // ito active pag online HAHHA
+        // fetch('https://fleet-g43.bbox-express.com/api/vehicle/' + vehicleId)
+        //     .then(response => {
+        //         // Check if response is successful (status code 200-299)
+        //         if (!response.ok) {
+        //             throw new Error('Network response was not ok');
+        //         }
+        //         return response.json(); // Parse JSON response
+        //     })
+        //     .then(response => {
+        //         // Populate the modal with the fetched vehicle data
+        //         populateModal(response);
+        //     })
+        //     .catch(error => {
+        //         console.error('Error fetching vehicle data:', error);
+        //     });
+
+        fetch('http://127.0.0.1:8000/api/vehicle/' + vehicleId)
+            .then(response => {
+                // Check if response is successful (status code 200-299)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse JSON response
+            })
+            .then(response => {
+                // Populate the modal with the fetched vehicle data
+                populateModal(response);
+            })
+            .catch(error => {
+                console.error('Error fetching vehicle data:', error);
+            });
     });
+});
+
+
 </script>

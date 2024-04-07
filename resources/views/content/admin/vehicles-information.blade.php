@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="card-body">
                                 <form action="" method="GET">
-                                    <div class="row">
+                                    <div class="row d-flex align-content-center align-self-center justify-center align-items-center">
                                         {{-- <div class="col-md-2">
                                         <label for="searchInput">Search</label>
                                         <input type="search" class="form-control" id="searchInput" name="searchInput"
@@ -110,8 +110,7 @@
 
 
                                         <div class="col-md-2">
-
-                                            <button class="btn btn-primary">Filter</button>
+                                            <button class="btn btn-primary btn-md badge">Filter</button>
                                         </div>
                                     </div>
                                 </form>
