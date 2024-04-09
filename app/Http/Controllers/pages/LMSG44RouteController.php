@@ -13,7 +13,6 @@ class LMSG44RouteController extends Controller
     $routes = LmsG44Route::paginate(5);
     return view('content.pages.route-planner.pages-routes', ['routes' => $routes]);
   }
-  
   public function saveRoute(Request $request)
   {
     $route = new LmsG44Route();
