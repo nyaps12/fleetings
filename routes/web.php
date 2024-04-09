@@ -57,9 +57,11 @@ use App\Http\Controllers\GoogleController;
       //SCHEDULE
 
       Route::get('admin/delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
+
       // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
       Route::get('admin/add-schedule', [Admin::class, 'addSchedule'])->name('add.schedule');
-      Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
+      Route::post('admin/submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
+      // Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
 
       //
@@ -77,7 +79,11 @@ use App\Http\Controllers\GoogleController;
       Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
       Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
 
+  
       
+
+
+
 
       // Maintenance Schedule
       Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
