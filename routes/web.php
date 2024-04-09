@@ -10,6 +10,7 @@ use App\Http\Controllers\authentications\RegisterBasic;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\pages\LMSG44RouteController;
 
     /*
     |--------------------------------------------------------------------------
@@ -61,7 +62,7 @@ use App\Http\Controllers\GoogleController;
       Route::get('admin/add-schedule', [Admin::class, 'addSchedule'])->name('add.schedule');
       Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
-
+      Route::post('admin/save-route', [LMSG44RouteController::class, 'saveRoute']);
       //
       Route::get('admin/vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
       Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
@@ -131,7 +132,7 @@ use App\Http\Controllers\GoogleController;
   Route::middleware('profile.complete')->group(function () {
       Route::get('map', [Driver::class, 'map'])->name('map');
       Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
-      Route::get('driver-report', [Driver::class, 'report'])->name('report');
+      Route::get('driver-report', [Driver::class, 'report'])->name('user.report');
       Route::get('history', [Driver::class, 'history'])->name('history');
       Route::get('faq', [Driver::class, 'faq'])->name('user.faq');
 

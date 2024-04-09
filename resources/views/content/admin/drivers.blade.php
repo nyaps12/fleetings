@@ -74,53 +74,52 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="table-responsive card-datatable">
-                        <table class="table datatable-invoice border-top">
-                            <thead>
-                                <tr>
-                                    <th><strong> ID </strong> </th>
-                                    <th><strong>Picture</strong></th>
-                                    <th><strong>Name</strong></th>
-                                    <th><strong>Contact No.</strong></th>
-                                    <th><strong>Address</strong></th>
-                                    <th><strong>Email</strong></th>
-                                    <th><strong>Status</strong></th>
-                                    <th><strong>Action</strong></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($drivers as $driver)
+
+                        <br>
+                        <div class="table-responsive card-datatable">
+                            <table class="table datatable-invoice border-top">
+                                <thead>
                                     <tr>
-                                        <th>{{ $driver->id }}</th>
-                                        <td colspan="1" class="text-center"><img src="{{ $driver->profile_photo_path }}" alt="driver profile" width="35px" height="35px" class="rounded-circle"></td>
-                                        <td id="test">{{ $driver->firstname }} {{ $driver->lastname }}</td>
-                                        <td>{{ $driver->phone }}</td>
-                                        <td>{{ $driver->address }}</td>
-                                        <td>{{ $driver->email }}</td>
-                                        <td>
-                                            @if ($driver->status === 'active')
-                                                <span class="badge bg-success">Active</span>
-                                            @elseif ($driver->status === 'inactive')
-                                                <span class="badge bg-success">Active</span>
-                                            @else
-                                                <span class="badge bg-secondary">Unknown</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('admin.assign', ['id' => $driver->id]) }}"
-                                                class="btn btn-primary badge {{ $driver->status === 'inactive' ? 'disabled' : '' }}"
-                                                id="assignButton">
-                                                @if ($driver->status === 'inactive')
-                                                    <span class="fas fa-lock" aria-hidden="true"></span>
-                                                @endif
-                                                &nbsp;Assign
-                                            </a>
-                                        </td>
+                                        <th scope="col">ID </th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Contact No.</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($drivers as $driver)
+                                        <tr>
+                                            <th>{{ $driver->id }}</th>
+                                            <td>{{ $driver->firstname }} {{ $driver->lastname }}</td>
+                                            <td>{{ $driver->phone }}</td>
+                                            <td>{{ $driver->address }}</td>
+                                            <td>{{ $driver->email }}</td>
+                                            <td>
+                                                @if ($driver->status === 'active')
+                                                    <span class="badge bg-success">Active</span>
+                                                @elseif ($driver->status === 'inactive')
+                                                    <span class="badge bg-success">Active</span>
+                                                @else
+                                                    <span class="badge bg-secondary">Unknown</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.assign', ['id' => $driver->id]) }}"
+                                                    class="btn btn-primary badge {{ $driver->status === 'inactive' ? 'disabled' : '' }}"
+                                                    id="assignButton">
+                                                    @if ($driver->status === 'inactive')
+                                                        <span class="fas fa-lock" aria-hidden="true"></span>
+                                                    @endif
+                                                    &nbsp;Assign
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
 
                         <div class="d-flex justify-content-end">
                             {{ $drivers->links() }}
