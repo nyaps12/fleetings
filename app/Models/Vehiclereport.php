@@ -10,7 +10,7 @@ class Vehiclereport extends Model
     use HasFactory;
 
     
-    protected $table = 'vehicle_report';
+    protected $table = 'lms_g43_vehicle_report';
 
     protected $fillable = [
         'date',

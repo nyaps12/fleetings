@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('vehicle_info', function (Blueprint $table) {
+        Schema::create('lms_g43_vehicle_info', function (Blueprint $table) {
             $table->id();
             $table->string('vehicle_id')->unique(); // Ensure vehicle IDs are unique
             $table->string('vehicle_brand');

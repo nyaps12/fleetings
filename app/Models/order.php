@@ -9,7 +9,7 @@ class order extends Model
 {
     use HasFactory;
 
-    protected $table = 'orders'; 
+    protected $table = 'lms_g43_orders'; 
     
     protected $fillable = [
         'sender_name',

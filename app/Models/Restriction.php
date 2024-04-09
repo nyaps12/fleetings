@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Restriction extends Model
 {
     use HasFactory;
-    protected $table = 'restriction';
+    protected $table = 'lms_g43_restriction';
 }

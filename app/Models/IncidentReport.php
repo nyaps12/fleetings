@@ -9,7 +9,7 @@ class IncidentReport extends Model
 {
     use HasFactory;
 
-    protected $table = 'incidents_report';
+    protected $table = 'lms_g43_incidents_report';
 
     protected $fillable = [
         'name',

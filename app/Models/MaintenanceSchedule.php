@@ -9,7 +9,7 @@ class MaintenanceSchedule extends Model
 {
     use HasFactory;
 
-    protected $table = 'maintenance_schedule';
+    protected $table = 'lms_g43_maintenance_schedule';
 
     protected $fillable = [
         'operator_id',

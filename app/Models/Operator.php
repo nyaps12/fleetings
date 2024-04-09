@@ -9,7 +9,7 @@ class Operator extends Model
 {
     use HasFactory;
 
-    protected $table = 'operators';
+    protected $table = 'lms_g43_operators';
 
     protected $fillable = [
         'user_id',
