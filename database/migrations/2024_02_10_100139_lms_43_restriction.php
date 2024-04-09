@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('restriction', function (Blueprint $table) {
+        Schema::create('lms_g43_restriction', function (Blueprint $table) {
             $table->id();
             $table->string('codes')->nullable();
             $table->string('name')->nullable();

@@ -124,7 +124,6 @@
             <div class="col-md-8">
                 <div id="map"></div>
             </div>
-            >>>>>>> bedb7947cf8cfd5aecea17016c07ef540d961a6e
         </div>
     </div>
     <script src="assets/vendor/libs/sweetalert2/sweetalert2.js"></script>

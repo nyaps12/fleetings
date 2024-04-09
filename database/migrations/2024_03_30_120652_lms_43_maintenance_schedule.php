@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('maintenance_schedule', function (Blueprint $table) {
+        Schema::create('lms_g43_maintenance_schedule', function (Blueprint $table) {
             $table->id('report_id');
             $table->string('vehicle_type', 50);
             $table->string('engine_no', 50);

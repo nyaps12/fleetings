@@ -9,7 +9,7 @@ class FuelReport extends Model
 {
     use HasFactory;
 
-    protected $table = 'fuel_report';
+    protected $table = 'lms_g43_fuel_report';
 
     protected $fillable = [
         'date',
