@@ -75,11 +75,6 @@
                         <form id="routeForm" action="save-route" method="POST" class="browser-default-validation">
                             @csrf
                             <div id="placeInfo">
-                                <div class="mb-3">
-                                    <label for="route-name">Route Name:</label>
-                                    <input type="text" name="route_name" id="route-name" class="form-control"
-                                        placeholder="Enter a route name" required>
-                                </div>
 
                                 <div class="mb-3">
                                     <label for="route-name">Route Name:</label>
