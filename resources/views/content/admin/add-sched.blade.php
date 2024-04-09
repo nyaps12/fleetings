@@ -66,11 +66,11 @@
 
 @section('content')
     <div class="container">
-        <h1>Schedule</h1>
+        <h1>Delivery Schedule</h1>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">Create Route</div>
+                    <div class="card-header">Create Delivery Schedule</div>
                     <div class="card-body">
                         <form id="routeForm" action="save-route" method="POST" class="browser-default-validation">
                             @csrf
@@ -109,7 +109,7 @@
                             <!-- Submit Button -->
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-2" id="saveRouteButton">
-                                    <span class="tf-icons ti-xs ti ti-device-floppy me-1"></span>Save Route
+                                    <span class="tf-icons ti-xs ti ti-device-floppy me-1"></span>Save Schedule
                                 </button>
                             </div>
                         </form>
