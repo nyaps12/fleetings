@@ -20,6 +20,5 @@ class Schedule extends Model
         'start_point',
         'end_point',
         'waypoints',
-        'status',
-    ];
+        ];
 }
