@@ -39,21 +39,23 @@
                             <table class="table datatable-invoice border-top">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Vehicle ID</th>
-                                        <th scope="col">Vehicle Brand</th>
-                                        <th scope="col">Plate Number</th>
-                                        <th scope="col">Vehicle Type</th>
-                                        <th scope="col">Contact No.</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th><strong>ID</strong></th>
+                                        <th><strong>Picture</strong></th>
+                                        <th><strong>Name</strong></th>
+                                        <th><strong>Vehicle ID</strong></th>
+                                        <th><strong>Vehicle Brand</strong></th>
+                                        <th><strong>Plate Number</strong></th>
+                                        <th><strong>Vehicle Type</strong></th>
+                                        <th><strong>Contact No.</strong></th>
+                                        <th><strong>Status</strong></th>
+                                        <th><strong>Action</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($driver as $row)
                                         <tr>
                                             <td>{{ $row->id }}</td>
+                                            <td colspan="1" class="text-center"><img src="{{ $row->profile_photo_path }}" alt="driver profile" width="35px" height="35px" class="rounded-circle"></td>
                                             <td>{{ $row->firstname }} {{ $row->lastname }}</td>
                                             <td>{{ $row->vehicles_id }}</td>
                                             <td>{{ $row->vehicle_brand }}</td>

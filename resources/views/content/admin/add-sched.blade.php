@@ -64,6 +64,8 @@
     </style>
 @endsection
 
+@include('layouts/notification')
+
 @section('content')
     <h4>Route Planner</h4>
     <div class="container">
@@ -114,9 +116,57 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div id="map"></div>
+                <<<<<<< HEAD <div id="map">
             </div>
+            =======
+            <div class="card">
+                <div class="card-header">Schedule List</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><strong>ID</strong></th>
+                                    <th><strong>Shipments Date</strong></th>
+                                    <th><strong>Start</strong></th>
+                                    <th><strong>Waypoints</strong></th>
+                                    <th><strong>End</strong></th>
+                                    <th><strong>Status</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($schedules as $schedule)
+                                    <tr>
+                                        <th>{{ $schedule->id }}</th>
+                                        <td>{{ $schedule->shipping_date }}</td>
+                                        <td>{{ $schedule->start_point }}</td>
+                                        <td>{{ $schedule->waypoints }}</td>
+                                        <td>{{ $schedule->end_point }}</td>
+                                        <td>
+                                            @if ($schedule->status == 'pending')
+                                                <span class="badge bg-warning">{{ $schedule->status }}</span>
+                                            @elseif($schedule->status == 'in_transit')
+                                                <span class="badge bg-info">Transit</span>
+                                            @elseif($schedule->status == 'delivered')
+                                                <span class="badge bg-success">{{ $schedule->status }}</span>
+                                            @elseif($schedule->status == 'cancelled')
+                                                <span class="badge bg-danger">{{ $schedule->status }}</span>
+                                            @endif
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <br>
+                        <a href="{{ url('/all-sched') }}">Show all schedule</a>
+                    </div>
+
+                </div>
+            </div>
+            >>>>>>> bedb7947cf8cfd5aecea17016c07ef540d961a6e
         </div>
+    </div>
     </div>
     <script src="assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
     <script>
@@ -447,7 +497,7 @@
                     "'>" +
                     placeName +
                     "</span><a href='javascript:void(0)' onclick='deletePoint(this)'><img src='{{ asset('assets/img/customs/delete.png') }}' height='10' hspace='10'></a>\
-                                                      <a href='javascript:void(0)'>"; // [X]
+                                                          <a href='javascript:void(0)'>"; // [X]
                 //            console.log("waypoint=" + waypoint + '\n');
                 calcRoute();
             } else {

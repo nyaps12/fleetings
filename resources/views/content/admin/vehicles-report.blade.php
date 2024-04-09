@@ -6,6 +6,12 @@
 
 @section('title', 'Vehicle Report')
 
+<style>
+
+    #test {
+      white-space: nowrap;
+    }
+    </style>
 @section('content')
 
     <div class="row">
@@ -21,16 +27,16 @@
                             <table class="table datatable-invoice border-top">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Operator</th>
-                                        <th>Vehicle Type</th>
-                                        <th>Vehicle Engine No.</th>
-                                        <th>Vehicle Condition</th>
-                                        <th>Vehicle Odometer</th>
-                                        <th>Vehicle Issues</th>
-                                        <th>Maintenance Cost</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
+                                        <th><strong>ID</strong></th>
+                                        <th><strong>Operator</strong></th>
+                                        <th><strong>Vehicle Type</strong></th>
+                                        <th><strong>Vehicle Engine No.</strong></th>
+                                        <th><strong>Vehicle Condition</strong></th>
+                                        <th><strong>Vehicle Odometer</strong></th>
+                                        <th><strong>Vehicle Issues</strong></th>
+                                        <th><strong>Maintenance Cost</strong></th>
+                                        <th><strong>Date</strong></th>
+                                        <th><strong>Action</strong></th>
                                     </tr>
                                 </thead>
 
@@ -40,7 +46,7 @@
                                         <tr>
 
                                             <th> {{ $report->id }}</th>
-                                            <td>
+                                            <td id="test">
                                                 <img src="{{ $report->profile_photo_path }}" alt="Profile Picture"
                                                     class="rounded-circle" style="width: 25px; height: 25px;">
                                                 {{ $report->firstname }} {{ $report->lastname }}
@@ -51,10 +57,10 @@
                                             <td> {{ $report->vehicle_odometer }} </td>
                                             <td> {{ $report->vehicle_issues }}</td>
                                             <td> {{ $report->maintenance_cost }}</td>
-                                            <td> {{ $report->date }} </a></td>
+                                            <td id="test"> {{ $report->date }} </a></td>
                                             <td>
                                                 <a href="{{ route('vehicle-maintenance') }}"
-                                                    class="btn btn-primary">Maintenance</a>
+                                                    class="btn btn-primary badge">Maintenance</a>
                                             </td>
                                         </tr>
                                     @endforeach
