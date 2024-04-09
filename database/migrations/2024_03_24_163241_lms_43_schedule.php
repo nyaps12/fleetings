@@ -18,11 +18,22 @@ return new class extends Migration
             $table->integer('user_id')->nullable();
             $table->string('driver_name', 255)->nullable();
             $table->string('shipping_date', 255)->nullable();
-            $table->string('route_name', 255)->nullable();
-            $table->string('start_point', 255)->nullable();
-            $table->string('end_point', 255)->nullable();
-            $table->text('waypoints')->nullable();
             $table->enum('status', ['pending', 'in_transit', 'delivered', 'cancelled'])->default('pending');
+            $table->string('route_name');
+            $table->string('start_point');
+            $table->string('end_point');
+            $table->text('waypoints')->nullable();
+            $table->double('duration')->nullable();
+            $table->double('distance')->nullable();
+            $table->double('start_longitude')->nullable();
+            $table->double('start_latitude')->nullable();
+            $table->double('end_longitude')->nullable();
+            $table->double('end_latitude')->nullable();
+            $table->text('coordinate_waypoints')->nullable();
+            $table->text('avoid_tolls')->default(0);
+            $table->text('avoid_highways')->default(0);
+            $table->text('avoid_ferries')->default(0);
+            $table->text('avoid_indoor')->default(0);
             $table->timestamps();
         });        
     }

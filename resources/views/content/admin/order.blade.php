@@ -7,52 +7,63 @@
 @section('title', 'Order')
 
 @section('content')
-    <!DOCTYPE html>
-    <html lang="en">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2> Order List</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Order</title>
-    </head>
-
-    <body>
-
-        <div class="container mt-5">
-            <h2 class="text-center">Orders List</h2>
-
-            <div class="container">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-
-                                <th scope="col" class="text-center">Sender</th>
-                                <th scope="col" class="text-center">Receiver</th>
-                                <th scope="col" class="text-center">Items</th>
-                                <th scope="col" class="text-center">Total Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td class="text-center">
-                                    <h6 class="mb-1">Name</h6>
-                                    <p class="text-muted mb-0">Location</p>
-                                </td>
-                                <td class="text-center">
-                                    <h6 class="mb-1">Name</h6>
-                                    <p class="text-muted mb-0">Location</p>
-                                </td>
-                                <td class="text-center">dildo</td>
-                                <td class="text-center">1m</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <div class="col-md-6 text-right">
+                                <button class="btn btn-primary">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive card-datatable">
+                        <table class="table datatable-invoice border-top">
+                            <thead>
+                                <tr>
+                                    <th><strong> # </strong> </th>
+                                    <th><strong> Sender </strong> </th>
+                                    <th><strong> Phone # </strong></th>
+                                    {{-- <th><strong> Sender Address </strong></th> --}}
+                                    <th><strong> Receiver </strong></th>
+                                    <th><strong> Phone # </strong></th>
+                                    <th><strong> Receiver Address </strong></th>
+                                    <th><strong> Product </strong></th>
+                                    <th><strong> Price </strong></th>
+                                    <th><strong> Qty </strong></th>
+                                    <th><strong> Status </strong></th>
+                                    <th><strong> Warehouse </strong></th>
+                                    <th><strong> Action </strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($order as $orders)
+                                    <tr>
+                                        <td>{{ $orders->id }}</td>
+                                        <td>{{ $orders->sender_name }}</td>
+                                        <td>{{ $orders->sender_phone }}</td>
+                                        {{-- <td>{{ $orders->sender_address }}</td> --}}
+                                        <td>{{ $orders->receiver_name }}</td>
+                                        <td>{{ $orders->receiver_phone }}</td>
+                                        <td>{{ $orders->receiver_address }}</td>
+                                        <td>{{ $orders->product }}</td>
+                                        <td> {{ $orders->product_price }}</td>
+                                        <td>{{ $orders->product_quantity }}</td>
+                                        <td> {{ $orders->status }}</td>
+                                        <td>{{ $orders->warehouse }}</td>
+                                        <td class="btn btn-sm btn-primary mt-3"> Create Schedule </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        {{ $order->links() }}
+                    </div>
                 </div>
             </div>
         </div>
-
-    </html>
+    </div>
 
 @endsection

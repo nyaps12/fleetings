@@ -14,6 +14,10 @@
     @vite(['resources/assets/vendor/libs/sweetalert2/sweetalert2.js'])
 @endsection
 
+@section('page-script')
+    @vite(['resources/assets/js/extended-ui-sweetalert2.js'])
+@endsection
+
 @section('page-style')
 
     <style>
@@ -66,11 +70,16 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header">Create Schedule</div>
+                    <div class="card-header">Create Route</div>
                     <div class="card-body">
                         <form id="routeForm" action="save-route" method="POST" class="browser-default-validation">
                             @csrf
                             <div id="placeInfo">
+                                <div class="mb-3">
+                                    <label for="route-name">Route Name:</label>
+                                    <input type="text" name="route_name" id="route-name" class="form-control"
+                                        placeholder="Enter a route name" required>
+                                </div>
 
                                 <div class="mb-3">
                                     <label for="route-name">Route Name:</label>
@@ -105,7 +114,7 @@
                             <!-- Submit Button -->
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-2" id="saveRouteButton">
-                                    <span class="tf-icons ti-xs ti ti-device-floppy me-1"></span>Save Schedule
+                                    <span class="tf-icons ti-xs ti ti-device-floppy me-1"></span>Save Route
                                 </button>
                             </div>
                         </form>
@@ -115,6 +124,7 @@
             <div class="col-md-8">
                 <div id="map"></div>
             </div>
+            >>>>>>> bedb7947cf8cfd5aecea17016c07ef540d961a6e
         </div>
     </div>
     <script src="assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
