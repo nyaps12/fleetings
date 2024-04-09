@@ -30,6 +30,4 @@ class LmsG44Route extends Model
     'avoid_ferries',
     'avoid_indoor',
   ];
-
-  protected $connection = "route";
 }
