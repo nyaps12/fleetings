@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <div class="table-responsive card-datatable">
                             <table class="table datatable-invoice border-top">
-                                <thead>
+                                <thead class="text-center">
                                     <tr>
                                         <th><strong>ID</strong></th>
                                         <th><strong>Picture</strong></th>
@@ -51,11 +51,11 @@
                                         <th><strong>Action</strong></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="text-center">
                                     @foreach ($driver as $row)
                                         <tr>
                                             <td>{{ $row->id }}</td>
-                                            <td colspan="1" class="text-center"><img src="{{ $row->profile_photo_path }}" alt="driver profile" width="35px" height="35px" class="rounded-circle"></td>
+                                            <td><img src="{{ $row->profile_photo_path}}" alt="" class="rounded-circle" width="35px" height="35px"></td>
                                             <td>{{ $row->firstname }} {{ $row->lastname }}</td>
                                             <td>{{ $row->vehicles_id }}</td>
                                             <td>{{ $row->vehicle_brand }}</td>

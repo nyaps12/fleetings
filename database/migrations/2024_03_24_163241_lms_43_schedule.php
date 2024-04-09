@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('lms_g43_schedules', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('schedule_id')->nullable()->default(0);
             $table->integer('order_id')->nullable();

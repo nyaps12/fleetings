@@ -64,17 +64,15 @@
     </style>
 @endsection
 
-@include('layouts/notification')
-
 @section('content')
-    <h4>Route Planner</h4>
     <div class="container">
+        <h1>Schedule</h1>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">Create Route</div>
                     <div class="card-body">
-                        <form id="routeForm" action="/submitSchedule" method="POST" class="browser-default-validation">
+                        <form id="routeForm" action="save-route" method="POST" class="browser-default-validation">
                             @csrf
                             <div id="placeInfo">
                                 <div class="mb-3">
@@ -83,15 +81,21 @@
                                         placeholder="Enter a route name" required>
                                 </div>
 
+                                <div class="mb-3">
+                                    <label for="route-name">Route Name:</label>
+                                    <input type="text" name="route-name" id="route-name" class="form-control"
+                                        placeholder="Enter a route name" required>
+                                </div>
+
                                 <div class="searchInput mb-3">
                                     <label for="loc1">Start:</label>
-                                    <input type="text" name="start_point" class="form-control"
+                                    <input type="text" name="searchbox" class="form-control"
                                         placeholder="Set start location" id="loc1" required>
                                 </div>
 
                                 <div class="searchInput mb-3">
                                     <label for="loc2">Waypoints: (Required)</label>
-                                    <input type="text" name="waypoints" class="form-control"
+                                    <input type="text" name="searchbox" class="form-control"
                                         placeholder="Enter some waypoints" id="loc2">
                                     <div>
                                         <ul id="waypointsInfo" class="list-group list-group-timeline"></ul>
@@ -100,9 +104,11 @@
 
                                 <div class="searchInput mb-3">
                                     <label for="loc3">End:</label>
-                                    <input type="text" name="end_point" class="form-control"
+                                    <input type="text" name="searchbox" class="form-control"
                                         placeholder="Set end location" id="loc3" required>
                                 </div>
+
+                                <input type="hidden" name="optimization_status" id="status" value="Unoptimized">
 
                             </div>
                             <!-- Submit Button -->
@@ -116,57 +122,9 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <<<<<<< HEAD <div id="map">
+                <div id="map"></div>
             </div>
-            =======
-            <div class="card">
-                <div class="card-header">Schedule List</div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th><strong>ID</strong></th>
-                                    <th><strong>Shipments Date</strong></th>
-                                    <th><strong>Start</strong></th>
-                                    <th><strong>Waypoints</strong></th>
-                                    <th><strong>End</strong></th>
-                                    <th><strong>Status</strong></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($schedules as $schedule)
-                                    <tr>
-                                        <th>{{ $schedule->id }}</th>
-                                        <td>{{ $schedule->shipping_date }}</td>
-                                        <td>{{ $schedule->start_point }}</td>
-                                        <td>{{ $schedule->waypoints }}</td>
-                                        <td>{{ $schedule->end_point }}</td>
-                                        <td>
-                                            @if ($schedule->status == 'pending')
-                                                <span class="badge bg-warning">{{ $schedule->status }}</span>
-                                            @elseif($schedule->status == 'in_transit')
-                                                <span class="badge bg-info">Transit</span>
-                                            @elseif($schedule->status == 'delivered')
-                                                <span class="badge bg-success">{{ $schedule->status }}</span>
-                                            @elseif($schedule->status == 'cancelled')
-                                                <span class="badge bg-danger">{{ $schedule->status }}</span>
-                                            @endif
-                                        </td>
-
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <br>
-                        <a href="{{ url('/all-sched') }}">Show all schedule</a>
-                    </div>
-
-                </div>
-            </div>
-            >>>>>>> bedb7947cf8cfd5aecea17016c07ef540d961a6e
         </div>
-    </div>
     </div>
     <script src="assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
     <script>
@@ -497,7 +455,7 @@
                     "'>" +
                     placeName +
                     "</span><a href='javascript:void(0)' onclick='deletePoint(this)'><img src='{{ asset('assets/img/customs/delete.png') }}' height='10' hspace='10'></a>\
-                                                          <a href='javascript:void(0)'>"; // [X]
+                              <a href='javascript:void(0)'>"; // [X]
                 //            console.log("waypoint=" + waypoint + '\n');
                 calcRoute();
             } else {
@@ -610,7 +568,7 @@
         // AJAX request to save route data
         function saveRouteToDatabase(routeName, start, end, waypoints) {
             $.ajax({
-                url: 'public/save-route',
+                url: 'save-route',
                 type: 'POST',
                 data: {
                     '_token': '{{ csrf_token() }}',
@@ -623,7 +581,7 @@
                 success: function(response) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Route saved successfully!',
+                        title: 'Schedule saved successfully!',
                         showConfirmButton: false,
                         timer: 1500 // Close the modal after 1.5 seconds
                     });
@@ -631,7 +589,7 @@
                 error: function(response) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Failed to save the route.',
+                        title: 'Failed to save the Schedule.',
                         showConfirmButton: false,
                         timer: 1500 // Close the modal after 1.5 seconds
                     });
@@ -656,3 +614,4 @@
         gtag('config', 'G-6LNBE7SQ3G');
     </script>
 @endsection
+

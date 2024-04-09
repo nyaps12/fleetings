@@ -9,7 +9,7 @@ class Schedule extends Model
 {
     use HasFactory;
 
-    protected $table = 'schedules';
+    protected $table = 'lms_g43_schedules';
 
     protected $fillable = [
         'order_id',
