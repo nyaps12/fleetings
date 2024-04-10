@@ -74,7 +74,43 @@
                     <div class="card-body">
                         <form id="routeForm" action="/save-route" method="POST" class="browser-default-validation">
                             @csrf
-                            <div id="placeInfo">                          
+                            <div id="placeInfo">
+
+                                <div class="mb-3">
+                                    <label for="sender_name">Sender:</label>
+                                    <input type="text" name="sender_name" id="sender_name" class="form-control"
+                                        placeholder="Sender" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="receiver_name">Receiver:</label>
+                                    <input type="text" name="receiver_name" id="receiver_name" class="form-control"
+                                        placeholder="Receiver"  required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="receiver_phone">Receiver Contact:</label>
+                                    <input type="text" name="receiver_phone" id="receiver_phone" class="form-control"
+                                        placeholder="Receiver" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="product">Product:</label>
+                                    <input type="text" name="product" id="product" class="form-control"
+                                        placeholder="Product" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="product_quantity">Quantity:</label>
+                                    <input type="text" name="product_quantity" id="product_quantity" class="form-control"
+                                        placeholder="Quantity" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="product_price">Price:</label>
+                                    <input type="text" name="product_price" id="product_price" class="form-control"
+                                        placeholder="Price" required>
+                                </div>
 
                                 <div class="mb-3">
                                     <label for="route-name">Route Name:</label>
@@ -104,12 +140,12 @@
                                         routeNameInput.value = randomRouteName;
                                     });
                                 });
-                                </script>                                
+                                </script>           
 
                                 <div class="searchInput mb-3">
                                     <label for="loc1">Start:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set start location" value="{{ $order->sender_address }}" id="loc1" required>
+                                        placeholder="Set start location" id="loc1" required>
                                 </div>
 
                                 <div class="searchInput mb-3">
@@ -124,7 +160,7 @@
                                 <div class="searchInput mb-3">
                                     <label for="loc3">End:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set end location" value="{{ $order->receiver_address }}" id="loc3" required>
+                                        placeholder="Set end location" id="loc3" required>
                                 </div>
 
                                 <input type="hidden" name="optimization_status" id="status" value="Unoptimized">
@@ -600,7 +636,7 @@
                 success: function(response) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Schedule saved successfully!',
+                        title: 'Route saved successfully!',
                         showConfirmButton: false,
                         timer: 1500 // Close the modal after 1.5 seconds
                     });
@@ -608,7 +644,7 @@
                 error: function(response) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Failed to save the Schedule.',
+                        title: 'Failed to save the route.',
                         showConfirmButton: false,
                         timer: 1500 // Close the modal after 1.5 seconds
                     });

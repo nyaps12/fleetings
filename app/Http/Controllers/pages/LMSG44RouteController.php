@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\pages;
 
+use App\Models\Schedule;
 use App\Models\LmsG44Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 class LMSG44RouteController extends Controller
 {
@@ -13,6 +15,7 @@ class LMSG44RouteController extends Controller
     $routes = LmsG44Route::paginate(5);
     return view('content.pages.route-planner.pages-routes', ['routes' => $routes]);
   }
+
   public function saveRoute(Request $request)
   {
     $route = new LmsG44Route();
@@ -46,7 +49,6 @@ class LMSG44RouteController extends Controller
 
     return response()->json(['message' => 'Route saved successfully'], 200);
   }
-
 
 
   private function getCoordinates($address)
