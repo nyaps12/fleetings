@@ -24,27 +24,33 @@
 
 @section('content')
 
-    <div class="container-fluid">
+
         <div class="row">
             <div class="col">
                 <h1>Schedule's List </h1>
             </div>
 
-            <div class="col-auto">
-                <a href="{{ url('/admin/add-schedule') }}" class="btn btn-sm btn-outline-primary"><span class="text-end">Add
+            <div class="col-auto d-flex align-self-center items-center">
+                <a href="{{ route('new.schedule') }}" class="btn btn-sm btn-outline-primary"><span class="text-end">Add
                         Schedule</span></a>
             </div>
 
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-responsive card-datatable">
-                            <table class="table datatable-invoice border-top">
+                        <div class="card-datatable table-responsive pt-0">
+                            <table class="dataTables table">
                                 <thead>
                                     <tr>
                                         <th><strong>ID</strong></th>
                                         <th><strong>Schedule ID</strong></th>
+                                        <th><strong>Sender Name</strong></th>
+                                        <th><strong>Receiver Name</strong></th>
+                                        <th><strong>R.PHONE</strong></th>
                                         <th><strong>Address</strong></th>
+                                        <th><strong>Product</strong></th>
+                                        <th><strong>QTY</strong></th>
+                                        <th><strong>Price</strong></th>
                                         <th><strong>Starting Date</strong></th>
                                         <th><strong>End Date</strong></th>
                                         <th><strong>Status</strong></th>
@@ -94,7 +100,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
 @endsection
 

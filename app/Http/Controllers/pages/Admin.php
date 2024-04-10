@@ -148,10 +148,9 @@ class Admin extends Controller
 
     public function order()
     {
-
-        $order = order::paginate(5);
-        return view('content.admin.order', compact('order'));
-    }
+        $orders = Order::paginate(5);
+        return view('content.admin.order', compact('orders'));
+    }    
 
     public function view()
     {
@@ -333,7 +332,6 @@ class Admin extends Controller
         return redirect()->route('service')->with('success', 'Vehicle Maintenance submitted successfully.');
     }
     
-
     public function maintenanceOverview()
     {
         return view('content.admin.maintenance-overview');
@@ -358,11 +356,23 @@ class Admin extends Controller
         return view('content.admin.incident-report', compact('incidents'));
     }
 
-    public function addSchedule()
-    {
+    // Assuming you're passing the order ID as a parameter in your route
+    public function newSchedule() {
+        // Retrieve the order based on the provided ID
         $schedules = Schedule::all();
-        return view('content.admin.add-sched', compact('schedules'));
+        
+        return view('content.admin.new-sched', compact('schedules'));
     }
+
+    // Assuming you're passing the order ID as a parameter in your route
+    public function addSchedule($id) {
+        // Retrieve the order based on the provided ID
+        $order = Order::find($id);
+        $schedules = Schedule::all();
+    
+        return view('content.admin.add-sched', compact('schedules', 'order'));
+    }
+
 
     // public function saveSchedule(Request $request)
     // {
@@ -396,6 +406,4 @@ class Admin extends Controller
         return view('content.admin.deliverylist');
     }
     
- 
-        
     }

@@ -12,11 +12,19 @@ class Schedule extends Model
     protected $table = 'lms_g43_schedules';
 
     protected $fillable = [
+        'schedule_id',
         'order_id',
-        'user_id',
         'driver_name',
         'shipping_date',
-        'route_name',
+        'sender_name',
+        'sender_phone',
+        'sender_address',
+        'receiver_name',
+        'receiver_phone',
+        'receiver_address',
+        'product',
+        'product_price',
+        'product_quantity',
         'start_point',
         'end_point',
         'waypoints',
