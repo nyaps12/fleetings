@@ -54,23 +54,24 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('admin.dashboard');
 
       //DELIVERY LIST
-      Route::get('admin/delivery', [Admin::class, 'deliveryList'])->name('delivery');
+      // Route::get('admin/order', [Admin::class, 'deliveryList'])->name('delivery');
       //SCHEDULE
 
       Route::get('admin/delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
 
       // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
-      Route::get('admin/add-schedule', [Admin::class, 'addSchedule'])->name('add.schedule');
+      Route::get('admin/add-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
+      Route::get('admin/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
       Route::post('admin/submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
       // Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
-      Route::post('save-route', [LMSG44RouteController::class, 'saveRoute']);
+      Route::post('admin/save-route', [LMSG44RouteController::class, 'saveRoute'])->name('save-route');
       //
-      Route::get('admin/vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
+      Route::get('vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
       Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
       Route::get('admin/reports', [Admin::class, 'report'])->name('report');
       Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
-      Route::get('admin/order', [Admin::class, 'order'])->name('order');
+      Route::get('order', [Admin::class, 'order'])->name('order');
       Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
       Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
       Route::get('admin/driver-reports', [Admin::class, 'reported'])->name('drive-reports');
@@ -79,12 +80,6 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
       Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
       Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
-
-  
-      
-
-
-
 
       // Maintenance Schedule
       Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
@@ -95,9 +90,9 @@ use App\Http\Controllers\pages\LMSG44RouteController;
   
 
       // DRIVER SIDE OPERATE AND ASSIGN
-      Route::get('admin/operator', [Admin::class, 'operator'])->name('operator');
-      Route::get('admin/vehicle', [Admin::class, 'view'])->name('vehicle');
-      Route::get('admin/drivers', [Admin::class, 'drivers'])->name('drivers');
+      Route::get('operator', [Admin::class, 'operator'])->name('operator');
+      Route::get('vehicle', [Admin::class, 'view'])->name('vehicle');
+      Route::get('drivers', [Admin::class, 'drivers'])->name('drivers');
 
       //ASSIGN OPERATOR
       Route::get('assign/{id}', [Admin::class, 'assign'])->name('admin.assign');

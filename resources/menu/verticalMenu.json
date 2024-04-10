@@ -22,13 +22,13 @@
       "url": "driver-report",
       "name": "Report",
       "icon": "menu-icon tf-icons ti ti-message-report",
-      "slug": "report"
+      "slug": "user.report"
     },
     {
       "url": "faq",
       "name": "Faq",
       "icon": "menu-icon tf-icons ti ti-message-report",
-      "slug": "faq"
+      "slug": "user.faq"
     }
   ]
 }

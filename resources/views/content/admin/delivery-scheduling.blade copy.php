@@ -44,7 +44,13 @@
                                     <tr>
                                         <th><strong>ID</strong></th>
                                         <th><strong>Schedule ID</strong></th>
+                                        <th><strong>Sender Name</strong></th>
+                                        <th><strong>Receiver Name</strong></th>
+                                        <th><strong>R.PHONE</strong></th>
                                         <th><strong>Address</strong></th>
+                                        <th><strong>Product</strong></th>
+                                        <th><strong>Price</strong></th>
+                                        <th><strong>QTY</strong></th>
                                         <th><strong>Starting Date</strong></th>
                                         <th><strong>End Date</strong></th>
                                         <th><strong>Status</strong></th>
