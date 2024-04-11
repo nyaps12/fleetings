@@ -61,7 +61,7 @@ use App\Http\Controllers\pages\LMSG44RouteController;
 
       // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
       Route::get('admin/add-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
-      Route::get('admin/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
+      Route::get('admin/add-schedule/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
       Route::post('admin/submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
       // Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
@@ -71,7 +71,7 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
       Route::get('admin/reports', [Admin::class, 'report'])->name('report');
       Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
-      Route::get('order', [Admin::class, 'order'])->name('order');
+      Route::get('admin/order', [Admin::class, 'order'])->name('order');
       Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
       Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
       Route::get('admin/driver-reports', [Admin::class, 'reported'])->name('drive-reports');
