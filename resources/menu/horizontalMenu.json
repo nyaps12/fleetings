@@ -7,7 +7,7 @@
       "slug": "admin.dashboard"
     },
     {
-      "url": "order",
+      "url": "admin/order",
       "icon": "menu-icon ti ti-package",
       "name": "Order",
       "slug": "order"
