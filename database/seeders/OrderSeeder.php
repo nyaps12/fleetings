@@ -84,5 +84,89 @@ class OrderSeeder extends Seeder
             'status' => 'shipped',
             'warehouse' => 'Warehouse #6 Pines, Mandaluyong Metro Manila',
         ]);
+
+        Order::factory()->create([
+            'sender_name' => 'Ronnie Del Pilar',
+            'sender_phone' => '09321456456',
+            'sender_address' => 'Repablik',
+            'receiver_name' => 'Kardo Ilocto',
+            'receiver_phone' => '09060665498',
+            'receiver_address' => 'Tuna King, Tomas Morato Ave, QC',
+            'product' => 'Charger',
+            'product_price' => 99.00,
+            'product_quantity' => 1,
+            'status' => 'shipped',
+            'warehouse' => 'Warehouse #6 Pines, Mandaluyong Metro Manila',
+        ]);
+
+        Order::factory()->create([
+            'sender_name' => 'John Paul Fajardo',
+            'sender_phone' => '09654123789',
+            'sender_address' => '98 sct. limbaga st.',
+            'receiver_name' => 'John Lloyd Cabala',
+            'receiver_phone' => '09654789221',
+            'receiver_address' => 'ABAR QC - Vapeshop',
+            'product' => 'Vape',
+            'product_price' => 2450.00,
+            'product_quantity' => 2,
+            'status' => 'shipped',
+            'warehouse' => 'Warehouse #6 Pines, Mandaluyong Metro Manila',
+        ]);
+
+        Order::factory()->create([
+            'sender_name' => 'Jaffy Aquino',
+            'sender_phone' => '09654123887',
+            'sender_address' => 'Batasan QC',
+            'receiver_name' => 'Brix Lacsa',
+            'receiver_phone' => '09654789331',
+            'receiver_address' => '28 Central Ave, Diliman QC',
+            'product' => 'Tumbler',
+            'product_price' => 580.89,
+            'product_quantity' => 1,
+            'status' => 'shipped',
+            'warehouse' => 'Warehouse #6 Pines, Mandaluyong Metro Manila',
+        ]);
+
+        Order::factory()->create([
+            'sender_name' => 'Jane Marcos',
+            'sender_phone' => '09668723789',
+            'sender_address' => 'Batasan QC',
+            'receiver_name' => 'Ramz Ocampo',
+            'receiver_phone' => '09654885123',
+            'receiver_address' => '14 Sampaguita Ave, Holy Spirit QC',
+            'product' => 'Razer Mouse',
+            'product_price' => 1120.00,
+            'product_quantity' => 1,
+            'status' => 'shipped',
+            'warehouse' => 'Warehouse #6 Pines, Mandaluyong Metro Manila',
+        ]);
+
+        Order::factory()->create([
+            'sender_name' => 'Anne Arroyo',
+            'sender_phone' => '09654221789',
+            'sender_address' => 'Payatas QC',
+            'receiver_name' => 'Paul Magulod',
+            'receiver_phone' => '09654789778',
+            'receiver_address' => 'Bush & Blair Store',
+            'product' => 'T-Shirt',
+            'product_price' => 650.00,
+            'product_quantity' => 1,
+            'status' => 'shipped',
+            'warehouse' => 'Warehouse #6 Pines, Mandaluyong Metro Manila',
+        ]);
+
+        Order::factory()->create([
+            'sender_name' => 'Jemboy Campo',
+            'sender_phone' => '09334123789',
+            'sender_address' => 'Gk Bulaklakan',
+            'receiver_name' => 'Edu Aniban',
+            'receiver_phone' => '09634789123',
+            'receiver_address' => 'Aninion Residence, Caloocan',
+            'product' => 'Hair Blower',
+            'product_price' => 350.00,
+            'product_quantity' => 1,
+            'status' => 'shipped',
+            'warehouse' => 'Warehouse #6 Pines, Mandaluyong Metro Manila',
+        ]);
     }
 }

@@ -74,42 +74,45 @@
                     <div class="card-body">
                         <form id="routeForm" action="/save-route" method="POST" class="browser-default-validation">
                             @csrf
-                            <div id="placeInfo">                          
+                            <div id="placeInfo">
 
                                 <div class="mb-3">
                                     <label for="route-name">Route Name:</label>
-                                    <input type="text" name="route-name" id="route-name" class="form-control" placeholder="Enter a route name" required>
-                                    <button type="button" id="generate-route-name" class="btn btn-primary mt-2">Generate Random</button>
+                                    <input type="text" name="route-name" id="route-name" class="form-control"
+                                        placeholder="Enter a route name" required>
+                                    <button type="button" id="generate-route-name" class="btn btn-primary mt-2">Generate
+                                        Random</button>
                                 </div>
-                                
+
                                 <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    // Function to generate a random string
-                                    function generateRandomString(length) {
-                                        var result = '';
-                                        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                                        var charactersLength = characters.length;
-                                        for (var i = 0; i < length; i++) {
-                                            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        // Function to generate a random string
+                                        function generateRandomString(length) {
+                                            var result = '';
+                                            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                                            var charactersLength = characters.length;
+                                            for (var i = 0; i < length; i++) {
+                                                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                                            }
+                                            return result;
                                         }
-                                        return result;
-                                    }
-                                
-                                    // Event listener for the "Generate Random" button
-                                    document.getElementById('generate-route-name').addEventListener('click', function () {
-                                        var routeNameInput = document.getElementById('route-name');
-                                        // Generate a random string with a length of 8 characters
-                                        var randomRouteName = generateRandomString(8);
-                                        // Insert the generated random string into the input field
-                                        routeNameInput.value = randomRouteName;
+
+                                        // Event listener for the "Generate Random" button
+                                        document.getElementById('generate-route-name').addEventListener('click', function() {
+                                            var routeNameInput = document.getElementById('route-name');
+                                            // Generate a random string with a length of 8 characters
+                                            var randomRouteName = generateRandomString(8);
+                                            // Insert the generated random string into the input field
+                                            routeNameInput.value = randomRouteName;
+                                        });
                                     });
-                                });
-                                </script>                                
+                                </script>
 
                                 <div class="searchInput mb-3">
                                     <label for="loc1">Start:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set start location" value="{{ $order->sender_address }}" id="loc1" required>
+                                        placeholder="Set start location" value="{{ $order->sender_address }}" id="loc1"
+                                        required>
                                 </div>
 
                                 <div class="searchInput mb-3">
@@ -124,7 +127,8 @@
                                 <div class="searchInput mb-3">
                                     <label for="loc3">End:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set end location" value="{{ $order->receiver_address }}" id="loc3" required>
+                                        placeholder="Set end location" value="{{ $order->receiver_address }}" id="loc3"
+                                        required>
                                 </div>
 
                                 <input type="hidden" name="optimization_status" id="status" value="Unoptimized">
@@ -474,7 +478,7 @@
                     "'>" +
                     placeName +
                     "</span><a href='javascript:void(0)' onclick='deletePoint(this)'><img src='{{ asset('assets/img/customs/delete.png') }}' height='10' hspace='10'></a>\
-                              <a href='javascript:void(0)'>"; // [X]
+                                  <a href='javascript:void(0)'>"; // [X]
                 //            console.log("waypoint=" + waypoint + '\n');
                 calcRoute();
             } else {
@@ -633,4 +637,3 @@
         gtag('config', 'G-6LNBE7SQ3G');
     </script>
 @endsection
-

@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicle_report');
+        Schema::dropIfExists('lms_g43_vehicle_report');
     }
 };
