@@ -56,14 +56,14 @@
 
                                         <div class="col-md-2">
                                             <select class="form-select" name="filter-status">
-                                                <option value="">Select All Status</option>
+                                                <option value="">Select All </option>
                                                 <option value="active"
                                                     {{ request()->get('filter-status') == 'active' ? 'selected' : '' }}>
-                                                    Active
+                                                    Available
                                                 </option>
                                                 <option value="inactive"
                                                     {{ request()->get('filter-status') == 'inactive' ? 'selected' : '' }}>
-                                                    Not Active
+                                                    Unavailable
                                                 </option>
                                             </select>
                                         </div>
@@ -94,8 +94,10 @@
                                             @foreach ($drivers as $driver)
                                                 <tr>
                                                     <th>{{ $driver->id }}</th>
-                                                    <td><img src="{{ $driver->profile_photo_path}}" alt="" class="rounded-circle" width="35px" height="35px"></td>
-                                                    <td style="white-space: row-wrap;">{{ $driver->firstname }} {{ $driver->lastname }}</td>
+                                                    <td><img src="{{ $driver->profile_photo_path }}" alt=""
+                                                            class="rounded-circle" width="35px" height="35px"></td>
+                                                    <td style="white-space: row-wrap;">{{ $driver->firstname }}
+                                                        {{ $driver->lastname }}</td>
                                                     <td>{{ $driver->phone }}</td>
                                                     <td>{{ $driver->address }}</td>
                                                     <td>{{ $driver->email }}</td>

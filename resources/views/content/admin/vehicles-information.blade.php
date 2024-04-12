@@ -26,7 +26,8 @@
                         <div class="row">
                             <div class="card-body">
                                 <form action="" method="GET">
-                                    <div class="row d-flex align-content-center align-self-center justify-center align-items-center">
+                                    <div
+                                        class="row d-flex align-content-center align-self-center justify-center align-items-center">
                                         {{-- <div class="col-md-2">
                                         <label for="searchInput">Search</label>
                                         <input type="search" class="form-control" id="searchInput" name="searchInput"
@@ -88,12 +89,12 @@
                                             </select>
                                         </div>
 
-                                        <div class="col-md-2">
+                                        {{-- <div class="col-md-2">
 
                                             <select class="form-select" name="filter-capacity">
                                                 <option value="">Select Load Capacity</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="col-md-2">
 
@@ -168,7 +169,7 @@
                                 </table>
                                 <div class="d-flex justify-content-end">
                                     <a href="">
-                                        <h4> Need vehicle? request now</h4>
+                                        <h4 class="bg-danger badge mt-2"> Need vehicle? request now</h4>
                                     </a>
                                 </div>
 

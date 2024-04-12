@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Restriction;
+use App\Models\lms_g43_Restriction;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RestrictionFactory extends Factory
@@ -12,7 +12,7 @@ class RestrictionFactory extends Factory
      *
      * @var string
      */
-    protected $model = Restriction::class;
+    protected $model = lms_g43_Restriction::class;
 
     /**
      * Define the model's default state.

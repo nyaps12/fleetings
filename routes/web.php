@@ -81,6 +81,10 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
       Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
 
+
+      // Request Tools
+      Route::get('admin/request-mro', [Admin::class, 'mro'])->name('request-mro');
+
       // Maintenance Schedule
       Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
       Route::post('admin/schedMaintenance', [Admin::class, 'schedMaintenance'])->name('schedMaintenance');

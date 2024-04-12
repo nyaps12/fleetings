@@ -11,6 +11,7 @@ use App\Models\Vehiclereport;
 use App\Models\FuelReport;
 use App\Models\MaintenanceSchedule;
 use App\Models\IncidentReport;
+use App\Models\VehicleInfo;
 
 
 class Driver extends Controller
@@ -75,8 +76,10 @@ class Driver extends Controller
 
 
                     $reports = VehicleReport::all();
+                    $vehicle = VehicleInfo::all();
                     $drivers = Operator::where('user_id', $user->id)->get();
-                    return view('content.driver.vehicle-report', compact('reports','drivers'));
+                    
+                    return view('content.driver.vehicle-report', compact('reports','drivers','vehicle'));
                 }
 
                 public function submitReport(Request $request)
@@ -86,7 +89,7 @@ class Driver extends Controller
                         $validatedData = $request->validate([
                             'date' => 'required|date',
                             'maintenance_cost' => 'nullable|numeric',
-                            'maintenance_receipt' => 'nullable|string',
+                            'maintenance_receipt' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:2048',
                             'engine_no' => 'required|string',
                             'vehicle_type' => 'required|string',
                             'vehicle_condition' => 'required|string',

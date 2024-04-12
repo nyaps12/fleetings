@@ -7,11 +7,10 @@
 @section('title', 'Vehicle Report')
 
 <style>
-
     #test {
-      white-space: nowrap;
+        white-space: nowrap;
     }
-    </style>
+</style>
 @section('content')
 
     <div class="row">
@@ -35,6 +34,7 @@
                                         <th><strong>Vehicle Odometer</strong></th>
                                         <th><strong>Vehicle Issues</strong></th>
                                         <th><strong>Maintenance Cost</strong></th>
+                                        <th><strong>Maintenance Receipt</strong></th>
                                         <th><strong>Date</strong></th>
                                         <th><strong>Action</strong></th>
                                     </tr>
@@ -56,7 +56,23 @@
                                             <td> {{ $report->vehicle_condition }}</td>
                                             <td> {{ $report->vehicle_odometer }} </td>
                                             <td> {{ $report->vehicle_issues }}</td>
-                                            <td> {{ $report->maintenance_cost }}</td>
+                                            <td>
+                                                @if ($report->maintenance_cost)
+                                                    {{ $report->maintenance_cost }}
+                                                @else
+                                                    No Maintenance Cost
+                                                @endif
+
+                                            </td>
+                                            <td>
+                                                @if ($report->maintenance_receipt)
+                                                    <img src="{{ $report->maintenance_receipt }}" alt="Profile Picture"
+                                                        class="rounded-circle" style="width: 25px; height: 25px;">
+                                                @else
+                                                    No Maintenance Receipt
+                                                @endif
+                                            </td>
+
                                             <td id="test"> {{ $report->date }} </a></td>
                                             <td>
                                                 <a href="{{ route('vehicle-maintenance') }}"
@@ -69,6 +85,11 @@
                             <div class="d-flex justify-content-end">
                                 {{ $reports->links() }}
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="request-mro">
+                                <h4 class="bg-danger badge mt-2"> Request Tools</h4>
+                            </a>
                         </div>
                     </div>
                 </div>
