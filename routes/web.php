@@ -62,7 +62,7 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
       Route::get('admin/add-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
       Route::get('admin/add-schedule/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
-      Route::post('admin/submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
+      Route::post('admin/submitSchedule', [LMSG44RouteController::class, 'saveRoute'])->name('submitSchedule');
       // Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
       Route::post('admin/save-route', [LMSG44RouteController::class, 'saveRoute'])->name('save-route');

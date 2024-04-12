@@ -478,7 +478,7 @@
                     "'>" +
                     placeName +
                     "</span><a href='javascript:void(0)' onclick='deletePoint(this)'><img src='{{ asset('assets/img/customs/delete.png') }}' height='10' hspace='10'></a>\
-                                  <a href='javascript:void(0)'>"; // [X]
+                                                          <a href='javascript:void(0)'>"; // [X]
                 //            console.log("waypoint=" + waypoint + '\n');
                 calcRoute();
             } else {

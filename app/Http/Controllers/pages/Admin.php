@@ -412,6 +412,7 @@ class Admin extends Controller
 
     public function mro()
     {
+        
         return view('content.admin.request-mro');
     }
     }
