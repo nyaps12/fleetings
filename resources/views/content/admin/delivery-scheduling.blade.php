@@ -30,10 +30,10 @@
                 <h1>Schedule's List </h1>
             </div>
 
-            <div class="col-auto d-flex align-self-center items-center">
+            {{-- <div class="col-auto d-flex align-self-center items-center">
                 <a href="{{ route('new.schedule') }}" class="btn btn-sm btn-outline-primary"><span class="text-end">Add
                         Schedule</span></a>
-            </div>
+            </div> --}}
 
             <div class="col-md-12">
                 <div class="card">
@@ -43,7 +43,7 @@
                                 <thead>
                                     <tr>
                                         <th><strong>ID</strong></th>
-                                        <th><strong>Schedule ID</strong></th>
+                                        <th><strong>Order ID</strong></th>
                                         <th><strong>Sender Name</strong></th>
                                         <th><strong>Receiver Name</strong></th>
                                         <th><strong>R.PHONE</strong></th>

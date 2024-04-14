@@ -7,10 +7,10 @@
       "slug": "admin.dashboard"
     },
     {
-      "url": "admin/order",
+      "url": "admin/delivery",
       "icon": "menu-icon ti ti-package",
-      "name": "Order",
-      "slug": "order"
+      "name": "Delivery",
+      "slug": "delivery"
     },
     {
       "url": "admin/delivery-scheduling",
@@ -19,19 +19,19 @@
       "slug": "delivery-scheduling"
     },
     {
-      "url": "operator",
+      "url": "admin/operator",
       "icon": "menu-icon tf-icons ti ti-truck",
       "name": "Operator",
       "slug": "operator"
     },
     {
-      "url": "drivers",
+      "url": "admin/drivers",
       "icon": "menu-icon ti ti-users",
       "name": "Driver's List",
       "slug": "drivers"
     },
     {
-      "url": "vehicles-information",
+      "url": "admin/vehicles-information",
       "icon": "menu-icon tf-icons ti ti-truck",
       "name": "Vehicles Information",
       "slug": "vehicles-information"

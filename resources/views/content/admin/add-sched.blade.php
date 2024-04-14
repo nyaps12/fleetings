@@ -78,41 +78,16 @@
 
                                 <div class="mb-3">
                                     <label for="route-name">Route Name:</label>
-                                    <input type="text" name="route-name" id="route-name" class="form-control"
-                                        placeholder="Enter a route name" required>
-                                    <button type="button" id="generate-route-name" class="btn btn-primary mt-2">Generate
-                                        Random</button>
-                                </div>
 
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        // Function to generate a random string
-                                        function generateRandomString(length) {
-                                            var result = '';
-                                            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                                            var charactersLength = characters.length;
-                                            for (var i = 0; i < length; i++) {
-                                                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-                                            }
-                                            return result;
-                                        }
-
-                                        // Event listener for the "Generate Random" button
-                                        document.getElementById('generate-route-name').addEventListener('click', function() {
-                                            var routeNameInput = document.getElementById('route-name');
-                                            // Generate a random string with a length of 8 characters
-                                            var randomRouteName = generateRandomString(8);
-                                            // Insert the generated random string into the input field
-                                            routeNameInput.value = randomRouteName;
-                                        });
-                                    });
-                                </script>
+                                    <input type="text" name="route-name" id="route-name" class="form-control" placeholder="Enter a route name" required>
+                                    <button type="button" id="generate-route-name" class="btn btn-primary mt-2">Generate Random</button>
+                                </div>                         
 
                                 <div class="searchInput mb-3">
                                     <label for="loc1">Start:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set start location" value="{{ $order->sender_address }}" id="loc1"
-                                        required>
+
+
                                 </div>
 
                                 <div class="searchInput mb-3">
@@ -127,8 +102,6 @@
                                 <div class="searchInput mb-3">
                                     <label for="loc3">End:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set end location" value="{{ $order->receiver_address }}" id="loc3"
-                                        required>
                                 </div>
 
                                 <input type="hidden" name="optimization_status" id="status" value="Unoptimized">
@@ -241,7 +214,7 @@
         }
 
         function calcRoute(routeStart) {
-            updateUrl(); // update URL (because start/end/waypoint state just changed)
+            // updateUrl(); // update URL (because start/end/waypoint state just changed)
 
             if (
                 typeof start == "undefined" ||
@@ -591,7 +564,7 @@
         // AJAX request to save route data
         function saveRouteToDatabase(routeName, start, end, waypoints) {
             $.ajax({
-                url: 'save-route',
+                url: 'admin/save-route',
                 type: 'POST',
                 data: {
                     '_token': '{{ csrf_token() }}',
@@ -636,4 +609,28 @@
         gtag('js', new Date());
         gtag('config', 'G-6LNBE7SQ3G');
     </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to generate a random string
+        function generateRandomString(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+    
+        // Event listener for the "Generate Random" button
+        document.getElementById('generate-route-name').addEventListener('click', function () {
+            var routeNameInput = document.getElementById('route-name');
+            // Generate a random string with a length of 8 characters
+            var randomRouteName = generateRandomString(8);
+            // Insert the generated random string into the input field
+            routeNameInput.value = randomRouteName;
+        });
+    });
+    </script>     
 @endsection
