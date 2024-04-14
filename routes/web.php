@@ -25,18 +25,18 @@ use App\Http\Controllers\pages\LMSG44RouteController;
 
     //Login Things
     Route::redirect(uri: '/', destination: 'login');
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    // Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('auth/google', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
-    Route::any('auth/google/callback', [GoogleController::class, 'callbackFromGoogle'])->name('google.callback');
+    // Route::get('auth/google', [GoogleController::class, 'loginWithGoogle'])->name('google.login');
+    // Route::any('auth/google/callback', [GoogleController::class, 'callbackFromGoogle'])->name('google.callback');
 
-    Route::get('/password-request', function () {
-      return view('auth.forgot-password');
-    })->name('password.request');
+    // Route::get('/password-request', function () {
+    //   return view('auth.forgot-password');
+    // })->name('password.request');
 
-    Route::get('/email-request', function () {
-      return view('auth.forgot-password');
-    })->name('password.email');
+    // Route::get('/email-request', function () {
+    //   return view('auth.forgot-password');
+    // })->name('password.email');
 
     //
 
@@ -49,57 +49,57 @@ use App\Http\Controllers\pages\LMSG44RouteController;
         config('jetstream.auth_session'),
         'admin.auth',
         'verified',
-    ])->prefix('admin')->group(function () {
+    ])->group(function () {
       // Admin Routes
-      Route::get('dashboard', [Admin::class, 'dashboard'])->name('admin.dashboard');
+      Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('admin.dashboard');
 
       //DELIVERY LIST
       // Route::get('admin/order', [Admin::class, 'deliveryList'])->name('delivery');
       //SCHEDULE
 
-      Route::get('delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
+      Route::get('admin/delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
 
       // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
-      Route::get('add-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
-      Route::get('add-schedule/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
+      Route::get('aadmin/dd-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
+      Route::get('admin/add-schedule/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
       Route::post('submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
       // Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
       Route::post('save-route', [LMSG44RouteController::class, 'saveRoute'])->name('save-route');
       //
-      Route::get('vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
-      Route::get('vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
-      Route::get('reports', [Admin::class, 'report'])->name('report');
-      Route::get('driver-performance', [Admin::class, 'performance'])->name('driver-performance');
-      Route::get('delivery', [Admin::class, 'delivery'])->name('delivery');
-      Route::get('all-sched', [Admin::class, 'allsched'])->name('all-sched');
-      Route::get('on-route-list', [Admin::class, 'onroute'])->name('onroute');
-      Route::get('driver-reports', [Admin::class, 'reported'])->name('drive-reports');
-      Route::get('vehicle-issues', [Admin::class, 'issues'])->name('vehicle-issues');
-      Route::get('service', [Admin::class, 'service'])->name('service');
-      Route::get('maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
-      Route::get('fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
-      Route::get('incident-report', [Admin::class, 'incidents'])->name('incident-report');
+      Route::get('admin/vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
+      Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
+      Route::get('admin/reports', [Admin::class, 'report'])->name('report');
+      Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
+      Route::get('admin/delivery', [Admin::class, 'delivery'])->name('delivery');
+      Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
+      Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
+      Route::get('admin/driver-reports', [Admin::class, 'reported'])->name('drive-reports');
+      Route::get('admin/vehicle-issues', [Admin::class, 'issues'])->name('vehicle-issues');
+      Route::get('admin/service', [Admin::class, 'service'])->name('service');
+      Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
+      Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
+      Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
 
       // Maintenance Schedule
-      Route::get('vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
+      Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
       Route::post('schedMaintenance', [Admin::class, 'schedMaintenance'])->name('schedMaintenance');
 
       // Vehicle Report
-      Route::get('vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
+      Route::get('admin/vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
   
 
       // DRIVER SIDE OPERATE AND ASSIGN
-      Route::get('operator', [Admin::class, 'operator'])->name('operator');
-      Route::get('vehicle', [Admin::class, 'view'])->name('vehicle');
-      Route::get('drivers', [Admin::class, 'drivers'])->name('drivers');
+      Route::get('admin/operator', [Admin::class, 'operator'])->name('operator');
+      Route::get('admin/vehicle', [Admin::class, 'view'])->name('vehicle');
+      Route::get('admin/drivers', [Admin::class, 'drivers'])->name('drivers');
 
       //ASSIGN OPERATOR
-      Route::get('assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
+      Route::get('admin/assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
       Route::post('assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
 
       //ASSIGN CANCEL
-      Route::get('canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
+      Route::get('admin/canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
       Route::delete('cancel', [Admin::class, 'cancelSuccess'])->name('assignCancel');
 
       //ASSIGN SCHEDULE
@@ -118,7 +118,7 @@ use App\Http\Controllers\pages\LMSG44RouteController;
     });
 
     // Driver Routes (nested within the auth middleware group)
-    Route::prefix('driver')->middleware([
+    Route::middleware([
       'auth:sanctum',
       config('jetstream.auth_session'),
       'verified',
@@ -131,27 +131,27 @@ use App\Http\Controllers\pages\LMSG44RouteController;
 
   // Middleware for users who have completed their profile
   Route::middleware('profile.complete')->group(function () {
-      Route::get('map', [Driver::class, 'map'])->name('map');
-      Route::get('assignments', [Driver::class, 'assignments'])->name('assignments');
-      Route::get('driver-report', [Driver::class, 'report'])->name('user.report');
-      Route::get('history', [Driver::class, 'history'])->name('history');
-      Route::get('faq', [Driver::class, 'faq'])->name('user.faq');
+      Route::get('driver/map', [Driver::class, 'map'])->name('map');
+      Route::get('driver/assignments', [Driver::class, 'assignments'])->name('assignments');
+      Route::get('driver/driver-report', [Driver::class, 'report'])->name('user.report');
+      Route::get('driver/history', [Driver::class, 'history'])->name('history');
+      Route::get('driver/faq', [Driver::class, 'faq'])->name('user.faq');
 
       // Vehicle Report Form
-      Route::get('vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
+      Route::get('driver/vehicle-report', [Driver::class, 'vreport'])->name('vehicle-report');
       Route::post('submitVehicleReport', [Driver::class, 'submitReport'])->name('submitVehicleReport');
 
       // Fuel Report Form
-      Route::get('fuel-report', [Driver::class, 'freport'])->name('fuel-report');
+      Route::get('driver/fuel-report', [Driver::class, 'freport'])->name('fuel-report');
       Route::post('submitFuelReport', [Driver::class, 'FuelReport'])->name('submitFuelReport');
 
       // Incident Report Form
-      Route::get('incident', [Driver::class, 'incident'])->name('incident');
+      Route::get('driver/incident', [Driver::class, 'incident'])->name('incident');
       Route::post('submitIncident', [Driver::class, 'submitIncident'])->name('submitIncident');
   });
 
       // Profile related routes
-      Route::get('profile', [Driver::class, 'profile'])->name('profile');
+      Route::get('driver/profile', [Driver::class, 'profile'])->name('profile');
       
       // Add more routes as needed for the driver user role
     });

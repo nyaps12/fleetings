@@ -42,7 +42,7 @@ class SuperAdminSeeder extends Seeder
             'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Raffy Limbo'), // Use provided first name and last name
             'status' => 'active',
             'dlcodes' => '1',
-            'usertype' => 'driver'
+            'role' => '0'
         ])->assignRole('driver');        
 
         User::factory()->create([

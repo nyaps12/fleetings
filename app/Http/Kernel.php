@@ -37,8 +37,8 @@ class Kernel extends HttpKernel
       \App\Http\Middleware\VerifyCsrfToken::class,
       \Illuminate\Routing\Middleware\SubstituteBindings::class,
       \App\Http\Middleware\LocaleMiddleware::class,
-      // \App\Http\Middleware\DriverAuthenticate::class,
-    ],
+      \App\Http\Middleware\RedirectBasedOnRole::class, // Add the role.redirect middleware here
+  ],  
 
     'api' => [
       // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
