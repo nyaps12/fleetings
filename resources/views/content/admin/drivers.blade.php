@@ -91,6 +91,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @if ($drivers->isEmpty())
+                                            <tr>
+                                                <td colspan="8">No drivers available</td>
+                                            </tr>
+                                        @else
                                             @foreach ($drivers as $driver)
                                                 <tr>
                                                     <th>{{ $driver->id }}</th>
@@ -120,6 +125,8 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+                                        @endif
+                                        
                                         </tbody>
                                     </table>
 

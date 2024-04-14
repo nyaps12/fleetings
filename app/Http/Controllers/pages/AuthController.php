@@ -12,44 +12,44 @@ class AuthController extends Controller
 {
     public function index(Request $request)
     {
-        // if (Auth::check()) {
-        //     $usertype = Auth()->user()->usertype;
-
-        //     if ($usertype == 'user') {
-        //         // Redirect to the appropriate route for regular users
-        //         // return redirect()->route('dashboard.index');
-        //         $route = $this->redirectDash();
-        //         return redirect($route);
-        //     } elseif ($usertype == 'admin') {
-        //         // Redirect to the appropriate admin dashboard
-        //         // return redirect()->route('dashboard');
-        //         $route = $this->redirectDash();
-        //         return redirect($route);
-        //     }
-        // }
-
-        // // If user is not authenticated or usertype is not set or not recognized, redirect to login
-        // return redirect()->route('login');
-        // test2
-        // Authenticate the user
         if (Auth::check()) {
-            // Generate a token for the authenticated user
-            
-            // Get the user's usertype
-            $usertype = Auth::user()->usertype;
+            $usertype = Auth()->user()->usertype;
 
-            // Redirect based on the user's usertype
             if ($usertype == 'user') {
                 // Redirect to the appropriate route for regular users
-                return redirect()->route('user.dashboard');
+                // return redirect()->route('dashboard.index');
+                $route = $this->redirectDash();
+                return redirect($route);
             } elseif ($usertype == 'admin') {
                 // Redirect to the appropriate admin dashboard
-                return redirect()->route('admin.dashboard');
+                // return redirect()->route('dashboard');
+                $route = $this->redirectDash();
+                return redirect($route);
             }
         }
-        
-        // If user is not authenticated or usertype is not recognized, redirect to login
+
+        // If user is not authenticated or usertype is not set or not recognized, redirect to login
         return redirect()->route('login');
+        // test2
+        // Authenticate the user
+        // if (Auth::check()) {
+        //     // Generate a token for the authenticated user
+            
+        //     // Get the user's usertype
+        //     $usertype = Auth::user()->usertype;
+
+        //     // Redirect based on the user's usertype
+        //     if ($usertype == 'user') {
+        //         // Redirect to the appropriate route for regular users
+        //         return redirect()->route('user.dashboard');
+        //     } elseif ($usertype == 'admin') {
+        //         // Redirect to the appropriate admin dashboard
+        //         return redirect()->route('admin.dashboard');
+        //     }
+        // }
+        
+        // // If user is not authenticated or usertype is not recognized, redirect to login
+        // return redirect()->route('login');
 
         //test3
         // Check if the user submitted the login form
@@ -129,21 +129,29 @@ class AuthController extends Controller
     public function redirectDash()
     {
         $redirect = '';
-    
-        if(Auth::check()) { // Check if the user is authenticated
-            if(Auth::user()->hasRole('Super Admin')) { // Check if the user's role is super-admin
-                $redirect = 'admin/dashboard'; // Redirect to the super-admin dashboard
-            } elseif(Auth::user()->hasRole('Admin')) { // Check if the user's role is admin
-                $redirect = 'admin/dashboard'; // Redirect to the admin dashboard
-            } elseif(Auth::user()->hasRole('Driver')) { // Check if the user's role is driver
-                $redirect = 'dashboard'; // Redirect to the driver dashboard
-            } else {
-                $redirect = 'dashboard'; // Default dashboard route for users with other roles
+
+        if (Auth::check()) { // Check if the user is authenticated
+            $userType = Auth::user()->usertype; // Get the user's type
+            
+            switch ($userType) {
+                case 'Super Admin':
+                    $redirect = 'admin/dashboard'; // Redirect to the super-admin dashboard
+                    break;
+                case 'adnin':
+                    $redirect = 'admin/dashboard'; // Redirect to the admin dashboard
+                    break;
+                case 'driver':
+                    $redirect = 'driver/dashboard'; // Redirect to the driver dashboard
+                    break;
+                default:
+                    $redirect = '/'; // Default dashboard route for users with other roles
+                    break;
             }
         } else {
             $redirect = '/login'; // If the user is not authenticated, redirect to the login page
         }
         
         return $redirect;
+        
     }    
 }

@@ -15,7 +15,11 @@ use App\Models\FuelReport;
 use App\Models\MaintenanceSchedule;
 use App\Models\IncidentReport;
 use Carbon\Carbon;
-use App\Models\order;
+use App\Models\Delivery;
+use App\Models\Driver;
+use Illuminate\Support\Facades\Log;
+use Hash;
+
 
 
 
@@ -146,10 +150,10 @@ class Admin extends Controller
         return view('content.admin.drivers', compact('user', 'drivers', 'vehicles'));
     }   
 
-    public function order()
+    public function delivery()
     {
-        $orders = Order::paginate(5);
-        return view('content.admin.order', compact('orders'));
+        $delivery = Delivery::paginate(5);
+        return view('content.admin.delivery', compact('delivery'));
     }    
 
     public function view()
@@ -199,10 +203,9 @@ class Admin extends Controller
             
             // Find the vehicle with the corresponding type
             $vehicle->update(['status' => 'unavailable']);
-
-            
-            // Create a new operator entry
-            Operator::create([
+    
+            // Create the operator entry
+            $operator = Operator::create([
                 'user_id' => $user->id,
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname,
@@ -216,6 +219,18 @@ class Admin extends Controller
                 'status' => 'active',
             ]);
     
+            // Get the ID of the created operator
+            $operatorId = $operator->id;
+    
+            // Create the driver entry with the operator ID
+            Driver::create([
+                'driver_id' => $operatorId,
+                'fullname' => $user->firstname . ' ' . $user->lastname,
+                'email' => $user->email,
+                'password' => $user->password, // Assuming you are storing hashed passwords
+                'plate_no' => $vehicle->plate_number,
+            ]);
+    
             // Redirect back to the drivers page with a success message
             return redirect()->route('drivers')->with('success', 'Driver assigned successfully');
             
@@ -223,8 +238,8 @@ class Admin extends Controller
             // Log or handle the exception as needed
             return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
         }
-        /// NEED PA AYUSIN TO HAHAH
     }
+    
     
     public function cancel($id)
     {
@@ -237,44 +252,62 @@ class Admin extends Controller
         try {
             // Retrieve the ID from the request payload or query string
             $id = $request->input('id');
-            
-    
-            // Find the operator by IDr
+        
+            // Find the operator by ID
             $operator = Operator::findOrFail($id);
+        
+            // Log operator information
+            Log::info('Operator information: ' . $operator);
+        
+            // Retrieve the associated driver using the driver_id from the operator
+            $driverId = $operator->id;
+            $driver = $driverId ? Driver::find($driverId) : null;
             
-    
+            // Check if the driver exists
+            if (!$driver) {
+                throw new \Exception("Driver not found for this operator");
+            }
+        
             // Retrieve the user associated with the operator
             $user = $operator->user;
-            
+        
             // Check if the user exists
             if (!$user) {
                 throw new \Exception("User not found for this operator");
             }
-    
+        
             // Update the status of the user to 'active'
             $user->update(['status' => 'active']);
-    
+        
             // Retrieve the associated vehicle
             $vehicle = $operator->vehicle;
-            // dd($vehicle);
+            
             // Check if a vehicle is associated with the operator
             if (!$vehicle) {
                 throw new \Exception("Vehicle not found for this operator");
             }
-
+        
             // Update the status of the vehicle to 'available'
             $vehicle->update(['status' => 'available']);
                 
             // Delete the operator record
             $operator->delete();
-    
+        
+            // Delete the driver record
+            $driver->delete();
+        
             // Redirect back to the desired route with a success message
-            return redirect()->route('operator')->with('success', 'Operator canceled successfully');
+            return redirect()->route('operator')->with('success', 'Operator and associated driver canceled successfully');
         } catch (\Exception $e) {
             // Log or handle the exception as needed
+            Log::error('Error occurred: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
         }
     }
+    
+    
+    
+    
     
     public function profile()
     {
@@ -367,10 +400,10 @@ class Admin extends Controller
     // Assuming you're passing the order ID as a parameter in your route
     public function addSchedule($id) {
         // Retrieve the order based on the provided ID
-        $order = Order::find($id);
+        $delivery = Delivery::find($id);
         $schedules = Schedule::all();
     
-        return view('content.admin.add-sched', compact('schedules', 'order'));
+        return view('content.admin.add-sched', compact('schedules', 'delivery'));
     }
 
 

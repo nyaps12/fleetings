@@ -99,25 +99,25 @@
                         </form>
 
 
-                        <p class="text-center">
+                        {{-- <p class="text-center">
                         <div class="divider my-4">
                             <div class="divider-text">or</div>
-                        </div>
+                        </div> --}}
 
-                        <div class="d-flex justify-content-center">
-                            {{-- <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
+                        {{-- <div class="d-flex justify-content-center">
+                            <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
                                         <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-                                    </a> --}}
+                                    </a>
 
                             <div class="text-center">
                                 <a href="{{ url('auth/google') }}"><img src="{{ url('assets/img/logo/google.png') }}"
                                         class="img-fluid" width="25px" height="25px" alt="Google Logo"></a>
                             </div>
-                            {{-- 
+                            
                                     <a href="javascript:;" class="btn btn-icon btn-label-twitter">
                                         <i class="tf-icons fa-brands fa-twitter fs-5"></i>
-                                    </a> --}}
-                        </div>
+                                    </a>
+                        </div> --}}
                         </p>
                     </div>
                 </div>

@@ -45,48 +45,48 @@ use App\Http\Controllers\pages\LMSG44RouteController;
 
 
     Route::middleware([
-      'auth:sanctum',
-      config('jetstream.auth_session'),
-      'admin.auth',
-      'verified',
-    ])->group(function () {
+        'auth:sanctum',
+        config('jetstream.auth_session'),
+        'admin.auth',
+        'verified',
+    ])->prefix('admin')->group(function () {
       // Admin Routes
-      Route::get('admin/dashboard', [Admin::class, 'dashboard'])->name('admin.dashboard');
+      Route::get('dashboard', [Admin::class, 'dashboard'])->name('admin.dashboard');
 
       //DELIVERY LIST
       // Route::get('admin/order', [Admin::class, 'deliveryList'])->name('delivery');
       //SCHEDULE
 
-      Route::get('admin/delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
+      Route::get('delivery-scheduling', [Admin::class, 'scheduling'])->name('delivery-scheduling');
 
       // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
-      Route::get('admin/add-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
-      Route::get('admin/add-schedule/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
-      Route::post('admin/submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
+      Route::get('add-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
+      Route::get('add-schedule/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
+      Route::post('submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
       // Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
-      Route::post('admin/save-route', [LMSG44RouteController::class, 'saveRoute'])->name('save-route');
+      Route::post('save-route', [LMSG44RouteController::class, 'saveRoute'])->name('save-route');
       //
       Route::get('vehicles-information', [Admin::class, 'vehicleInfo'])->name('vehicles-information');
-      Route::get('admin/vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
-      Route::get('admin/reports', [Admin::class, 'report'])->name('report');
-      Route::get('admin/driver-performance', [Admin::class, 'performance'])->name('driver-performance');
-      Route::get('admin/order', [Admin::class, 'order'])->name('order');
-      Route::get('admin/all-sched', [Admin::class, 'allsched'])->name('all-sched');
-      Route::get('admin/on-route-list', [Admin::class, 'onroute'])->name('onroute');
-      Route::get('admin/driver-reports', [Admin::class, 'reported'])->name('drive-reports');
-      Route::get('admin/vehicle-issues', [Admin::class, 'issues'])->name('vehicle-issues');
-      Route::get('admin/service', [Admin::class, 'service'])->name('service');
-      Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
-      Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
-      Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
+      Route::get('vehicles-information/{id}', [Admin::class, 'infodisplay'])->name('vehicles-infodisplay');
+      Route::get('reports', [Admin::class, 'report'])->name('report');
+      Route::get('driver-performance', [Admin::class, 'performance'])->name('driver-performance');
+      Route::get('delivery', [Admin::class, 'delivery'])->name('delivery');
+      Route::get('all-sched', [Admin::class, 'allsched'])->name('all-sched');
+      Route::get('on-route-list', [Admin::class, 'onroute'])->name('onroute');
+      Route::get('driver-reports', [Admin::class, 'reported'])->name('drive-reports');
+      Route::get('vehicle-issues', [Admin::class, 'issues'])->name('vehicle-issues');
+      Route::get('service', [Admin::class, 'service'])->name('service');
+      Route::get('maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
+      Route::get('fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
+      Route::get('incident-report', [Admin::class, 'incidents'])->name('incident-report');
 
       // Maintenance Schedule
-      Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
-      Route::post('admin/schedMaintenance', [Admin::class, 'schedMaintenance'])->name('schedMaintenance');
+      Route::get('vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');
+      Route::post('schedMaintenance', [Admin::class, 'schedMaintenance'])->name('schedMaintenance');
 
       // Vehicle Report
-      Route::get('admin/vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
+      Route::get('vehicles-report', [Admin::class, 'vehicleReport'])->name('vehicles-report');
   
 
       // DRIVER SIDE OPERATE AND ASSIGN
@@ -96,11 +96,11 @@ use App\Http\Controllers\pages\LMSG44RouteController;
 
       //ASSIGN OPERATOR
       Route::get('assign/{id}', [Admin::class, 'assign'])->name('admin.assign');
-      Route::post('admin/assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
+      Route::post('assign', [Admin::class, 'assignSuccess'])->name('assignSuccess');
 
       //ASSIGN CANCEL
       Route::get('canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
-      Route::delete('admin/cancel', [Admin::class, 'cancelSuccess'])->name('assignCancel');
+      Route::delete('cancel', [Admin::class, 'cancelSuccess'])->name('assignCancel');
 
       //ASSIGN SCHEDULE
       // Route::get('canceloperator/{id}', [Admin::class, 'cancel'])->name('admin.assigncancel');
@@ -118,12 +118,12 @@ use App\Http\Controllers\pages\LMSG44RouteController;
     });
 
     // Driver Routes (nested within the auth middleware group)
-    Route::middleware([
+    Route::prefix('driver')->middleware([
       'auth:sanctum',
       config('jetstream.auth_session'),
       'verified',
       'driver.auth' // Add your custom middleware here
-    ])->group(function () {
+  ])->group(function () {
       // Define routes specific to driver users here
       // For example:
       Route::get('dashboard', [Driver::class, 'dashboard'])->name('user.dashboard');
