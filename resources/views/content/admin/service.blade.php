@@ -21,6 +21,26 @@
 
 @section('content')
 
+    <div class="position-fixed center-5 end-0 p-3" style="z-index: 10">
+        <div class="col-md-8">
+            @if (session('success'))
+                <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <script>
+                    setTimeout(function() {
+                        var successAlert = document.getElementById('success-alert');
+                        successAlert.classList.remove('show');
+                        setTimeout(function() {
+                            successAlert.remove();
+                        }, 5000);
+                    }, 1500);
+                </script>
+            @endif
+        </div>
+    </div>
+
 
     <div class="row">
         <div class="col-sm-12 col-lg-12 mb-4">
