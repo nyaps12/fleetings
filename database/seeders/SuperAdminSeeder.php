@@ -45,19 +45,19 @@ class SuperAdminSeeder extends Seeder
             'role' => '0'
         ])->assignRole('driver');        
 
-        User::factory()->create([
-            'firstname' => 'Jake', 
-            'lastname' => 'Bartolay', 
-            'name' => 'Jake', 
-            'email' => 'jake@gmail.com',
-            'phone' => '09435489822',
-            'address' => 'Lot 103-117 Alabang-Zapote Road corner Filinvest Ave., Westgate Alabang, Muntinlupa M.M',
-            'password' => Hash::make('admin123'),
-            'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Jake Bartolay'), // Use provided first name and last name
-            'status' => 'active',
-            'dlcodes' => '1',
-            'usertype' => 'driver'
-        ])->assignRole('driver');
+        // User::factory()->create([
+        //     'firstname' => 'Jake', 
+        //     'lastname' => 'Bartolay', 
+        //     'name' => 'Jake', 
+        //     'email' => 'jake@gmail.com',
+        //     'phone' => '09435489822',
+        //     'address' => 'Lot 103-117 Alabang-Zapote Road corner Filinvest Ave., Westgate Alabang, Muntinlupa M.M',
+        //     'password' => Hash::make('admin123'),
+        //     'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Jake Bartolay'), // Use provided first name and last name
+        //     'status' => 'active',
+        //     'dlcodes' => '1',
+        //     'usertype' => 'driver'
+        // ])->assignRole('driver');
 
         User::factory()->create([
             'firstname' => 'Juan', 
