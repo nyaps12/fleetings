@@ -65,12 +65,12 @@
                                 @enderror
                             </div>
                             <div class="mb-3 form-password-toggle">
-                                <div class="d-flex justify-content-between">
+                                {{-- <div class="d-flex justify-content-between">
                                     <label class="form-label" for="login-password">Password</label>
                                     <a href="{{ route('password.request') }}">
                                         <small>Forgot Password?</small>
                                     </a>
-                                </div>
+                                </div> --}}
                                 <div class="input-group input-group-merge @error('password') is-invalid @enderror">
                                     <input value="admin123" type="password" id="login-password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
@@ -99,25 +99,25 @@
                         </form>
 
 
-                        <p class="text-center">
+                        {{-- <p class="text-center">
                         <div class="divider my-4">
                             <div class="divider-text">or</div>
-                        </div>
+                        </div> --}}
 
-                        <div class="d-flex justify-content-center">
-                            {{-- <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
+                        {{-- <div class="d-flex justify-content-center">
+                            <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
                                         <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-                                    </a> --}}
+                                    </a>
 
                             <div class="text-center">
                                 <a href="{{ url('auth/google') }}"><img src="{{ url('assets/img/logo/google.png') }}"
                                         class="img-fluid" width="25px" height="25px" alt="Google Logo"></a>
                             </div>
-                            {{-- 
+                            
                                     <a href="javascript:;" class="btn btn-icon btn-label-twitter">
                                         <i class="tf-icons fa-brands fa-twitter fs-5"></i>
-                                    </a> --}}
-                        </div>
+                                    </a>
+                        </div> --}}
                         </p>
                     </div>
                 </div>

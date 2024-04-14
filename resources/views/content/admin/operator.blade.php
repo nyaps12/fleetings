@@ -52,10 +52,15 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
+                                    @if ($driver->isEmpty())
+                                    <tr>
+                                        <td colspan="10">No operators available</td>
+                                    </tr>
+                                @else
                                     @foreach ($driver as $row)
                                         <tr>
                                             <td>{{ $row->id }}</td>
-                                            <td><img src="{{ $row->profile_photo_path}}" alt="" class="rounded-circle" width="35px" height="35px"></td>
+                                            <td><img src="{{ $row->profile_photo_path }}" alt="" class="rounded-circle" width="35px" height="35px"></td>
                                             <td>{{ $row->firstname }} {{ $row->lastname }}</td>
                                             <td>{{ $row->vehicles_id }}</td>
                                             <td>{{ $row->vehicle_brand }}</td>
@@ -76,12 +81,14 @@
                                             </td>                                            
                                         </tr>
                                     @endforeach
+                                @endif
+                                
                                 </tbody>
                             </table>
 
-                            <div class="d-flex justify-content-end">
+                            {{-- <div class="d-flex justify-content-end">
                                 {{ $drivers->links() }}
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

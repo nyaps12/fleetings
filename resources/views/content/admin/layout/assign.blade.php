@@ -6,6 +6,8 @@
 
 @section('title', 'Assign')
 
+@include('layouts/notification')
+
 @section('content')
 
     <div class="container">
@@ -21,6 +23,26 @@
                                 <p style="color:red;">{{ $error }}</p>
                             @endforeach
                         @endif
+
+                        @if (session('error'))
+                        <div id="errorNotification" class="notification show error">
+                            <span class="message">{{ session('error') }}</span>
+                            <button class="close-btn" onclick="hideErrorNotification()">X</button>
+                        </div>
+                        <script>
+                        // Set the duration (in milliseconds) for the error notification to be displayed
+                        var duration = 5000; // 5 seconds (adjust as needed)
+
+                        // Function to hide the error notification after the specified duration
+                        function hideErrorNotification() {
+                            var errorNotification = document.getElementById('errorNotification');
+                            errorNotification.style.display = 'none';
+                        }
+
+                        // Hide the error notification after the specified duration
+                        setTimeout(hideErrorNotification, duration);
+                        </script>
+                        @endif   
                         <form action="{{ route('assignSuccess') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $driver->id }}">

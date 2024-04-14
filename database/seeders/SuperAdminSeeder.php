@@ -41,7 +41,8 @@ class SuperAdminSeeder extends Seeder
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Raffy Limbo'), // Use provided first name and last name
             'status' => 'active',
-            'dlcodes' => '1'
+            'dlcodes' => '1',
+            'role' => '0'
         ])->assignRole('driver');        
 
         User::factory()->create([
@@ -54,7 +55,8 @@ class SuperAdminSeeder extends Seeder
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Jake Bartolay'), // Use provided first name and last name
             'status' => 'active',
-            'dlcodes' => '1'
+            'dlcodes' => '1',
+            'usertype' => 'driver'
         ])->assignRole('driver');
 
         User::factory()->create([
@@ -67,7 +69,8 @@ class SuperAdminSeeder extends Seeder
             'password' => Hash::make('admin123'),
             'profile_photo_path' => 'https://ui-avatars.com/api/?name=' . urlencode('Juan Delecruz'), // Use provided first name and last name
             'status' => 'active',
-            'dlcodes' => '2'
+            'dlcodes' => '2',
+            'usertype' => 'driver'
         ])->assignRole('driver');
     }
 }
