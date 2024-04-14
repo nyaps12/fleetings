@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('lms_g43_request_mro', function (Blueprint $table) {
         $table->id();
-        $table->date('date'); // For the date input
-        $table->string('product'); // For the product input
-        $table->integer('quantity'); // For the quantity input
+        $table->date('date'); 
+        $table->string('product'); 
+        $table->integer('quantity'); 
+        $table->enum('status', ['Ongoing', 'Requested', 'Completed'])->default('Requested');
         $table->timestamps(); // 
     });
     }
