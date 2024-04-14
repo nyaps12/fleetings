@@ -74,10 +74,11 @@
                     <div class="card-body">
                         <form id="routeForm" action="/save-route" method="POST" class="browser-default-validation">
                             @csrf
-                            <div id="placeInfo">                          
+                            <div id="placeInfo">
 
                                 <div class="mb-3">
                                     <label for="route-name">Route Name:</label>
+
                                     <input type="text" name="route-name" id="route-name" class="form-control" placeholder="Enter a route name" required>
                                     <button type="button" id="generate-route-name" class="btn btn-primary mt-2">Generate Random</button>
                                 </div>                         
@@ -85,7 +86,8 @@
                                 <div class="searchInput mb-3">
                                     <label for="loc1">Start:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set start location" value="{{ $delivery->sender_address }}" id="loc1" required>
+
+
                                 </div>
 
                                 <div class="searchInput mb-3">
@@ -100,7 +102,6 @@
                                 <div class="searchInput mb-3">
                                     <label for="loc3">End:</label>
                                     <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set end location" value="{{ $delivery->receiver_address }}" id="loc3" required>
                                 </div>
 
                                 <input type="hidden" name="optimization_status" id="status" value="Unoptimized">
@@ -450,7 +451,7 @@
                     "'>" +
                     placeName +
                     "</span><a href='javascript:void(0)' onclick='deletePoint(this)'><img src='{{ asset('assets/img/customs/delete.png') }}' height='10' hspace='10'></a>\
-                              <a href='javascript:void(0)'>"; // [X]
+                                                          <a href='javascript:void(0)'>"; // [X]
                 //            console.log("waypoint=" + waypoint + '\n');
                 calcRoute();
             } else {
@@ -633,4 +634,3 @@
     });
     </script>     
 @endsection
-

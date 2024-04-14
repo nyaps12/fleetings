@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('vehicle_type', 50);
             $table->string('engine_no', 50);
             $table->text('issues');
-            $table->string('status', 20);
+            $table->string('status')->default('Pending');
             $table->date('date_issue');
             $table->integer('vehicle_odometer');
             $table->date('start_date');

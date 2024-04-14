@@ -36,15 +36,15 @@
                                 <thead>
                                     <tr>
                                         <th><strong> ID </strong> </th>
-                                        <th><strong> Operator </strong> </th>
+                                        {{-- <th><strong> Operator </strong> </th> --}}
                                         <th><strong> Vehicle Type </strong></th>
                                         <th><strong> Vehicle Engine No. </strong></th>
                                         <th><strong> Vehicle Issue </strong></th>
-                                        <th><strong> Status </strong></th>
                                         <th><strong> Date Issued </strong></th>
                                         <th><strong> Odometer </strong></th>
                                         <th><strong> Start Date </strong></th>
                                         <th><strong> Completion Date </strong></th>
+                                        <th><strong> Status </strong></th>
                                     </tr>
                                 </thead>
 
@@ -52,20 +52,22 @@
                                     @foreach ($service as $maintenance)
                                         <tr>
                                             <td> {{ $maintenance->report_id }} </td>
-                                            <td> </td>
+                                            {{-- <td> </td> --}}
                                             <td> {{ $maintenance->vehicle_type }} </td>
                                             <td> {{ $maintenance->engine_no }} </td>
                                             <td> {{ $maintenance->issues }} </td>
-                                            <td> {{ $maintenance->status }} </td>
                                             <td> {{ $maintenance->date_issue }} </td>
                                             <td> {{ $maintenance->vehicle_odometer }} </td>
                                             <td> {{ $maintenance->start_date }} </td>
                                             <td> {{ $maintenance->completion_date }} </td>
+                                            <td> <span class="bg-gradient-warning badge">
+                                                    {{ $maintenance->status }}</span> </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
 
                             </table>
+
                         </div>
                     </div>
                 </div>

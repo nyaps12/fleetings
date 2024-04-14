@@ -62,7 +62,7 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       // Route::get('admin/add-schedule', [Admin::class, 'addsched'])->name('add-schedule');
       Route::get('aadmin/dd-schedule', [Admin::class, 'newSchedule'])->name('new.schedule');
       Route::get('admin/add-schedule/{id}', [Admin::class, 'addSchedule'])->name('add.schedule');
-      Route::post('submitSchedule', [Admin::class, 'saveRoute'])->name('submitSchedule');
+      
       // Route::post('admin/save-schedule', [Admin::class, 'saveSchedule'])->name('save.schedule');
       // Route::post('save-route', [Admin::class, 'saveRoute']);
       Route::post('save-route', [LMSG44RouteController::class, 'saveRoute'])->name('save-route');
@@ -80,6 +80,10 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       Route::get('admin/maintenance-overview', [Admin::class, 'maintenanceOverview'])->name('maintenance-overview');
       Route::get('admin/fuels-report', [Admin::class, 'fuelReport'])->name('fuels-report');
       Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
+
+
+      // Request Tools
+      Route::get('admin/request-mro', [Admin::class, 'mro'])->name('request-mro');
 
       // Maintenance Schedule
       Route::get('admin/vehicle-maintenance', [Admin::class, 'maintenance'])->name('vehicle-maintenance');

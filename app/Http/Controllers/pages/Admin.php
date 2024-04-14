@@ -106,7 +106,12 @@ class Admin extends Controller
     
     public function maintenance()
     {
-        return view('content.admin.vehicle-maintenance');
+        $user = Auth::user();
+        
+        $drivers = Operator::where('user_id', $user->id)->get();
+        $service = MaintenanceSchedule::paginate(10);
+
+        return view('content.admin.vehicle-maintenance', compact('service', 'drivers'));
     }
 
     public function report()
@@ -338,26 +343,25 @@ class Admin extends Controller
             'vehicle_type' => 'required|string',
             'engine_no' => 'required|string',
             'issues' => 'required|string',
-            'vehicle_condition' => 'required|string',
+            'status' => 'required|string', // Include status in validation
             'date_issue' => 'required|date',
             'vehicle_odometer' => 'required|numeric',
             'start_date' => 'nullable|date',
             'completion_date' => 'nullable|date',
         ]);
         
-
         // Create a new instance of the model
         $service = new MaintenanceSchedule();
 
         // Set attributes with validated data
-        $service->date_issue = $validatedData['date'];
         $service->vehicle_type = $validatedData['vehicle_type'];
-        $service->engine_no = $validatedData['engine_no']; // Changed to match the column name in the schema
-        $service->issues = $validatedData['issues']; // Changed to match the column name in the schema
-        // $service->status = 'status'; // Provide a value for 'status'
+        $service->engine_no = $validatedData['engine_no'];
+        $service->issues = $validatedData['issues'];
+        $service->status = $validatedData['status']; // Set status
+        $service->date_issue = $validatedData['date_issue'];
         $service->vehicle_odometer = $validatedData['vehicle_odometer'];
-        $service->start_date = now(); // Assuming start date is current date/time
-        $service->completion_date = null; // Initially, completion date is null
+        $service->start_date = $validatedData['start_date'] ?? now();
+        $service->completion_date = $validatedData['completion_date'];
 
         // Save the service to the database
         $service->save();
@@ -406,7 +410,6 @@ class Admin extends Controller
         return view('content.admin.add-sched', compact('schedules', 'delivery'));
     }
 
-
     // public function saveSchedule(Request $request)
     // {
     //     // Validate the form data
@@ -434,9 +437,15 @@ class Admin extends Controller
     //     return redirect()->route('add.schedule')->with('success', 'Schedule Created successfully');
     // }
 
-    public function deliveryList()
+    // public function deliveryList()
+    // {
+    //     return view('content.admin.deliverylist');
+    // }
+        
+
+    public function mro()
     {
-        return view('content.admin.deliverylist');
+        
+        return view('content.admin.request-mro');
     }
-    
     }

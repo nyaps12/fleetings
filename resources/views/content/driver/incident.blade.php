@@ -80,7 +80,7 @@
                         <div class="col-md-4 mt-2">
                             <label for="vehicle" class="form-label">Vehicle Type</label>
                             <input type="text" class="form-control" name="vehicle" placeholder="Vehicle" readonly
-                                value="{{ $drivers->isNotEmpty() ? $drivers->first()->vehicle_brand ?? 'No Vehicle Brand found' : 'No Vehicle Brand found' }}">
+                                value="{{ $drivers->isNotEmpty() ? $drivers->first()->vehicle_type ?? 'No Vehicle Type found' : 'No Vehicle Type found' }}">
                         </div>
                         <div class="col-md-4 mt-2">
                             <label for="vehicle_engine_no" class="form-label">Vehicle Engine Number</label>
