@@ -8,6 +8,28 @@
 
 @section('content')
 
+    <div class="position-fixed center-5 end-0 p-3" style="z-index: 10">
+        <div class="col-md-8">
+            @if (session('success'))
+                <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <script>
+                    setTimeout(function() {
+                        var successAlert = document.getElementById('success-alert');
+                        successAlert.classList.remove('show');
+                        setTimeout(function() {
+                            successAlert.remove();
+                        }, 5000);
+                    }, 1500);
+                </script>
+            @endif
+        </div>
+    </div>
+
+
+
     <div class="container">
         {{-- <h1>Request Tools</h1> --}}
         <div class="row">
@@ -15,7 +37,7 @@
                 <div class="card">
                     <div class="card-header"></div>
                     <div class="card-body">
-                        <form id="routeForm" action="/" method="POST" class="browser-default-validation">
+                        <form action="{{ route('requestTools') }}" method="POST">
                             @csrf
                             <div id="placeInfo">
 
@@ -39,22 +61,15 @@
                                         id="quantity" required>
                                 </div>
 
-                                {{-- <div class="searchInput mb-3">
-                                    <label for="loc2">Waypoints: (Required)</label>
-                                    <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Enter some waypoints" id="loc2">
-                                    <div>
-                                        <ul id="waypointsInfo" class="list-group list-group-timeline"></ul>
-                                    </div>
+
+                                <div class="mb-3">
+                                    <label for="status">Status</label>
+                                    <select name="status" id="status" class="form-control" required readonly>
+                                        <option value="Requested">Request</option>
+                                    </select>
                                 </div>
 
-                                <div class="searchInput mb-3">
-                                    <label for="loc3">End:</label>
-                                    <input type="text" name="searchbox" class="form-control"
-                                        placeholder="Set end location" id="loc3" required>
-                                </div>
 
-                                <input type="hidden" name="optimization_status" id="status" value="Unoptimized"> --}}
 
                             </div>
                             <!-- Submit Button -->

@@ -17,6 +17,7 @@ use App\Models\IncidentReport;
 use Carbon\Carbon;
 use App\Models\Delivery;
 use App\Models\Driver;
+use App\Models\LMSG43RequestMro;
 use Illuminate\Support\Facades\Log;
 use Hash;
 
@@ -446,6 +447,31 @@ class Admin extends Controller
     public function mro()
     {
         
-        return view('content.admin.request-mro');
+        $requestMro = LMSG43RequestMro::paginate(5);
+        return view('content.admin.request-mro', compact('requestMro'));
     }
+    public function requestTools(Request $request)
+{
+    // Validate the incoming request data
+    $validated = $request->validate([
+        'date' => 'required|date',
+        'product' => 'required|string|max:255',
+        'quantity' => 'required|numeric',
+        'status' => 'required|in:Ongoing,Requested,Completed', // Use 'in' rule for enum values
+    ]);
+    
+    // Create a new instance of the model with validated data
+    $requestMro = new LMSG43RequestMro([
+        'date' => $validated['date'],
+        'product' => $validated['product'],
+        'quantity' => $validated['quantity'],
+        'status' => $validated['status'],
+    ]);
+
+    // Save the model instance
+    $requestMro->save();
+
+    // Redirect back or to another page with a success message
+    return redirect()->route('request-mro')->with('success', 'MRO request submitted successfully.');
+}
     }

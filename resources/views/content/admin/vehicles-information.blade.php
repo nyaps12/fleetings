@@ -167,11 +167,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div class="d-flex justify-content-end">
-                                    <a href="">
-                                        <h4 class="bg-danger badge mt-2"> Need vehicle? request now</h4>
-                                    </a>
-                                </div>
+
 
                                 <div class="d-flex justify-content-end">
                                     {{ $vehicle->links() }}
