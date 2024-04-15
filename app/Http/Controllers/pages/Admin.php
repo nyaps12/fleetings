@@ -457,10 +457,10 @@ class Admin extends Controller
         'date' => 'required|date',
         'product' => 'required|string|max:255',
         'quantity' => 'required|numeric',
-        'status' => 'required|in:Ongoing,Requested,Completed', // Use 'in' rule for enum values
+        'status' => 'required|in:Ongoing,Requested,Completed', 
     ]); 
     
-    // Create a new instance of the model with validated data
+ 
     $requestMro = new LMSG43RequestMro([
         'date' => $validated['date'],
         'product' => $validated['product'],
@@ -468,10 +468,8 @@ class Admin extends Controller
         'status' => $validated['status'],
     ]);
 
-    // Save the model instance
+    
     $requestMro->save();
-
-    // Redirect back or to another page with a success message
     return redirect()->route('request-mro')->with('success', 'MRO request submitted successfully.');
 }
     public function sort()

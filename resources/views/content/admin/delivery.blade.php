@@ -9,10 +9,10 @@
 
 @section('content')
     <div class="row">
-        <div class="d-flex">
+        <div class="col-auto d-flex">
             <h3>Delivery List</h3>
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="col d-flex justify-content-end" style="height:50px;">
             <a href=sorted-out class="btn btn-sm btn-primary">Sorted Out</a>
         </div>
     </div>
@@ -26,7 +26,7 @@
                                 <th><strong> # </strong> </th>
                                 <th><strong> Tracking ID </strong></th>
                                 <th><strong> Name </strong> </th>
-                                <th><strong> Phone </strong></th>
+                                <th><strong> Contact # </strong></th>
                                 <th><strong> Address </strong></th>
                                 <th><strong> Product </strong></th>
                                 <th><strong> Qty </strong></th>
