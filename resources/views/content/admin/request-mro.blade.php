@@ -31,11 +31,13 @@
 
 
     <div class="container">
-        {{-- <h1>Request Tools</h1> --}}
+
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-header"></div>
+                    <div class="card-header">
+                        <h4>Request Tools & Materials</h4>
+                    </div>
                     <div class="card-body">
                         <form action="{{ route('requestTools') }}" method="POST">
                             @csrf
@@ -87,23 +89,29 @@
                 <div class="table-responsive card-datatable">
                     <table class="table datatable-invoice ">
                         <thead>
+
                             <tr>
+
                                 <th><strong>ID</strong></th>
+                                <th><strong>Date</strong></th>
                                 <th><strong>Product</strong></th>
-                                <th><strong>Warehouse</strong></th>
                                 <th><strong>Qty.</strong></th>
                                 <th><strong>Status</strong></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>ss</td>
-                                <td>ss</td>
-                                <td>ss</td>
-                                <td>ss</td>
-                                <td>ss</td>
-                            </tr>
+                            @foreach ($requestMro as $request)
+                                <tr>
+
+                                    <td>{{ $request->id }}</td>
+                                    <td>{{ $request->date }}</td>
+                                    <td>{{ $request->product }}</td>
+                                    <td>{{ $request->quantity }}</td>
+                                    <td> {{ $request->status }} </td>
+
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

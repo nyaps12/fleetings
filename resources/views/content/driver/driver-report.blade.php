@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <a href="{{ url('/vehicle-report') }}">
+                        <a href="{{ url('/driver/vehicle-report') }}">
                             <img src="{{ asset('assets/img/vehicle/veh-report.jpg') }}" class="card-img-top"
                                 style="height: 400px" alt="Placeholder Image">
                         </a>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <a href="{{ url('/fuel-report') }}">
+                        <a href="{{ url('/driver/fuel-report') }}">
                             <img src="{{ asset('assets/img/vehicle/fuel.jpg') }}" class="card-img-top" style="height: 400px"
                                 alt="Placeholder Image">
                         </a>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <a href="{{ url('/incident') }}">
+                        <a href="{{ url('/driver/incident') }}">
                             <img src="{{ asset('assets/img/vehicle/incident.jpg') }}" class="card-img-top"
                                 style="height: 400px" alt="Placeholder Image">
                         </a>

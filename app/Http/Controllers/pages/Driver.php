@@ -129,10 +129,10 @@ class Driver extends Controller
                             $report->save();
                     
                             // Redirect the user after successful submission
-                            return redirect()->route('vehicle-report')->with('success', 'Vehicle report submitted successfully.');
+                            return redirect()->route('driver.vehicle-report')->with('success', 'Vehicle report submitted successfully.');
                         } else {
                             // If operator record not found, inform the user to contact support
-                            return redirect()->route('vehicle-report')->with('error', 'Operator record not found. Please contact support.');
+                            return redirect()->route('driver.vehicle-report')->with('error', 'Operator record not found. Please contact support.');
                         }
                     } else {
                         // If user is not authenticated, handle accordingly
