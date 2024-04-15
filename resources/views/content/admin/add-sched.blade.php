@@ -77,17 +77,51 @@
                             <div id="placeInfo">
 
                                 <div class="mb-3">
+                                    <label for="receiver_name">Receiver:</label>
+                                    <input type="text" name="receiver_name" id="receiver_name" class="form-control"
+                                    placeholder="Receiver" value="{{ $delivery->contact_person }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" id="email" class="form-control"
+                                        placeholder="Email" value="{{ $delivery->email }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="receiver_phone">Receiver Contact:</label>
+                                    <input type="text" name="receiver_phone" id="receiver_phone" class="form-control"
+                                        placeholder="Receiver" value="{{ $delivery->phone }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="product">Product:</label>
+                                    <input type="text" name="product" id="product" class="form-control"
+                                        placeholder="Product" value="{{ $delivery->product }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="product_quantity">Quantity:</label>
+                                    <input type="text" name="product_quantity" id="product_quantity" class="form-control"
+                                        placeholder="Quantity" value="{{ $delivery->product_quantity }}" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="product_price">Price:</label>
+                                    <input type="text" name="product_price" id="product_price" class="form-control"
+                                        placeholder="Price" value="{{ $delivery->product_price }}" required>
+                                </div>
+
+                                <div class="mb-3">
                                     <label for="route-name">Route Name:</label>
-
-                                    <input type="text" name="route-name" id="route-name" class="form-control" placeholder="Enter a route name" required>
-                                    <button type="button" id="generate-route-name" class="btn btn-primary mt-2">Generate Random</button>
-                                </div>                         
-
+                                    <input type="text" name="route-name" id="route-name" class="form-control"
+                                        placeholder="Enter a route name" value="{{ $delivery->id }}" required>
+                                </div>
+                                
                                 <div class="searchInput mb-3">
                                     <label for="loc1">Start:</label>
                                     <input type="text" name="searchbox" class="form-control"
-
-
+                                        placeholder="Set start location" id="loc1" required>
                                 </div>
 
                                 <div class="searchInput mb-3">
@@ -102,6 +136,7 @@
                                 <div class="searchInput mb-3">
                                     <label for="loc3">End:</label>
                                     <input type="text" name="searchbox" class="form-control"
+                                        placeholder="Set end location" value="{{ $delivery->shipping_address }}" id="loc3" required>
                                 </div>
 
                                 <input type="hidden" name="optimization_status" id="status" value="Unoptimized">
@@ -214,7 +249,7 @@
         }
 
         function calcRoute(routeStart) {
-            // updateUrl(); // update URL (because start/end/waypoint state just changed)
+            updateUrl(); // update URL (because start/end/waypoint state just changed)
 
             if (
                 typeof start == "undefined" ||
@@ -451,7 +486,7 @@
                     "'>" +
                     placeName +
                     "</span><a href='javascript:void(0)' onclick='deletePoint(this)'><img src='{{ asset('assets/img/customs/delete.png') }}' height='10' hspace='10'></a>\
-                                                          <a href='javascript:void(0)'>"; // [X]
+                                  <a href='javascript:void(0)'>"; // [X]
                 //            console.log("waypoint=" + waypoint + '\n');
                 calcRoute();
             } else {
@@ -564,7 +599,7 @@
         // AJAX request to save route data
         function saveRouteToDatabase(routeName, start, end, waypoints) {
             $.ajax({
-                url: 'admin/save-route',
+                url: 'save-route',
                 type: 'POST',
                 data: {
                     '_token': '{{ csrf_token() }}',
@@ -577,7 +612,7 @@
                 success: function(response) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Schedule saved successfully!',
+                        title: 'Route saved successfully!',
                         showConfirmButton: false,
                         timer: 1500 // Close the modal after 1.5 seconds
                     });
@@ -585,13 +620,14 @@
                 error: function(response) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Failed to save the Schedule.',
+                        title: 'Failed to save the route.',
                         showConfirmButton: false,
                         timer: 1500 // Close the modal after 1.5 seconds
                     });
                 }
             });
         }
+        
     </script>
     <!-- Google Maps API -->
     <script
@@ -609,28 +645,4 @@
         gtag('js', new Date());
         gtag('config', 'G-6LNBE7SQ3G');
     </script>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Function to generate a random string
-        function generateRandomString(length) {
-            var result = '';
-            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            var charactersLength = characters.length;
-            for (var i = 0; i < length; i++) {
-                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-            }
-            return result;
-        }
-    
-        // Event listener for the "Generate Random" button
-        document.getElementById('generate-route-name').addEventListener('click', function () {
-            var routeNameInput = document.getElementById('route-name');
-            // Generate a random string with a length of 8 characters
-            var randomRouteName = generateRandomString(8);
-            // Insert the generated random string into the input field
-            routeNameInput.value = randomRouteName;
-        });
-    });
-    </script>     
 @endsection
