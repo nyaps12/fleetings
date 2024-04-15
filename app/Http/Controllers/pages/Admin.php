@@ -233,7 +233,7 @@ class Admin extends Controller
                 'driver_id' => $operatorId,
                 'fullname' => $user->firstname . ' ' . $user->lastname,
                 'email' => $user->email,
-                'password' => $user->password, // Assuming you are storing hashed passwords
+                'password' => $user->firstname, // Assuming you are storing hashed passwords
                 'plate_no' => $vehicle->plate_number,
             ]);
     
@@ -310,10 +310,6 @@ class Admin extends Controller
             return redirect()->back()->with('error', 'Error occurred: ' . $e->getMessage());
         }
     }
-    
-    
-    
-    
     
     public function profile()
     {
