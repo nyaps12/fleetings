@@ -44,12 +44,10 @@
                                     <tr>
                                         <th><strong>ID</strong></th>
                                         <th><strong>Order ID</strong></th>
-                                        <th><strong>Sender Name</strong></th>
-                                        <th><strong>Receiver Name</strong></th>
+                                        <th><strong>From</strong></th>
+                                        <th><strong>To</strong></th>
                                         <th><strong>R.PHONE</strong></th>
                                         <th><strong>Address</strong></th>
-                                        <th><strong>Product</strong></th>
-                                        <th><strong>QTY</strong></th>
                                         <th><strong>Price</strong></th>
                                         <th><strong>Starting Date</strong></th>
                                         <th><strong>End Date</strong></th>
@@ -144,8 +142,8 @@
 
 <!--/ Add Schedule Card Modal -->
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         $('#operator').select2();
     });
-</script>
+</script> --}}

@@ -18,6 +18,16 @@ class LMSG44RouteController extends Controller
 
   public function saveRoute(Request $request)
   {
+    $validatedData = $request->validate([
+      'date' => 'required|date',
+      'price_per_liter' => 'required|numeric',
+      'liters' => 'required|numeric',
+      'total_cost' => 'required|numeric',
+      'vehicle_odometer' => 'required|numeric',
+      'fuel_type' => 'required|string',
+      'fuel_brand' => 'required|string',
+      'fuel_receipt' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming it's an image upload
+  ]);
 
     $route = new LmsG44Route();
     $route->route_name = $request->input('route-name');
