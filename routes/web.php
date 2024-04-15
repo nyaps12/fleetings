@@ -82,6 +82,10 @@ use App\Http\Controllers\pages\LMSG44RouteController;
       Route::get('admin/incident-report', [Admin::class, 'incidents'])->name('incident-report');
 
 
+
+      //Sorted out
+      Route::get('admin/sorted-out', [Admin::class, 'sort'])->name('sorted-out');
+
       // Request Tools
       Route::get('admin/request-mro', [Admin::class, 'mro'])->name('request-mro');
       Route::post('requestTools', [Admin::class, 'requestTools'])->name('requestTools');
@@ -131,7 +135,7 @@ use App\Http\Controllers\pages\LMSG44RouteController;
   ])->group(function () {
       // Define routes specific to driver users here
       // For example:
-      Route::get('dashboard', [Driver::class, 'dashboard'])->name('user.dashboard');
+      Route::get('driver/dashboard', [Driver::class, 'dashboard'])->name('user.dashboard');
 
 
   // Middleware for users who have completed their profile

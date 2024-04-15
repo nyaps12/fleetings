@@ -458,7 +458,7 @@ class Admin extends Controller
         'product' => 'required|string|max:255',
         'quantity' => 'required|numeric',
         'status' => 'required|in:Ongoing,Requested,Completed', // Use 'in' rule for enum values
-    ]);
+    ]); 
     
     // Create a new instance of the model with validated data
     $requestMro = new LMSG43RequestMro([
@@ -474,4 +474,11 @@ class Admin extends Controller
     // Redirect back or to another page with a success message
     return redirect()->route('request-mro')->with('success', 'MRO request submitted successfully.');
 }
+    public function sort()
+    {
+        
+       
+        return view('content.admin.sorted-out');
     }
+}
+    
